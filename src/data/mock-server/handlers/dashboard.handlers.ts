@@ -162,7 +162,7 @@ const MOCK_STUDENTS: DashboardStudent[] = [
 ]
 
 export const dashboardHandlers = [
-  http.get('http://*/api/dashboard/overview', async ({ request }) => {
+  http.get('*/api/dashboard/overview', async ({ request }) => {
     await latency()
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -312,7 +312,7 @@ export const dashboardHandlers = [
     return HttpResponse.json({ data: overview })
   }),
 
-  http.get('http://*/api/dashboard/activity', async ({ request }) => {
+  http.get('*/api/dashboard/activity', async ({ request }) => {
     await latency(120, 320)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -385,25 +385,25 @@ export const dashboardHandlers = [
     return HttpResponse.json({ data: events })
   }),
 
-  http.get('http://*/api/dashboard/programs', async ({ request }) => {
+  http.get('*/api/dashboard/programs', async ({ request }) => {
     await latency()
     if (!getAuthUserId(request)) return unauthorized()
     return HttpResponse.json({ data: MOCK_PROGRAMS })
   }),
 
-  http.get('http://*/api/dashboard/messages', async ({ request }) => {
+  http.get('*/api/dashboard/messages', async ({ request }) => {
     await latency()
     if (!getAuthUserId(request)) return unauthorized()
     return HttpResponse.json({ data: MOCK_MESSAGES })
   }),
 
-  http.get('http://*/api/dashboard/schedule', async ({ request }) => {
+  http.get('*/api/dashboard/schedule', async ({ request }) => {
     await latency()
     if (!getAuthUserId(request)) return unauthorized()
     return HttpResponse.json({ data: MOCK_SCHEDULE })
   }),
 
-  http.get('http://*/api/dashboard/students', async ({ request }) => {
+  http.get('*/api/dashboard/students', async ({ request }) => {
     await latency()
     if (!getAuthUserId(request)) return unauthorized()
     return HttpResponse.json({ data: MOCK_STUDENTS })
