@@ -33,9 +33,15 @@
   animation: dialog-in var(--transition-base);
 }
 
-.dialog--sm { max-width: 420px; }
-.dialog--md { max-width: 540px; }
-.dialog--lg { max-width: 720px; }
+.dialog--sm {
+  max-width: 420px;
+}
+.dialog--md {
+  max-width: 540px;
+}
+.dialog--lg {
+  max-width: 720px;
+}
 
 .dialog__header {
   display: flex;
@@ -80,7 +86,9 @@
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
+  from {
+    opacity: 0;
+  }
 }
 
 /* ----- Dropdown menu ----------------------------------------------------------- */
@@ -176,20 +184,36 @@
   animation: toast-in var(--transition-base);
 }
 
-.toast--info { border-left-color: var(--info); }
-.toast--success { border-left-color: var(--success); }
-.toast--warning { border-left-color: var(--warning); }
-.toast--error { border-left-color: var(--destructive); }
+.toast--info {
+  border-left-color: var(--info);
+}
+.toast--success {
+  border-left-color: var(--success);
+}
+.toast--warning {
+  border-left-color: var(--warning);
+}
+.toast--error {
+  border-left-color: var(--destructive);
+}
 
 .toast__icon {
   display: inline-flex;
   margin-top: 1px;
 }
 
-.toast--info .toast__icon { color: var(--info); }
-.toast--success .toast__icon { color: var(--success); }
-.toast--warning .toast__icon { color: var(--warning); }
-.toast--error .toast__icon { color: var(--destructive); }
+.toast--info .toast__icon {
+  color: var(--info);
+}
+.toast--success .toast__icon {
+  color: var(--success);
+}
+.toast--warning .toast__icon {
+  color: var(--warning);
+}
+.toast--error .toast__icon {
+  color: var(--destructive);
+}
 
 .toast__body {
   flex: 1;
