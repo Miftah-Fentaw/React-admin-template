@@ -1,6 +1,10 @@
 import { http, HttpResponse } from 'msw'
 import type { Product, ProductCategory, ProductStatus } from '@/models/Product'
-import { createProductSchema, updateProductSchema, zodFieldErrors } from '@/models/schemas'
+import {
+  createProductSchema,
+  updateProductSchema,
+  zodFieldErrors,
+} from '@/models/schemas'
 import { db } from '../db'
 import {
   applySort,

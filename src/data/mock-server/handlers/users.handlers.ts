@@ -121,9 +121,7 @@ export const usersHandlers = [
 
     if (parsed.data.email) {
       const emailTaken = db.users.some(
-        (u) =>
-          u.id !== id &&
-          u.email.toLowerCase() === parsed.data.email?.toLowerCase(),
+        (u) => u.id !== id && u.email.toLowerCase() === parsed.data.email?.toLowerCase(),
       )
       if (emailTaken) {
         return jsonError(422, 'validation_error', 'Please fix the highlighted fields.', {
@@ -148,7 +146,11 @@ export const usersHandlers = [
     if (index === -1) return notFound('user')
 
     if (id === userId) {
-      return jsonError(409, 'conflict', 'You cannot delete the account you are signed in with.')
+      return jsonError(
+        409,
+        'conflict',
+        'You cannot delete the account you are signed in with.',
+      )
     }
 
     db.users.splice(index, 1)

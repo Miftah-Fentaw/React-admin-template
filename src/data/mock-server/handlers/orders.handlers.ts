@@ -38,12 +38,19 @@ export const ordersHandlers = [
       items = items.filter((o) => o.status === (status as OrderStatus))
     }
     if (paymentStatus && paymentStatus !== 'all') {
-      items = items.filter((o) => o.paymentStatus === (paymentStatus as OrderPaymentStatus))
+      items = items.filter(
+        (o) => o.paymentStatus === (paymentStatus as OrderPaymentStatus),
+      )
     }
     items = items.filter((o) =>
       matchesSearch(o, ['number', 'customerName', 'customerEmail'], query.search),
     )
-    items = applySort(items, query.sortField ?? 'placedAt', query.sortField ? query.sortDirection : 'desc', SORTABLE_FIELDS)
+    items = applySort(
+      items,
+      query.sortField ?? 'placedAt',
+      query.sortField ? query.sortDirection : 'desc',
+      SORTABLE_FIELDS,
+    )
 
     return HttpResponse.json(paginate(items, query))
   }),

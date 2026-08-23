@@ -2,12 +2,7 @@ import { http, HttpResponse } from 'msw'
 import { loginSchema, updateProfileSchema, zodFieldErrors } from '@/models/schemas'
 import type { AuthUser } from '@/models/User'
 import { db, tokenStore } from '../db'
-import {
-  getAuthUserId,
-  jsonError,
-  latency,
-  unauthorized,
-} from '../utils'
+import { getAuthUserId, jsonError, latency, unauthorized } from '../utils'
 
 /**
  * Demo credentials. The two pinned accounts require their exact passwords;
@@ -46,7 +41,11 @@ export const authHandlers = [
     if (!passwordOk) return INVALID_CREDENTIALS()
 
     if (user.status === 'suspended') {
-      return jsonError(403, 'forbidden', 'This account has been suspended. Contact an administrator.')
+      return jsonError(
+        403,
+        'forbidden',
+        'This account has been suspended. Contact an administrator.',
+      )
     }
 
     const token = `mock-token-${user.id}`
@@ -91,7 +90,8 @@ export const authHandlers = [
     }
 
     const emailTaken = db.users.some(
-      (u) => u.id !== user.id && u.email.toLowerCase() === parsed.data.email.toLowerCase(),
+      (u) =>
+        u.id !== user.id && u.email.toLowerCase() === parsed.data.email.toLowerCase(),
     )
     if (emailTaken) {
       return jsonError(422, 'validation_error', 'Please fix the highlighted fields.', {

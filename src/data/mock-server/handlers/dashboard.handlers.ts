@@ -8,7 +8,20 @@ import type {
 import { db } from '../db'
 import { getAuthUserId, latency, unauthorized } from '../utils'
 
-const MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const MONTH_LABELS = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+]
 
 const TRAFFIC_SOURCES = [
   { source: 'Direct', share: 36 },
@@ -59,8 +72,8 @@ export const dashboardHandlers = [
     const withinLastDays = (iso: string, days: number): boolean =>
       Date.now() - new Date(iso).getTime() <= days * 86_400_000
 
-    const customersCurrent = db.users.filter(
-      (u) => withinLastDays(u.createdAt, 30),
+    const customersCurrent = db.users.filter((u) =>
+      withinLastDays(u.createdAt, 30),
     ).length
     const customersPrevious = db.users.filter(
       (u) => !withinLastDays(u.createdAt, 30) && withinLastDays(u.createdAt, 60),
@@ -93,7 +106,7 @@ export const dashboardHandlers = [
         label: 'Conversion rate',
         value: 3.4 + (ordersCurrent % 7) / 10,
         format: 'percent',
-        changePct: 0.8 - ((ordersCurrent % 5) / 10),
+        changePct: 0.8 - (ordersCurrent % 5) / 10,
       },
     ]
 

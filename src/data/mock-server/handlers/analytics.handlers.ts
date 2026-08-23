@@ -1,5 +1,9 @@
 import { http, HttpResponse } from 'msw'
-import type { AnalyticsDailyPoint, AnalyticsOverview, AnalyticsRange } from '@/models/Analytics'
+import type {
+  AnalyticsDailyPoint,
+  AnalyticsOverview,
+  AnalyticsRange,
+} from '@/models/Analytics'
 import { ANALYTICS_RANGES } from '@/models/Analytics'
 import { getAuthUserId, jsonError, latency, unauthorized } from '../utils'
 
@@ -44,7 +48,7 @@ function dailyValues(date: Date): AnalyticsDailyPoint {
   const weekday = date.getDay()
   const weekendDip = weekday === 0 || weekday === 6 ? 0.62 : 1
   const visitors = Math.round((520 + next() * 380) * weekendDip)
-  const orders = Math.round((visitors * (0.028 + next() * 0.02)) * 10) / 10
+  const orders = Math.round(visitors * (0.028 + next() * 0.02) * 10) / 10
   const revenue = Math.round((orders * (78 + next() * 64) + 40 * next()) * 100) / 100
 
   return {
@@ -74,7 +78,11 @@ export const analyticsHandlers = [
     const url = new URL(request.url)
     const rangeParam = url.searchParams.get('range') ?? '30d'
     if (!ANALYTICS_RANGES.includes(rangeParam as AnalyticsRange)) {
-      return jsonError(400, 'bad_request', `Invalid range. Use one of: ${ANALYTICS_RANGES.join(', ')}.`)
+      return jsonError(
+        400,
+        'bad_request',
+        `Invalid range. Use one of: ${ANALYTICS_RANGES.join(', ')}.`,
+      )
     }
     const range = rangeParam as AnalyticsRange
     const days = RANGE_DAYS[range]
@@ -90,8 +98,10 @@ export const analyticsHandlers = [
       previousSeries.push(dailyValues(date))
     }
 
-    const sum = (points: AnalyticsDailyPoint[], field: keyof AnalyticsDailyPoint): number =>
-      points.reduce((total, p) => total + (p[field] as number), 0)
+    const sum = (
+      points: AnalyticsDailyPoint[],
+      field: keyof AnalyticsDailyPoint,
+    ): number => points.reduce((total, p) => total + (p[field] as number), 0)
 
     const revenueCurrent = sum(series, 'revenue')
     const revenuePrevious = sum(previousSeries, 'revenue')
@@ -120,8 +130,7 @@ export const analyticsHandlers = [
         revenue: changePct(revenueCurrent, revenuePrevious),
         orders: changePct(ordersCurrent, ordersPrevious),
         visitors: changePct(visitorsCurrent, visitorsPrevious),
-        conversionRate:
-          Math.round((conversionRate - conversionPrevious) * 100) / 100,
+        conversionRate: Math.round((conversionRate - conversionPrevious) * 100) / 100,
       },
       series,
       topPages: TOP_PAGES.map((page, index) => ({
