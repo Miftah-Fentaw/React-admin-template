@@ -1,62 +1,55 @@
+import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { Link } from 'react-router-dom'
-import { ArrowRight, Inbox } from 'lucide-react'
-import type { Paginated } from '@/types/api'
-import type { Order, OrdersQuery } from '@/models/Order'
-import { orderService } from '@/features/orders/orders.service'
 import { queryKeys } from '@/lib/query-keys'
-import { formatCurrency, formatDate, formatCompact } from '@/lib/format'
+import { formatCurrency, formatCompact } from '@/lib/format'
 import { PageHeader } from '@/components/layout/PageHeader'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/Card'
-import { Button } from '@/components/ui/Button'
-import { EmptyState, ErrorState } from '@/components/ui/Feedback'
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card'
+import { ErrorState } from '@/components/ui/Feedback'
 import { Skeleton } from '@/components/ui/Skeleton'
-import { AreaChart } from '@/components/charts/AreaChart'
+import { Tabs } from '@/components/ui/Tabs'
 import { BarChart } from '@/components/charts/BarChart'
-import { OrderStatusBadge } from '@/components/display/status-badges'
+import { DonutChart } from '@/components/charts/DonutChart'
 import { dashboardService } from './dashboard.service'
 import { KpiCard, KpiCardSkeleton } from './components/KpiCard'
 import { ActivityFeed } from './components/ActivityFeed'
-import { QuickActions } from './components/QuickActions'
-import { TrafficSources } from './components/TrafficSources'
+import { ProgramCard } from './components/ProgramCard'
+import { CalendarWidget } from './components/CalendarWidget'
+import { ScheduleSection } from './components/ScheduleSection'
+import { MessagesPanel } from './components/MessagesPanel'
+import { StudentList } from './components/StudentList'
+import { StackedChildrenChart } from './components/StackedChildrenChart'
+
+const REVENUE_PERIOD_TABS = [
+  { value: '1h', label: '1st Biannually' },
+  { value: '2h', label: '2nd Biannually' },
+]
 
 /**
- * Dashboard overview. All data is fetched from the API layer — the page
- * never aggregates raw records itself.
+ * Dashboard overview with education-focused layout: KPI sparklines, program
+ * cards, stacked enrollment chart, calendar, schedule, messages, student list.
  */
 export function DashboardPage() {
   return (
     <>
-      <PageHeader
-        title="Dashboard"
-        description="A live snapshot of workspace activity, revenue and operations."
-      />
-
+      <PageHeader title="Dashboard" />
       <div className="page-section">
         <KpiSection />
-        <div className="dashboard-grid">
-          <div className="dashboard-grid__main">
+        <div className="dashboard-layout-3col">
+          <div className="dashboard-col-main">
+            <div className="dashboard-row-2col">
+              <TopProgramsCard />
+              <TotalChildrenCard />
+            </div>
+            <ProgramsSection />
             <RevenueCard />
-            <OrdersByDayCard />
-            <RecentOrdersCard />
+            <div className="dashboard-row-2col">
+              <MessagesCard />
+              <StudentListCard />
+            </div>
           </div>
-          <aside className="dashboard-grid__side">
-            <Card>
-              <CardHeader>
-                <CardTitle>Quick actions</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <QuickActions />
-              </CardContent>
-            </Card>
-
-            <TrafficCard />
+          <aside className="dashboard-col-sidebar">
+            <CalendarCard />
+            <ScheduleCard />
             <ActivityCard />
           </aside>
         </div>
@@ -66,7 +59,7 @@ export function DashboardPage() {
 }
 
 // ---------------------------------------------------------------------------
-// Sections
+// KPI Section
 // ---------------------------------------------------------------------------
 
 function KpiSection() {
@@ -77,10 +70,8 @@ function KpiSection() {
 
   if (overview.isPending) {
     return (
-      <div className="kpi-grid">
-        {[1, 2, 3, 4].map((index) => (
-          <KpiCardSkeleton key={index} />
-        ))}
+      <div className="kpi-grid kpi-grid--3">
+        {[1, 2, 3].map((i) => <KpiCardSkeleton key={i} />)}
       </div>
     )
   }
@@ -95,7 +86,7 @@ function KpiSection() {
   }
 
   return (
-    <div className="kpi-grid">
+    <div className="kpi-grid kpi-grid--3">
       {overview.data.kpis.map((kpi) => (
         <KpiCard key={kpi.id} kpi={kpi} />
       ))}
@@ -103,73 +94,98 @@ function KpiSection() {
   )
 }
 
-function RevenueCard() {
+// ---------------------------------------------------------------------------
+// Top Programs — Donut chart
+// ---------------------------------------------------------------------------
+
+function TopProgramsCard() {
   const overview = useQuery({
     queryKey: queryKeys.dashboard.overview,
     queryFn: dashboardService.getOverview,
   })
 
-  const series = overview.data?.revenueByMonth
+  const categories = overview.data?.programCategories ?? []
+  const totalPrograms = overview.data?.totalPrograms ?? 0
+
+  const CHART_COLORS = ['var(--chart-1)', 'var(--chart-2)', 'var(--chart-3)']
+  const segments = categories.map((c, i) => ({
+    label: c.label,
+    value: c.value,
+    color: CHART_COLORS[i % CHART_COLORS.length],
+  }))
 
   return (
     <Card>
       <CardHeader>
-        <div>
-          <CardTitle>Revenue</CardTitle>
-          <CardDescription>Monthly revenue for the last 6 months</CardDescription>
-        </div>
-      </CardHeader>
-      <CardContent>
-        {overview.isPending ? (
-          <Skeleton style={{ height: 240 }} />
-        ) : overview.isError ? (
-          <ErrorState
-            compact
-            message="Failed to load revenue chart."
-            onRetry={() => overview.refetch()}
-          />
-        ) : (
-          <AreaChart
-            data={series ?? []}
-            ariaLabel="Monthly revenue for the last six months"
-            formatValue={(value) => formatCompact(value)}
-            height={240}
-          />
-        )}
-      </CardContent>
-    </Card>
-  )
-}
-
-function OrdersByDayCard() {
-  const overview = useQuery({
-    queryKey: queryKeys.dashboard.overview,
-    queryFn: dashboardService.getOverview,
-  })
-
-  return (
-    <Card>
-      <CardHeader>
-        <div>
-          <CardTitle>Orders per day</CardTitle>
-          <CardDescription>Last 14 days</CardDescription>
-        </div>
+        <CardTitle>Top Programs</CardTitle>
       </CardHeader>
       <CardContent>
         {overview.isPending ? (
           <Skeleton style={{ height: 180 }} />
         ) : overview.isError ? (
-          <ErrorState
-            compact
-            message="Failed to load orders chart."
-            onRetry={() => overview.refetch()}
-          />
+          <ErrorState compact message="Failed to load program data." />
         ) : (
-          <BarChart
-            data={overview.data.ordersByDay}
-            ariaLabel="Number of orders per day over the last fourteen days"
-            formatValue={(value) => String(Math.round(value))}
-            height={180}
+          <>
+            <div className="donut-layout">
+              <div className="donut-center-wrap">
+                <DonutChart
+                  segments={segments}
+                  size={140}
+                  thickness={22}
+                  ariaLabel="Program enrollment by category"
+                />
+                <div className="donut-center-label">
+                  <span className="donut-center-label__title">Total<br />Programs</span>
+                  <span className="donut-center-label__value">{totalPrograms}</span>
+                </div>
+              </div>
+            </div>
+            <ul className="legend-list" style={{ marginTop: 12 }}>
+              {segments.map((s) => {
+                const share =
+                  totalPrograms > 0 ? Math.round((s.value / totalPrograms) * 100) : 0
+                return (
+                  <li key={s.label} className="legend-list__item">
+                    <span className="legend-swatch" style={{ background: s.color }} />
+                    {s.label}
+                    <span className="legend-list__share">{share}%</span>
+                  </li>
+                )
+              })}
+            </ul>
+          </>
+        )}
+      </CardContent>
+    </Card>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Total Children — Stacked area chart
+// ---------------------------------------------------------------------------
+
+function TotalChildrenCard() {
+  const overview = useQuery({
+    queryKey: queryKeys.dashboard.overview,
+    queryFn: dashboardService.getOverview,
+  })
+
+  return (
+    <Card>
+      <CardHeader>
+        <div>
+          <CardTitle>Total Children</CardTitle>
+          <CardDescription>This Month</CardDescription>
+        </div>
+      </CardHeader>
+      <CardContent>
+        {overview.isError ? (
+          <ErrorState compact message="Failed to load enrollment data." />
+        ) : (
+          <StackedChildrenChart
+            data={overview.data?.childrenByMonth ?? []}
+            totalChildren={overview.data?.totalChildren ?? 0}
+            height={200}
           />
         )}
       </CardContent>
@@ -177,85 +193,41 @@ function OrdersByDayCard() {
   )
 }
 
-const RECENT_ORDERS_QUERY: OrdersQuery = { page: 1, pageSize: 5 }
+// ---------------------------------------------------------------------------
+// Programs Section
+// ---------------------------------------------------------------------------
 
-function RecentOrdersCard() {
-  const recent = useQuery<Paginated<Order>>({
-    queryKey: [...queryKeys.orders.all, 'recent', RECENT_ORDERS_QUERY],
-    queryFn: () => orderService.list(RECENT_ORDERS_QUERY),
+function ProgramsSection() {
+  const programs = useQuery({
+    queryKey: queryKeys.dashboard.programs,
+    queryFn: dashboardService.getPrograms,
   })
 
   return (
     <Card>
       <CardHeader>
-        <div className="dash-table-title-row">
-          <div>
-            <CardTitle>Recent orders</CardTitle>
-            <CardDescription>The five most recent orders</CardDescription>
-          </div>
-          <Link to="/orders">
-            <Button variant="ghost" size="sm">
-              View all
-              <ArrowRight size={14} aria-hidden="true" />
-            </Button>
-          </Link>
-        </div>
+        <CardTitle>Programs</CardTitle>
       </CardHeader>
-      <CardContent style={{ padding: 0 }}>
-        {recent.isError && (
-          <ErrorState
-            message="Could not load recent orders."
-            onRetry={() => recent.refetch()}
-          />
-        )}
-        {recent.isSuccess &&
-          (recent.data.data.length === 0 ? (
-            <EmptyState
-              icon={<Inbox size={18} aria-hidden="true" />}
-              title="No orders yet"
-              description="Orders will appear here as soon as customers start checking out."
-            />
-          ) : (
-            <ul role="list" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-              {recent.data.data.map((order) => (
-                <li
-                  key={order.id}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 12,
-                    padding: '11px 20px',
-                    borderBottom: '1px solid var(--border)',
-                  }}
-                >
-                  <span className="mono text-sm" style={{ fontWeight: 600 }}>
-                    <Link to={`/orders/${order.id}`}>{order.number}</Link>
-                  </span>
-                  <span className="truncate" style={{ flex: 1 }}>
-                    {order.customerName}
-                  </span>
-                  <OrderStatusBadge status={order.status} />
-                  <span
-                    className="tabular"
-                    style={{ minWidth: 82, textAlign: 'right', fontWeight: 550 }}
-                  >
-                    {formatCurrency(order.total)}
-                  </span>
-                  <time
-                    dateTime={order.placedAt}
-                    className="text-xs text-muted"
-                    style={{ minWidth: 64, textAlign: 'right' }}
-                  >
-                    {formatDate(order.placedAt)}
-                  </time>
-                </li>
-              ))}
-            </ul>
-          ))}
-        {recent.isPending && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: 20 }}>
-            {[1, 2, 3, 4, 5].map((index) => (
-              <Skeleton key={index} style={{ height: 22 }} />
+      <CardContent>
+        {programs.isPending ? (
+          <div className="program-cards-grid">
+            {[1, 2].map((i) => (
+              <div key={i} className="program-card program-card--skeleton">
+                <Skeleton style={{ height: 140 }} />
+                <div style={{ padding: '12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                  <Skeleton style={{ width: '70%' }} />
+                  <Skeleton style={{ width: '50%' }} />
+                  <Skeleton style={{ width: '90%' }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : programs.isError ? (
+          <ErrorState compact message="Failed to load programs." onRetry={() => programs.refetch()} />
+        ) : (
+          <div className="program-cards-grid">
+            {programs.data.slice(0, 2).map((prog) => (
+              <ProgramCard key={prog.id} program={prog} />
             ))}
           </div>
         )}
@@ -264,30 +236,150 @@ function RecentOrdersCard() {
   )
 }
 
-function TrafficCard() {
+// ---------------------------------------------------------------------------
+// Revenue Card — Bar chart with period toggle
+// ---------------------------------------------------------------------------
+
+function RevenueCard() {
+  const [period, setPeriod] = useState<'1h' | '2h'>('1h')
+
   const overview = useQuery({
     queryKey: queryKeys.dashboard.overview,
     queryFn: dashboardService.getOverview,
   })
 
+  const allMonths = overview.data?.revenueByMonth ?? []
+  // 12 months: indices 0-5 = first half, 6-11 = second half
+  const series = period === '1h' ? allMonths.slice(0, 6) : allMonths.slice(6)
+  const totalRevenue = allMonths.reduce((sum, p) => sum + p.value, 0)
+
   return (
     <Card>
       <CardHeader>
-        <div>
-          <CardTitle>Traffic sources</CardTitle>
-          <CardDescription>Where visitors come from</CardDescription>
+        <div className="dash-table-title-row">
+          <div>
+            <CardTitle>Revenue</CardTitle>
+            <p className="kpi-card__value" style={{ marginTop: 2 }}>
+              {formatCurrency(totalRevenue)}
+              <span className="kpi-card__label" style={{ marginLeft: 4 }}>in Total</span>
+            </p>
+          </div>
+          <Tabs
+            items={REVENUE_PERIOD_TABS}
+            value={period}
+            onChange={(v) => setPeriod(v as '1h' | '2h')}
+            label="Revenue period"
+          />
         </div>
       </CardHeader>
       <CardContent>
-        {overview.isError ? (
-          <ErrorState compact message="Failed to load traffic data." />
+        {overview.isPending ? (
+          <Skeleton style={{ height: 200 }} />
+        ) : overview.isError ? (
+          <ErrorState compact message="Failed to load revenue data." onRetry={() => overview.refetch()} />
         ) : (
-          <TrafficSources sources={overview.data?.trafficSources} />
+          <BarChart
+            data={series}
+            height={200}
+            formatValue={(v) => formatCompact(v)}
+            ariaLabel={`Monthly revenue — ${period === '1h' ? 'first' : 'second'} half of year`}
+          />
         )}
       </CardContent>
     </Card>
   )
 }
+
+// ---------------------------------------------------------------------------
+// Messages Card
+// ---------------------------------------------------------------------------
+
+function MessagesCard() {
+  const messages = useQuery({
+    queryKey: queryKeys.dashboard.messages,
+    queryFn: dashboardService.getMessages,
+  })
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Messages</CardTitle>
+      </CardHeader>
+      <CardContent style={{ padding: 0 }}>
+        <MessagesPanel messages={messages.data} />
+      </CardContent>
+    </Card>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Student List Card
+// ---------------------------------------------------------------------------
+
+function StudentListCard() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Student List</CardTitle>
+      </CardHeader>
+      <CardContent style={{ padding: 0 }}>
+        <StudentList />
+      </CardContent>
+    </Card>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Right Sidebar: Calendar
+// ---------------------------------------------------------------------------
+
+function CalendarCard() {
+  const schedule = useQuery({
+    queryKey: queryKeys.dashboard.schedule,
+    queryFn: dashboardService.getSchedule,
+  })
+
+  return (
+    <Card>
+      <CardContent style={{ padding: '16px' }}>
+        <CalendarWidget events={schedule.data} />
+      </CardContent>
+    </Card>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Right Sidebar: Schedule
+// ---------------------------------------------------------------------------
+
+function ScheduleCard() {
+  const schedule = useQuery({
+    queryKey: queryKeys.dashboard.schedule,
+    queryFn: dashboardService.getSchedule,
+  })
+
+  return (
+    <Card>
+      <CardHeader>
+        <div className="dash-table-title-row">
+          <CardTitle>Schedule</CardTitle>
+          <span className="text-xs text-muted">This Week</span>
+        </div>
+      </CardHeader>
+      <CardContent>
+        {schedule.isError ? (
+          <ErrorState compact message="Failed to load schedule." onRetry={() => schedule.refetch()} />
+        ) : (
+          <ScheduleSection events={schedule.data} />
+        )}
+      </CardContent>
+    </Card>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Right Sidebar: Activity Feed
+// ---------------------------------------------------------------------------
 
 function ActivityCard() {
   const activity = useQuery({
@@ -299,7 +391,7 @@ function ActivityCard() {
     <Card>
       <CardHeader>
         <div>
-          <CardTitle>Recent activity</CardTitle>
+          <CardTitle>Recent Activity</CardTitle>
           <CardDescription>Latest changes across the workspace</CardDescription>
         </div>
       </CardHeader>
@@ -317,3 +409,5 @@ function ActivityCard() {
     </Card>
   )
 }
+
+

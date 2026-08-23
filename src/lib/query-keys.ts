@@ -13,6 +13,10 @@ export const queryKeys = {
   dashboard: {
     overview: ['dashboard', 'overview'] as const,
     activity: ['dashboard', 'activity'] as const,
+    programs: ['dashboard', 'programs'] as const,
+    messages: ['dashboard', 'messages'] as const,
+    schedule: ['dashboard', 'schedule'] as const,
+    students: ['dashboard', 'students'] as const,
   },
 
   analytics: {
