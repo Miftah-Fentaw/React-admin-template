@@ -76,8 +76,8 @@ The bundled mock server (MSW v2) seeds users, products, orders, projects, invoic
   "error": {
     "code": "validation_error",
     "message": "Please fix the highlighted fields.",
-    "fields": { "email": "A user with this email already exists." }
-  }
+    "fields": { "email": "A user with this email already exists." },
+  },
 }
 ```
 
