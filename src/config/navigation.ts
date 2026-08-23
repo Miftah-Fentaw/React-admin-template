@@ -1,7 +1,9 @@
 import {
   BarChart3,
+  FolderKanban,
   LayoutDashboard,
   Package,
+  ReceiptText,
   Settings,
   ShoppingCart,
   Users,
@@ -40,6 +42,8 @@ export const NAV_SECTIONS: NavSection[] = [
       { label: 'Users', to: '/users', icon: Users },
       { label: 'Products', to: '/products', icon: Package },
       { label: 'Orders', to: '/orders', icon: ShoppingCart },
+      { label: 'Projects', to: '/projects', icon: FolderKanban },
+      { label: 'Invoices', to: '/invoices', icon: ReceiptText },
     ],
   },
   {
