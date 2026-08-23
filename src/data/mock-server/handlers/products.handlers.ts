@@ -38,7 +38,7 @@ const CATEGORY_PREFIX: Record<ProductCategory, string> = {
 }
 
 export const productsHandlers = [
-  http.get('*/products', async ({ request }) => {
+  http.get('http://*/api/products', async ({ request }) => {
     await latency()
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -60,7 +60,7 @@ export const productsHandlers = [
     return HttpResponse.json(paginate(items, query))
   }),
 
-  http.post('*/products', async ({ request }) => {
+  http.post('http://*/api/products', async ({ request }) => {
     await latency(250, 600)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -93,7 +93,7 @@ export const productsHandlers = [
     return HttpResponse.json({ data: product }, { status: 201 })
   }),
 
-  http.get('*/products/:id', async ({ request, params }) => {
+  http.get('http://*/api/products/:id', async ({ request, params }) => {
     await latency(120, 320)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -104,7 +104,7 @@ export const productsHandlers = [
     return HttpResponse.json({ data: product })
   }),
 
-  http.patch('*/products/:id', async ({ request, params }) => {
+  http.patch('http://*/api/products/:id', async ({ request, params }) => {
     await latency(200, 500)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -129,7 +129,7 @@ export const productsHandlers = [
     return HttpResponse.json({ data: product })
   }),
 
-  http.delete('*/products/:id', async ({ request, params }) => {
+  http.delete('http://*/api/products/:id', async ({ request, params }) => {
     await latency(150, 400)
     if (!getAuthUserId(request)) return unauthorized()
 

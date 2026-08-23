@@ -25,7 +25,7 @@ const SORTABLE_FIELDS = [
 
 export const usersHandlers = [
   // GET /api/users — paginated, searchable, filterable, sortable list
-  http.get('*/users', async ({ request }) => {
+  http.get('http://*/api/users', async ({ request }) => {
     await latency()
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -46,7 +46,7 @@ export const usersHandlers = [
   }),
 
   // POST /api/users — create
-  http.post('*/users', async ({ request }) => {
+  http.post('http://*/api/users', async ({ request }) => {
     await latency(250, 600)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -88,7 +88,7 @@ export const usersHandlers = [
   }),
 
   // GET /api/users/:id — detail
-  http.get('*/users/:id', async ({ request, params }) => {
+  http.get('http://*/api/users/:id', async ({ request, params }) => {
     await latency(120, 320)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -100,7 +100,7 @@ export const usersHandlers = [
   }),
 
   // PATCH /api/users/:id — partial update
-  http.patch('*/users/:id', async ({ request, params }) => {
+  http.patch('http://*/api/users/:id', async ({ request, params }) => {
     await latency(200, 500)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -136,7 +136,7 @@ export const usersHandlers = [
   }),
 
   // DELETE /api/users/:id
-  http.delete('*/users/:id', async ({ request, params }) => {
+  http.delete('http://*/api/users/:id', async ({ request, params }) => {
     await latency(150, 400)
     const userId = getAuthUserId(request)
     if (!userId) return unauthorized()

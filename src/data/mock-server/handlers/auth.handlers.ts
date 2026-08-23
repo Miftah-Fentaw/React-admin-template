@@ -18,7 +18,7 @@ const INVALID_CREDENTIALS = () =>
   jsonError(401, 'unauthorized', 'Incorrect email or password.')
 
 export const authHandlers = [
-  http.post('*/auth/login', async ({ request }) => {
+  http.post('http://*/api/auth/login', async ({ request }) => {
     await latency(350, 800)
 
     const body = (await request.json().catch(() => null)) as unknown
@@ -64,7 +64,7 @@ export const authHandlers = [
     return HttpResponse.json({ user, token })
   }),
 
-  http.get('*/auth/me', async ({ request }) => {
+  http.get('http://*/api/auth/me', async ({ request }) => {
     await latency(100, 250)
     const userId = getAuthUserId(request)
     const user = userId ? db.users.find((u) => u.id === userId) : null
@@ -72,7 +72,7 @@ export const authHandlers = [
     return HttpResponse.json({ user })
   }),
 
-  http.patch('*/auth/me', async ({ request }) => {
+  http.patch('http://*/api/auth/me', async ({ request }) => {
     await latency()
     const userId = getAuthUserId(request)
     const user = userId ? db.users.find((u) => u.id === userId) : null
@@ -106,7 +106,7 @@ export const authHandlers = [
     return HttpResponse.json({ user: user satisfies AuthUser })
   }),
 
-  http.post('*/auth/logout', async ({ request }) => {
+  http.post('http://*/api/auth/logout', async ({ request }) => {
     await latency(100, 300)
     const header = request.headers.get('Authorization')
     if (header?.startsWith('Bearer ')) {

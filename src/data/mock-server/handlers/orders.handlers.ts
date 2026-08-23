@@ -24,7 +24,7 @@ const SORTABLE_FIELDS = [
 ] as const
 
 export const ordersHandlers = [
-  http.get('*/orders', async ({ request }) => {
+  http.get('http://*/api/orders', async ({ request }) => {
     await latency()
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -55,7 +55,7 @@ export const ordersHandlers = [
     return HttpResponse.json(paginate(items, query))
   }),
 
-  http.get('*/orders/:id', async ({ request, params }) => {
+  http.get('http://*/api/orders/:id', async ({ request, params }) => {
     await latency(120, 320)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -66,7 +66,7 @@ export const ordersHandlers = [
     return HttpResponse.json({ data: order satisfies Order })
   }),
 
-  http.patch('*/orders/:id', async ({ request, params }) => {
+  http.patch('http://*/api/orders/:id', async ({ request, params }) => {
     await latency(200, 500)
     if (!getAuthUserId(request)) return unauthorized()
 

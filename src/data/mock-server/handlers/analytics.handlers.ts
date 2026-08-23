@@ -71,7 +71,7 @@ function seriesFor(days: number): AnalyticsDailyPoint[] {
 }
 
 export const analyticsHandlers = [
-  http.get('*/analytics/overview', async ({ request }) => {
+  http.get('http://*/api/analytics/overview', async ({ request }) => {
     await latency(250, 550)
     if (!getAuthUserId(request)) return unauthorized()
 
