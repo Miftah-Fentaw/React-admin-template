@@ -1,16 +1,10 @@
 import {
   BarChart3,
-  BookOpen,
-  Briefcase,
-  Building2,
-  Car,
-  HandHeart,
   LayoutDashboard,
-  Plane,
+  Package,
   Settings,
-  Sparkles,
+  ShoppingCart,
   Users,
-  Utensils,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
@@ -35,23 +29,17 @@ export const NAV_SECTIONS: NavSection[] = [
   {
     id: 'overview',
     items: [
-      { label: 'Daycare', to: '/', icon: LayoutDashboard },
+      { label: 'Dashboard', to: '/', icon: LayoutDashboard },
       { label: 'Analytics', to: '/analytics', icon: BarChart3 },
     ],
   },
   {
-    id: 'verticals',
-    label: 'Other Verticals',
+    id: 'management',
+    label: 'Management',
     items: [
-      { label: 'Flight Booking', to: '/users', icon: Plane },
-      { label: 'Car Rental', to: '/products', icon: Car },
-      { label: 'Recruitment', to: '/orders', icon: Briefcase },
-      { label: 'Restaurant', to: '/users', icon: Utensils },
-      { label: 'Library', to: '/users', icon: BookOpen },
-      { label: 'HR', to: '/users', icon: Users },
-      { label: 'Crowdfunding', to: '/users', icon: HandHeart },
-      { label: 'Real Estate', to: '/users', icon: Building2 },
-      { label: 'Beauty Clinic', to: '/users', icon: Sparkles },
+      { label: 'Users', to: '/users', icon: Users },
+      { label: 'Products', to: '/products', icon: Package },
+      { label: 'Orders', to: '/orders', icon: ShoppingCart },
     ],
   },
   {
