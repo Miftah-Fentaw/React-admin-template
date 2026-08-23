@@ -38,6 +38,8 @@ export interface TrafficSource {
 export interface DashboardOverview {
   kpis: Kpi[]
   revenueByMonth: SeriesPoint[]
+  /** Secondary revenue series (e.g. tuition/fees) for grouped bar chart */
+  tuitionByMonth: SeriesPoint[]
   ordersByDay: SeriesPoint[]
   trafficSources: TrafficSource[]
   /** Total enrolled children across all programs */
