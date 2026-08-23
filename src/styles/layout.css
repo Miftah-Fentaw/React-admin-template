@@ -273,7 +273,9 @@
   color: var(--foreground);
   font-size: 0.82rem;
   outline: none;
-  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast);
 }
 
 .topbar__search-input::placeholder {
