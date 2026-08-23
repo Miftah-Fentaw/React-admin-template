@@ -1,0 +1,184 @@
+[
+  {
+    "id": "act_0001",
+    "actorName": "Marcus Lindqvist",
+    "action": "created",
+    "target": "workspace settings",
+    "createdAt": "2026-08-23T07:47:08.940Z"
+  },
+  {
+    "id": "act_0002",
+    "actorName": "Marco Sato",
+    "action": "created",
+    "target": "order ORD-1037",
+    "createdAt": "2026-08-23T01:03:56.940Z"
+  },
+  {
+    "id": "act_0003",
+    "actorName": "Jordan Lee",
+    "action": "created",
+    "target": "order ORD-1047",
+    "createdAt": "2026-08-22T18:20:44.940Z"
+  },
+  {
+    "id": "act_0004",
+    "actorName": "Quinn Jansen",
+    "action": "signed_in",
+    "target": "product Trailblaze Merino Hoodie",
+    "createdAt": "2026-08-22T11:37:32.940Z"
+  },
+  {
+    "id": "act_0005",
+    "actorName": "Quinn Petrov",
+    "action": "updated",
+    "target": "order ORD-1028",
+    "createdAt": "2026-08-22T04:54:20.940Z"
+  },
+  {
+    "id": "act_0006",
+    "actorName": "Dalia Garcia",
+    "action": "updated",
+    "target": "order ORD-1079",
+    "createdAt": "2026-08-21T22:11:08.940Z"
+  },
+  {
+    "id": "act_0007",
+    "actorName": "Emil Andersen",
+    "action": "updated",
+    "target": "order ORD-1073",
+    "createdAt": "2026-08-21T15:27:56.940Z"
+  },
+  {
+    "id": "act_0008",
+    "actorName": "Victor Ibrahim",
+    "action": "created",
+    "target": "order ORD-1068",
+    "createdAt": "2026-08-21T08:44:44.940Z"
+  },
+  {
+    "id": "act_0009",
+    "actorName": "Victor Ibrahim",
+    "action": "updated",
+    "target": "workspace settings",
+    "createdAt": "2026-08-21T02:01:32.940Z"
+  },
+  {
+    "id": "act_0010",
+    "actorName": "Marcus Muller",
+    "action": "deleted",
+    "target": "workspace settings",
+    "createdAt": "2026-08-20T19:18:20.940Z"
+  },
+  {
+    "id": "act_0011",
+    "actorName": "Marco Sato",
+    "action": "created",
+    "target": "workspace settings",
+    "createdAt": "2026-08-20T12:35:08.940Z"
+  },
+  {
+    "id": "act_0012",
+    "actorName": "Alex Morgan",
+    "action": "signed_in",
+    "target": "workspace settings",
+    "createdAt": "2026-08-20T05:51:56.940Z"
+  },
+  {
+    "id": "act_0013",
+    "actorName": "Rosa Chen",
+    "action": "placed_order",
+    "target": "product Gridpaper Notebook A5",
+    "createdAt": "2026-08-19T23:08:44.940Z"
+  },
+  {
+    "id": "act_0014",
+    "actorName": "Marco Sato",
+    "action": "created",
+    "target": "workspace settings",
+    "createdAt": "2026-08-19T16:25:32.940Z"
+  },
+  {
+    "id": "act_0015",
+    "actorName": "Victor Reyes",
+    "action": "signed_in",
+    "target": "product Inkwell Fountain Pen",
+    "createdAt": "2026-08-19T09:42:20.940Z"
+  },
+  {
+    "id": "act_0016",
+    "actorName": "Liam Moreau",
+    "action": "created",
+    "target": "workspace settings",
+    "createdAt": "2026-08-19T02:59:08.940Z"
+  },
+  {
+    "id": "act_0017",
+    "actorName": "Marco Petrov",
+    "action": "created",
+    "target": "user Petra Jansen",
+    "createdAt": "2026-08-18T20:15:56.940Z"
+  },
+  {
+    "id": "act_0018",
+    "actorName": "Marcus Bergstrom",
+    "action": "created",
+    "target": "product Northline Rain Shell",
+    "createdAt": "2026-08-18T13:32:44.940Z"
+  },
+  {
+    "id": "act_0019",
+    "actorName": "Emil Andersen",
+    "action": "created",
+    "target": "workspace settings",
+    "createdAt": "2026-08-18T06:49:32.940Z"
+  },
+  {
+    "id": "act_0020",
+    "actorName": "Marcus Muller",
+    "action": "placed_order",
+    "target": "user Marco Petrov",
+    "createdAt": "2026-08-18T00:06:20.940Z"
+  },
+  {
+    "id": "act_0021",
+    "actorName": "Caleb Okoye",
+    "action": "created",
+    "target": "product Basalt Chino Pants",
+    "createdAt": "2026-08-17T17:23:08.940Z"
+  },
+  {
+    "id": "act_0022",
+    "actorName": "Henrik Nilsson",
+    "action": "placed_order",
+    "target": "user Quinn Petrov",
+    "createdAt": "2026-08-17T10:39:56.940Z"
+  },
+  {
+    "id": "act_0023",
+    "actorName": "Quinn Petrov",
+    "action": "updated",
+    "target": "order ORD-1069",
+    "createdAt": "2026-08-17T03:56:44.940Z"
+  },
+  {
+    "id": "act_0024",
+    "actorName": "Maya Novotna",
+    "action": "placed_order",
+    "target": "order ORD-1035",
+    "createdAt": "2026-08-16T21:13:32.940Z"
+  },
+  {
+    "id": "act_0025",
+    "actorName": "Alex Morgan",
+    "action": "created",
+    "target": "user Petra Jansen",
+    "createdAt": "2026-08-16T14:30:20.940Z"
+  },
+  {
+    "id": "act_0026",
+    "actorName": "Henrik Nilsson",
+    "action": "signed_in",
+    "target": "user Sofia Sorensen",
+    "createdAt": "2026-08-16T07:47:08.940Z"
+  }
+]

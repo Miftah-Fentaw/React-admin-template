@@ -1,0 +1,2228 @@
+[
+  {
+    "id": "ord_1002",
+    "number": "ORD-1026",
+    "customerName": "Wren Haddad",
+    "customerEmail": "wren.haddad@gmail.com",
+    "items": [
+      {
+        "productId": "prd_1022",
+        "name": "Stalwart Desk Organizer",
+        "quantity": 2,
+        "unitPrice": 12.59
+      },
+      {
+        "productId": "prd_1003",
+        "name": "Vertex 4K Monitor",
+        "quantity": 3,
+        "unitPrice": 463.58
+      },
+      {
+        "productId": "prd_1029",
+        "name": "Velocity Yoga Mat",
+        "quantity": 3,
+        "unitPrice": 74.66
+      },
+      {
+        "productId": "prd_1011",
+        "name": "Summit Bookshelf",
+        "quantity": 2,
+        "unitPrice": 643.82
+      }
+    ],
+    "subtotal": 2927.54,
+    "shipping": 0,
+    "tax": 234.2,
+    "total": 3161.74,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-08-23T07:47:08.940Z",
+    "updatedAt": "2026-08-23T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1001",
+    "number": "ORD-1025",
+    "customerName": "Ethan Sorensen",
+    "customerEmail": "ethan.sorensen@vantagehq.dev",
+    "items": [
+      {
+        "productId": "prd_1017",
+        "name": "Fieldkit Canvas Tote",
+        "quantity": 2,
+        "unitPrice": 150.58
+      }
+    ],
+    "subtotal": 301.16,
+    "shipping": 0,
+    "tax": 24.09,
+    "total": 325.25,
+    "status": "pending",
+    "paymentStatus": "paid",
+    "placedAt": "2026-08-23T07:47:08.940Z",
+    "updatedAt": "2026-08-23T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1000",
+    "number": "ORD-1024",
+    "customerName": "Felix Tanaka",
+    "customerEmail": "felix.tanaka@outlook.com",
+    "items": [
+      {
+        "productId": "prd_1026",
+        "name": "Terrace Plant Pot",
+        "quantity": 3,
+        "unitPrice": 67.41
+      }
+    ],
+    "subtotal": 202.23,
+    "shipping": 0,
+    "tax": 16.18,
+    "total": 218.41,
+    "status": "shipped",
+    "paymentStatus": "refunded",
+    "placedAt": "2026-08-23T07:47:08.940Z",
+    "updatedAt": "2026-08-23T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1003",
+    "number": "ORD-1027",
+    "customerName": "Freya Okafor",
+    "customerEmail": "freya.okafor@outlook.com",
+    "items": [
+      {
+        "productId": "prd_1032",
+        "name": "Stride Running Belt",
+        "quantity": 3,
+        "unitPrice": 203.61
+      },
+      {
+        "productId": "prd_1012",
+        "name": "Harbor Coffee Table",
+        "quantity": 3,
+        "unitPrice": 357.21
+      },
+      {
+        "productId": "prd_1020",
+        "name": "Inkwell Fountain Pen",
+        "quantity": 3,
+        "unitPrice": 58.3
+      },
+      {
+        "productId": "prd_1028",
+        "name": "Cascade Water Bottle",
+        "quantity": 2,
+        "unitPrice": 45.34
+      }
+    ],
+    "subtotal": 1948.04,
+    "shipping": 0,
+    "tax": 155.84,
+    "total": 2103.88,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-08-22T07:47:08.940Z",
+    "updatedAt": "2026-08-23T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1004",
+    "number": "ORD-1028",
+    "customerName": "Lucas Okoye",
+    "customerEmail": "lucas.okoye@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1021",
+        "name": "Gridpaper Notebook A5",
+        "quantity": 1,
+        "unitPrice": 12.34
+      },
+      {
+        "productId": "prd_1028",
+        "name": "Cascade Water Bottle",
+        "quantity": 3,
+        "unitPrice": 45.34
+      }
+    ],
+    "subtotal": 148.36,
+    "shipping": 12.5,
+    "tax": 11.87,
+    "total": 172.73,
+    "status": "processing",
+    "paymentStatus": "paid",
+    "placedAt": "2026-08-21T07:47:08.940Z",
+    "updatedAt": "2026-08-22T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1005",
+    "number": "ORD-1029",
+    "customerName": "Oscar Kowalski",
+    "customerEmail": "oscar.kowalski@northwind.io",
+    "items": [
+      {
+        "productId": "prd_1011",
+        "name": "Summit Bookshelf",
+        "quantity": 1,
+        "unitPrice": 643.82
+      },
+      {
+        "productId": "prd_1020",
+        "name": "Inkwell Fountain Pen",
+        "quantity": 3,
+        "unitPrice": 58.3
+      },
+      {
+        "productId": "prd_1026",
+        "name": "Terrace Plant Pot",
+        "quantity": 3,
+        "unitPrice": 67.41
+      }
+    ],
+    "subtotal": 1020.95,
+    "shipping": 0,
+    "tax": 81.68,
+    "total": 1102.63,
+    "status": "shipped",
+    "paymentStatus": "pending",
+    "placedAt": "2026-08-20T07:47:08.940Z",
+    "updatedAt": "2026-08-22T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1006",
+    "number": "ORD-1030",
+    "customerName": "Umar Reyes",
+    "customerEmail": "umar.reyes@gmail.com",
+    "items": [
+      {
+        "productId": "prd_1006",
+        "name": "Flux Portable Charger",
+        "quantity": 3,
+        "unitPrice": 476.51
+      },
+      {
+        "productId": "prd_1019",
+        "name": "Basalt Chino Pants",
+        "quantity": 2,
+        "unitPrice": 151.09
+      },
+      {
+        "productId": "prd_1011",
+        "name": "Summit Bookshelf",
+        "quantity": 3,
+        "unitPrice": 643.82
+      }
+    ],
+    "subtotal": 3663.17,
+    "shipping": 0,
+    "tax": 293.05,
+    "total": 3956.22,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-08-19T07:47:08.940Z",
+    "updatedAt": "2026-08-22T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1007",
+    "number": "ORD-1031",
+    "customerName": "Simon Reyes",
+    "customerEmail": "simon.reyes@gmail.com",
+    "items": [
+      {
+        "productId": "prd_1016",
+        "name": "Northline Rain Shell",
+        "quantity": 1,
+        "unitPrice": 42.05
+      }
+    ],
+    "subtotal": 42.05,
+    "shipping": 12.5,
+    "tax": 3.36,
+    "total": 57.91,
+    "status": "processing",
+    "paymentStatus": "paid",
+    "placedAt": "2026-08-18T07:47:08.940Z",
+    "updatedAt": "2026-08-18T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1008",
+    "number": "ORD-1032",
+    "customerName": "Xavier Bergstrom",
+    "customerEmail": "xavier.bergstrom@proton.me",
+    "items": [
+      {
+        "productId": "prd_1018",
+        "name": "Drift Linen Shirt",
+        "quantity": 3,
+        "unitPrice": 98.75
+      },
+      {
+        "productId": "prd_1008",
+        "name": "Halo Webcam Pro",
+        "quantity": 2,
+        "unitPrice": 39.96
+      },
+      {
+        "productId": "prd_1013",
+        "name": "Ridge Desk Lamp",
+        "quantity": 1,
+        "unitPrice": 911.62
+      }
+    ],
+    "subtotal": 1287.79,
+    "shipping": 0,
+    "tax": 103.02,
+    "total": 1390.81,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-08-17T07:47:08.940Z",
+    "updatedAt": "2026-08-19T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1009",
+    "number": "ORD-1033",
+    "customerName": "Yuki Vargas",
+    "customerEmail": "yuki.vargas@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1022",
+        "name": "Stalwart Desk Organizer",
+        "quantity": 2,
+        "unitPrice": 12.59
+      },
+      {
+        "productId": "prd_1008",
+        "name": "Halo Webcam Pro",
+        "quantity": 3,
+        "unitPrice": 39.96
+      }
+    ],
+    "subtotal": 145.06,
+    "shipping": 4.99,
+    "tax": 11.6,
+    "total": 161.65,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-08-16T07:47:08.940Z",
+    "updatedAt": "2026-08-18T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1010",
+    "number": "ORD-1034",
+    "customerName": "Caleb Silva",
+    "customerEmail": "caleb.silva@vantagehq.dev",
+    "items": [
+      {
+        "productId": "prd_1011",
+        "name": "Summit Bookshelf",
+        "quantity": 2,
+        "unitPrice": 643.82
+      },
+      {
+        "productId": "prd_1003",
+        "name": "Vertex 4K Monitor",
+        "quantity": 2,
+        "unitPrice": 463.58
+      },
+      {
+        "productId": "prd_1026",
+        "name": "Terrace Plant Pot",
+        "quantity": 1,
+        "unitPrice": 67.41
+      }
+    ],
+    "subtotal": 2282.21,
+    "shipping": 0,
+    "tax": 182.58,
+    "total": 2464.79,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-08-15T07:47:08.940Z",
+    "updatedAt": "2026-08-17T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1011",
+    "number": "ORD-1035",
+    "customerName": "Ingrid Garcia",
+    "customerEmail": "ingrid.garcia@proton.me",
+    "items": [
+      {
+        "productId": "prd_1004",
+        "name": "Pulse Smart Speaker",
+        "quantity": 3,
+        "unitPrice": 613.96
+      }
+    ],
+    "subtotal": 1841.88,
+    "shipping": 0,
+    "tax": 147.35,
+    "total": 1989.23,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-08-14T07:47:08.940Z",
+    "updatedAt": "2026-08-17T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1012",
+    "number": "ORD-1036",
+    "customerName": "Simon Kowalski",
+    "customerEmail": "simon.kowalski@brightlab.co",
+    "items": [
+      {
+        "productId": "prd_1030",
+        "name": "Summitline Insulated Bottle",
+        "quantity": 2,
+        "unitPrice": 158.43
+      }
+    ],
+    "subtotal": 316.86,
+    "shipping": 0,
+    "tax": 25.35,
+    "total": 342.21,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-08-13T07:47:08.940Z",
+    "updatedAt": "2026-08-14T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1013",
+    "number": "ORD-1037",
+    "customerName": "Dalia Silva",
+    "customerEmail": "dalia.silva@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1014",
+        "name": "Cove Lounge Chair",
+        "quantity": 1,
+        "unitPrice": 581.97
+      },
+      {
+        "productId": "prd_1023",
+        "name": "Quillsoft Marker Set",
+        "quantity": 3,
+        "unitPrice": 40.09
+      }
+    ],
+    "subtotal": 702.24,
+    "shipping": 0,
+    "tax": 56.18,
+    "total": 758.42,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-08-12T07:47:08.940Z",
+    "updatedAt": "2026-08-12T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1014",
+    "number": "ORD-1038",
+    "customerName": "Sofia Ibrahim",
+    "customerEmail": "sofia.ibrahim@vantagehq.dev",
+    "items": [
+      {
+        "productId": "prd_1016",
+        "name": "Northline Rain Shell",
+        "quantity": 3,
+        "unitPrice": 42.05
+      },
+      {
+        "productId": "prd_1032",
+        "name": "Stride Running Belt",
+        "quantity": 3,
+        "unitPrice": 203.61
+      },
+      {
+        "productId": "prd_1019",
+        "name": "Basalt Chino Pants",
+        "quantity": 3,
+        "unitPrice": 151.09
+      }
+    ],
+    "subtotal": 1190.25,
+    "shipping": 0,
+    "tax": 95.22,
+    "total": 1285.47,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-08-10T07:47:08.940Z",
+    "updatedAt": "2026-08-10T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1015",
+    "number": "ORD-1039",
+    "customerName": "Marco Garcia",
+    "customerEmail": "marco.garcia@brightlab.co",
+    "items": [
+      {
+        "productId": "prd_1008",
+        "name": "Halo Webcam Pro",
+        "quantity": 2,
+        "unitPrice": 39.96
+      }
+    ],
+    "subtotal": 79.92,
+    "shipping": 4.99,
+    "tax": 6.39,
+    "total": 91.3,
+    "status": "shipped",
+    "paymentStatus": "refunded",
+    "placedAt": "2026-08-09T07:47:08.940Z",
+    "updatedAt": "2026-08-11T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1016",
+    "number": "ORD-1040",
+    "customerName": "Henrik Jansen",
+    "customerEmail": "henrik.jansen@vantagehq.dev",
+    "items": [
+      {
+        "productId": "prd_1018",
+        "name": "Drift Linen Shirt",
+        "quantity": 2,
+        "unitPrice": 98.75
+      },
+      {
+        "productId": "prd_1017",
+        "name": "Fieldkit Canvas Tote",
+        "quantity": 3,
+        "unitPrice": 150.58
+      }
+    ],
+    "subtotal": 649.24,
+    "shipping": 0,
+    "tax": 51.94,
+    "total": 701.18,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-08-08T07:47:08.940Z",
+    "updatedAt": "2026-08-08T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1017",
+    "number": "ORD-1041",
+    "customerName": "Ingrid Garcia",
+    "customerEmail": "ingrid.garcia@outlook.com",
+    "items": [
+      {
+        "productId": "prd_1011",
+        "name": "Summit Bookshelf",
+        "quantity": 3,
+        "unitPrice": 643.82
+      },
+      {
+        "productId": "prd_1022",
+        "name": "Stalwart Desk Organizer",
+        "quantity": 1,
+        "unitPrice": 12.59
+      }
+    ],
+    "subtotal": 1944.05,
+    "shipping": 0,
+    "tax": 155.52,
+    "total": 2099.57,
+    "status": "shipped",
+    "paymentStatus": "pending",
+    "placedAt": "2026-08-06T07:47:08.940Z",
+    "updatedAt": "2026-08-06T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1018",
+    "number": "ORD-1042",
+    "customerName": "Oscar Petrov",
+    "customerEmail": "oscar.petrov@proton.me",
+    "items": [
+      {
+        "productId": "prd_1019",
+        "name": "Basalt Chino Pants",
+        "quantity": 3,
+        "unitPrice": 151.09
+      },
+      {
+        "productId": "prd_1023",
+        "name": "Quillsoft Marker Set",
+        "quantity": 2,
+        "unitPrice": 40.09
+      },
+      {
+        "productId": "prd_1032",
+        "name": "Stride Running Belt",
+        "quantity": 3,
+        "unitPrice": 203.61
+      },
+      {
+        "productId": "prd_1021",
+        "name": "Gridpaper Notebook A5",
+        "quantity": 1,
+        "unitPrice": 12.34
+      }
+    ],
+    "subtotal": 1156.62,
+    "shipping": 0,
+    "tax": 92.53,
+    "total": 1249.15,
+    "status": "processing",
+    "paymentStatus": "paid",
+    "placedAt": "2026-08-05T07:47:08.940Z",
+    "updatedAt": "2026-08-05T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1019",
+    "number": "ORD-1043",
+    "customerName": "Oscar Moreau",
+    "customerEmail": "oscar.moreau@gmail.com",
+    "items": [
+      {
+        "productId": "prd_1015",
+        "name": "Trailblaze Merino Hoodie",
+        "quantity": 3,
+        "unitPrice": 152.66
+      }
+    ],
+    "subtotal": 457.98,
+    "shipping": 0,
+    "tax": 36.64,
+    "total": 494.62,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-08-04T07:47:08.940Z",
+    "updatedAt": "2026-08-05T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1020",
+    "number": "ORD-1044",
+    "customerName": "Tara Weber",
+    "customerEmail": "tara.weber@northwind.io",
+    "items": [
+      {
+        "productId": "prd_1031",
+        "name": "Kinetic Resistance Bands",
+        "quantity": 2,
+        "unitPrice": 104.22
+      }
+    ],
+    "subtotal": 208.44,
+    "shipping": 0,
+    "tax": 16.68,
+    "total": 225.12,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-08-02T07:47:08.940Z",
+    "updatedAt": "2026-08-02T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1021",
+    "number": "ORD-1045",
+    "customerName": "Amara Chen",
+    "customerEmail": "amara.chen@vantagehq.dev",
+    "items": [
+      {
+        "productId": "prd_1030",
+        "name": "Summitline Insulated Bottle",
+        "quantity": 1,
+        "unitPrice": 158.43
+      },
+      {
+        "productId": "prd_1023",
+        "name": "Quillsoft Marker Set",
+        "quantity": 1,
+        "unitPrice": 40.09
+      }
+    ],
+    "subtotal": 198.52,
+    "shipping": 0,
+    "tax": 15.88,
+    "total": 214.4,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-08-01T07:47:08.940Z",
+    "updatedAt": "2026-08-02T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1022",
+    "number": "ORD-1046",
+    "customerName": "Caleb Okafor",
+    "customerEmail": "caleb.okafor@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1014",
+        "name": "Cove Lounge Chair",
+        "quantity": 1,
+        "unitPrice": 581.97
+      },
+      {
+        "productId": "prd_1026",
+        "name": "Terrace Plant Pot",
+        "quantity": 2,
+        "unitPrice": 67.41
+      },
+      {
+        "productId": "prd_1030",
+        "name": "Summitline Insulated Bottle",
+        "quantity": 1,
+        "unitPrice": 158.43
+      },
+      {
+        "productId": "prd_1032",
+        "name": "Stride Running Belt",
+        "quantity": 2,
+        "unitPrice": 203.61
+      }
+    ],
+    "subtotal": 1282.44,
+    "shipping": 0,
+    "tax": 102.6,
+    "total": 1385.04,
+    "status": "pending",
+    "paymentStatus": "paid",
+    "placedAt": "2026-07-30T07:47:08.940Z",
+    "updatedAt": "2026-08-01T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1023",
+    "number": "ORD-1047",
+    "customerName": "Amara Weber",
+    "customerEmail": "amara.weber@northwind.io",
+    "items": [
+      {
+        "productId": "prd_1023",
+        "name": "Quillsoft Marker Set",
+        "quantity": 3,
+        "unitPrice": 40.09
+      }
+    ],
+    "subtotal": 120.27,
+    "shipping": 12.5,
+    "tax": 9.62,
+    "total": 142.39,
+    "status": "processing",
+    "paymentStatus": "refunded",
+    "placedAt": "2026-07-29T07:47:08.940Z",
+    "updatedAt": "2026-07-30T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1024",
+    "number": "ORD-1048",
+    "customerName": "Quinn Haddad",
+    "customerEmail": "quinn.haddad@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1030",
+        "name": "Summitline Insulated Bottle",
+        "quantity": 2,
+        "unitPrice": 158.43
+      },
+      {
+        "productId": "prd_1010",
+        "name": "Atlas Office Chair",
+        "quantity": 2,
+        "unitPrice": 439.16
+      }
+    ],
+    "subtotal": 1195.18,
+    "shipping": 0,
+    "tax": 95.61,
+    "total": 1290.79,
+    "status": "processing",
+    "paymentStatus": "refunded",
+    "placedAt": "2026-07-27T07:47:08.940Z",
+    "updatedAt": "2026-07-29T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1025",
+    "number": "ORD-1049",
+    "customerName": "Clara Sorensen",
+    "customerEmail": "clara.sorensen@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1001",
+        "name": "Aurora Wireless Headphones",
+        "quantity": 1,
+        "unitPrice": 73.03
+      },
+      {
+        "productId": "prd_1003",
+        "name": "Vertex 4K Monitor",
+        "quantity": 3,
+        "unitPrice": 463.58
+      },
+      {
+        "productId": "prd_1029",
+        "name": "Velocity Yoga Mat",
+        "quantity": 1,
+        "unitPrice": 74.66
+      }
+    ],
+    "subtotal": 1538.43,
+    "shipping": 0,
+    "tax": 123.07,
+    "total": 1661.5,
+    "status": "processing",
+    "paymentStatus": "paid",
+    "placedAt": "2026-07-26T07:47:08.940Z",
+    "updatedAt": "2026-07-29T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1026",
+    "number": "ORD-1050",
+    "customerName": "Rania Muller",
+    "customerEmail": "rania.muller@proton.me",
+    "items": [
+      {
+        "productId": "prd_1017",
+        "name": "Fieldkit Canvas Tote",
+        "quantity": 3,
+        "unitPrice": 150.58
+      },
+      {
+        "productId": "prd_1013",
+        "name": "Ridge Desk Lamp",
+        "quantity": 2,
+        "unitPrice": 911.62
+      },
+      {
+        "productId": "prd_1024",
+        "name": "Hearthstone Ceramic Mug Set",
+        "quantity": 1,
+        "unitPrice": 65.3
+      },
+      {
+        "productId": "prd_1011",
+        "name": "Summit Bookshelf",
+        "quantity": 3,
+        "unitPrice": 643.82
+      }
+    ],
+    "subtotal": 4271.74,
+    "shipping": 0,
+    "tax": 341.74,
+    "total": 4613.48,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-07-24T07:47:08.940Z",
+    "updatedAt": "2026-07-25T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1027",
+    "number": "ORD-1051",
+    "customerName": "Leila Haddad",
+    "customerEmail": "leila.haddad@proton.me",
+    "items": [
+      {
+        "productId": "prd_1019",
+        "name": "Basalt Chino Pants",
+        "quantity": 2,
+        "unitPrice": 151.09
+      }
+    ],
+    "subtotal": 302.18,
+    "shipping": 0,
+    "tax": 24.17,
+    "total": 326.35,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-07-23T07:47:08.940Z",
+    "updatedAt": "2026-07-25T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1028",
+    "number": "ORD-1052",
+    "customerName": "Clara Vargas",
+    "customerEmail": "clara.vargas@brightlab.co",
+    "items": [
+      {
+        "productId": "prd_1030",
+        "name": "Summitline Insulated Bottle",
+        "quantity": 1,
+        "unitPrice": 158.43
+      },
+      {
+        "productId": "prd_1021",
+        "name": "Gridpaper Notebook A5",
+        "quantity": 3,
+        "unitPrice": 12.34
+      },
+      {
+        "productId": "prd_1004",
+        "name": "Pulse Smart Speaker",
+        "quantity": 1,
+        "unitPrice": 613.96
+      },
+      {
+        "productId": "prd_1024",
+        "name": "Hearthstone Ceramic Mug Set",
+        "quantity": 2,
+        "unitPrice": 65.3
+      }
+    ],
+    "subtotal": 940.01,
+    "shipping": 0,
+    "tax": 75.2,
+    "total": 1015.21,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-07-21T07:47:08.940Z",
+    "updatedAt": "2026-07-24T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1029",
+    "number": "ORD-1053",
+    "customerName": "Zara Haddad",
+    "customerEmail": "zara.haddad@vantagehq.dev",
+    "items": [
+      {
+        "productId": "prd_1029",
+        "name": "Velocity Yoga Mat",
+        "quantity": 2,
+        "unitPrice": 74.66
+      },
+      {
+        "productId": "prd_1015",
+        "name": "Trailblaze Merino Hoodie",
+        "quantity": 3,
+        "unitPrice": 152.66
+      },
+      {
+        "productId": "prd_1030",
+        "name": "Summitline Insulated Bottle",
+        "quantity": 1,
+        "unitPrice": 158.43
+      },
+      {
+        "productId": "prd_1026",
+        "name": "Terrace Plant Pot",
+        "quantity": 1,
+        "unitPrice": 67.41
+      }
+    ],
+    "subtotal": 833.14,
+    "shipping": 0,
+    "tax": 66.65,
+    "total": 899.79,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-07-19T07:47:08.940Z",
+    "updatedAt": "2026-07-21T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1030",
+    "number": "ORD-1054",
+    "customerName": "Aisha Dupont",
+    "customerEmail": "aisha.dupont@outlook.com",
+    "items": [
+      {
+        "productId": "prd_1023",
+        "name": "Quillsoft Marker Set",
+        "quantity": 3,
+        "unitPrice": 40.09
+      },
+      {
+        "productId": "prd_1031",
+        "name": "Kinetic Resistance Bands",
+        "quantity": 1,
+        "unitPrice": 104.22
+      },
+      {
+        "productId": "prd_1009",
+        "name": "Meridian Standing Desk",
+        "quantity": 2,
+        "unitPrice": 533.73
+      }
+    ],
+    "subtotal": 1291.95,
+    "shipping": 0,
+    "tax": 103.36,
+    "total": 1395.31,
+    "status": "processing",
+    "paymentStatus": "refunded",
+    "placedAt": "2026-07-18T07:47:08.940Z",
+    "updatedAt": "2026-07-21T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1031",
+    "number": "ORD-1055",
+    "customerName": "Noah Novak",
+    "customerEmail": "noah.novak@outlook.com",
+    "items": [
+      {
+        "productId": "prd_1009",
+        "name": "Meridian Standing Desk",
+        "quantity": 3,
+        "unitPrice": 533.73
+      }
+    ],
+    "subtotal": 1601.19,
+    "shipping": 0,
+    "tax": 128.1,
+    "total": 1729.29,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-07-16T07:47:08.940Z",
+    "updatedAt": "2026-07-16T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1032",
+    "number": "ORD-1056",
+    "customerName": "Marco Rossi",
+    "customerEmail": "marco.rossi@orbitworks.app",
+    "items": [
+      {
+        "productId": "prd_1018",
+        "name": "Drift Linen Shirt",
+        "quantity": 1,
+        "unitPrice": 98.75
+      },
+      {
+        "productId": "prd_1030",
+        "name": "Summitline Insulated Bottle",
+        "quantity": 2,
+        "unitPrice": 158.43
+      },
+      {
+        "productId": "prd_1014",
+        "name": "Cove Lounge Chair",
+        "quantity": 3,
+        "unitPrice": 581.97
+      }
+    ],
+    "subtotal": 2161.52,
+    "shipping": 0,
+    "tax": 172.92,
+    "total": 2334.44,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-07-14T07:47:08.940Z",
+    "updatedAt": "2026-07-16T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1033",
+    "number": "ORD-1057",
+    "customerName": "Marcus Weber",
+    "customerEmail": "marcus.weber@brightlab.co",
+    "items": [
+      {
+        "productId": "prd_1007",
+        "name": "Echo Noise Meter",
+        "quantity": 1,
+        "unitPrice": 275.09
+      }
+    ],
+    "subtotal": 275.09,
+    "shipping": 0,
+    "tax": 22.01,
+    "total": 297.1,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-07-13T07:47:08.940Z",
+    "updatedAt": "2026-07-15T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1034",
+    "number": "ORD-1058",
+    "customerName": "Yuki Vargas",
+    "customerEmail": "yuki.vargas@brightlab.co",
+    "items": [
+      {
+        "productId": "prd_1024",
+        "name": "Hearthstone Ceramic Mug Set",
+        "quantity": 2,
+        "unitPrice": 65.3
+      },
+      {
+        "productId": "prd_1001",
+        "name": "Aurora Wireless Headphones",
+        "quantity": 2,
+        "unitPrice": 73.03
+      },
+      {
+        "productId": "prd_1031",
+        "name": "Kinetic Resistance Bands",
+        "quantity": 3,
+        "unitPrice": 104.22
+      },
+      {
+        "productId": "prd_1029",
+        "name": "Velocity Yoga Mat",
+        "quantity": 3,
+        "unitPrice": 74.66
+      }
+    ],
+    "subtotal": 813.3,
+    "shipping": 0,
+    "tax": 65.06,
+    "total": 878.36,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-07-11T07:47:08.940Z",
+    "updatedAt": "2026-07-14T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1035",
+    "number": "ORD-1059",
+    "customerName": "Henrik Haddad",
+    "customerEmail": "henrik.haddad@vantagehq.dev",
+    "items": [
+      {
+        "productId": "prd_1015",
+        "name": "Trailblaze Merino Hoodie",
+        "quantity": 1,
+        "unitPrice": 152.66
+      },
+      {
+        "productId": "prd_1032",
+        "name": "Stride Running Belt",
+        "quantity": 1,
+        "unitPrice": 203.61
+      },
+      {
+        "productId": "prd_1012",
+        "name": "Harbor Coffee Table",
+        "quantity": 1,
+        "unitPrice": 357.21
+      },
+      {
+        "productId": "prd_1014",
+        "name": "Cove Lounge Chair",
+        "quantity": 2,
+        "unitPrice": 581.97
+      }
+    ],
+    "subtotal": 1877.42,
+    "shipping": 0,
+    "tax": 150.19,
+    "total": 2027.61,
+    "status": "pending",
+    "paymentStatus": "paid",
+    "placedAt": "2026-07-09T07:47:08.940Z",
+    "updatedAt": "2026-07-11T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1036",
+    "number": "ORD-1060",
+    "customerName": "David Nilsson",
+    "customerEmail": "david.nilsson@proton.me",
+    "items": [
+      {
+        "productId": "prd_1007",
+        "name": "Echo Noise Meter",
+        "quantity": 1,
+        "unitPrice": 275.09
+      }
+    ],
+    "subtotal": 275.09,
+    "shipping": 0,
+    "tax": 22.01,
+    "total": 297.1,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-07-07T07:47:08.940Z",
+    "updatedAt": "2026-07-10T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1037",
+    "number": "ORD-1061",
+    "customerName": "Naomi Dupont",
+    "customerEmail": "naomi.dupont@gmail.com",
+    "items": [
+      {
+        "productId": "prd_1004",
+        "name": "Pulse Smart Speaker",
+        "quantity": 2,
+        "unitPrice": 613.96
+      },
+      {
+        "productId": "prd_1032",
+        "name": "Stride Running Belt",
+        "quantity": 1,
+        "unitPrice": 203.61
+      },
+      {
+        "productId": "prd_1006",
+        "name": "Flux Portable Charger",
+        "quantity": 1,
+        "unitPrice": 476.51
+      }
+    ],
+    "subtotal": 1908.04,
+    "shipping": 0,
+    "tax": 152.64,
+    "total": 2060.68,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-07-06T07:47:08.940Z",
+    "updatedAt": "2026-07-06T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1038",
+    "number": "ORD-1062",
+    "customerName": "Noah Sato",
+    "customerEmail": "noah.sato@gmail.com",
+    "items": [
+      {
+        "productId": "prd_1001",
+        "name": "Aurora Wireless Headphones",
+        "quantity": 2,
+        "unitPrice": 73.03
+      },
+      {
+        "productId": "prd_1029",
+        "name": "Velocity Yoga Mat",
+        "quantity": 2,
+        "unitPrice": 74.66
+      },
+      {
+        "productId": "prd_1012",
+        "name": "Harbor Coffee Table",
+        "quantity": 2,
+        "unitPrice": 357.21
+      },
+      {
+        "productId": "prd_1014",
+        "name": "Cove Lounge Chair",
+        "quantity": 3,
+        "unitPrice": 581.97
+      }
+    ],
+    "subtotal": 2755.71,
+    "shipping": 0,
+    "tax": 220.46,
+    "total": 2976.17,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-07-04T07:47:08.940Z",
+    "updatedAt": "2026-07-05T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1039",
+    "number": "ORD-1063",
+    "customerName": "David Garcia",
+    "customerEmail": "david.garcia@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1021",
+        "name": "Gridpaper Notebook A5",
+        "quantity": 1,
+        "unitPrice": 12.34
+      }
+    ],
+    "subtotal": 12.34,
+    "shipping": 12.5,
+    "tax": 0.99,
+    "total": 25.83,
+    "status": "cancelled",
+    "paymentStatus": "failed",
+    "placedAt": "2026-07-02T07:47:08.940Z",
+    "updatedAt": "2026-07-04T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1040",
+    "number": "ORD-1064",
+    "customerName": "Felix Tanaka",
+    "customerEmail": "felix.tanaka@vantagehq.dev",
+    "items": [
+      {
+        "productId": "prd_1013",
+        "name": "Ridge Desk Lamp",
+        "quantity": 3,
+        "unitPrice": 911.62
+      },
+      {
+        "productId": "prd_1030",
+        "name": "Summitline Insulated Bottle",
+        "quantity": 1,
+        "unitPrice": 158.43
+      },
+      {
+        "productId": "prd_1016",
+        "name": "Northline Rain Shell",
+        "quantity": 2,
+        "unitPrice": 42.05
+      }
+    ],
+    "subtotal": 2977.39,
+    "shipping": 0,
+    "tax": 238.19,
+    "total": 3215.58,
+    "status": "pending",
+    "paymentStatus": "paid",
+    "placedAt": "2026-06-30T07:47:08.940Z",
+    "updatedAt": "2026-06-30T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1041",
+    "number": "ORD-1065",
+    "customerName": "Ethan Sorensen",
+    "customerEmail": "ethan.sorensen@proton.me",
+    "items": [
+      {
+        "productId": "prd_1023",
+        "name": "Quillsoft Marker Set",
+        "quantity": 2,
+        "unitPrice": 40.09
+      },
+      {
+        "productId": "prd_1026",
+        "name": "Terrace Plant Pot",
+        "quantity": 3,
+        "unitPrice": 67.41
+      },
+      {
+        "productId": "prd_1003",
+        "name": "Vertex 4K Monitor",
+        "quantity": 3,
+        "unitPrice": 463.58
+      },
+      {
+        "productId": "prd_1025",
+        "name": "Willow Throw Blanket",
+        "quantity": 3,
+        "unitPrice": 38.84
+      }
+    ],
+    "subtotal": 1789.67,
+    "shipping": 0,
+    "tax": 143.17,
+    "total": 1932.84,
+    "status": "pending",
+    "paymentStatus": "paid",
+    "placedAt": "2026-06-28T07:47:08.940Z",
+    "updatedAt": "2026-07-01T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1042",
+    "number": "ORD-1066",
+    "customerName": "Wren Haddad",
+    "customerEmail": "wren.haddad@northwind.io",
+    "items": [
+      {
+        "productId": "prd_1015",
+        "name": "Trailblaze Merino Hoodie",
+        "quantity": 1,
+        "unitPrice": 152.66
+      },
+      {
+        "productId": "prd_1027",
+        "name": "Lumen Table Lamp",
+        "quantity": 3,
+        "unitPrice": 122.77
+      },
+      {
+        "productId": "prd_1012",
+        "name": "Harbor Coffee Table",
+        "quantity": 2,
+        "unitPrice": 357.21
+      },
+      {
+        "productId": "prd_1025",
+        "name": "Willow Throw Blanket",
+        "quantity": 2,
+        "unitPrice": 38.84
+      }
+    ],
+    "subtotal": 1313.07,
+    "shipping": 0,
+    "tax": 105.05,
+    "total": 1418.12,
+    "status": "shipped",
+    "paymentStatus": "pending",
+    "placedAt": "2026-06-27T07:47:08.940Z",
+    "updatedAt": "2026-06-27T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1043",
+    "number": "ORD-1067",
+    "customerName": "Freya Okafor",
+    "customerEmail": "freya.okafor@orbitworks.app",
+    "items": [
+      {
+        "productId": "prd_1023",
+        "name": "Quillsoft Marker Set",
+        "quantity": 1,
+        "unitPrice": 40.09
+      }
+    ],
+    "subtotal": 40.09,
+    "shipping": 9.99,
+    "tax": 3.21,
+    "total": 53.29,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-06-25T07:47:08.940Z",
+    "updatedAt": "2026-06-25T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1044",
+    "number": "ORD-1068",
+    "customerName": "Lucas Okoye",
+    "customerEmail": "lucas.okoye@outlook.com",
+    "items": [
+      {
+        "productId": "prd_1019",
+        "name": "Basalt Chino Pants",
+        "quantity": 2,
+        "unitPrice": 151.09
+      },
+      {
+        "productId": "prd_1028",
+        "name": "Cascade Water Bottle",
+        "quantity": 3,
+        "unitPrice": 45.34
+      },
+      {
+        "productId": "prd_1018",
+        "name": "Drift Linen Shirt",
+        "quantity": 1,
+        "unitPrice": 98.75
+      }
+    ],
+    "subtotal": 536.95,
+    "shipping": 0,
+    "tax": 42.96,
+    "total": 579.91,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-06-23T07:47:08.940Z",
+    "updatedAt": "2026-06-23T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1045",
+    "number": "ORD-1069",
+    "customerName": "Oscar Kowalski",
+    "customerEmail": "oscar.kowalski@gmail.com",
+    "items": [
+      {
+        "productId": "prd_1024",
+        "name": "Hearthstone Ceramic Mug Set",
+        "quantity": 1,
+        "unitPrice": 65.3
+      },
+      {
+        "productId": "prd_1019",
+        "name": "Basalt Chino Pants",
+        "quantity": 2,
+        "unitPrice": 151.09
+      }
+    ],
+    "subtotal": 367.48,
+    "shipping": 0,
+    "tax": 29.4,
+    "total": 396.88,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-06-21T07:47:08.940Z",
+    "updatedAt": "2026-06-21T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1046",
+    "number": "ORD-1070",
+    "customerName": "Umar Reyes",
+    "customerEmail": "umar.reyes@vantagehq.dev",
+    "items": [
+      {
+        "productId": "prd_1026",
+        "name": "Terrace Plant Pot",
+        "quantity": 2,
+        "unitPrice": 67.41
+      },
+      {
+        "productId": "prd_1025",
+        "name": "Willow Throw Blanket",
+        "quantity": 3,
+        "unitPrice": 38.84
+      },
+      {
+        "productId": "prd_1024",
+        "name": "Hearthstone Ceramic Mug Set",
+        "quantity": 2,
+        "unitPrice": 65.3
+      },
+      {
+        "productId": "prd_1029",
+        "name": "Velocity Yoga Mat",
+        "quantity": 1,
+        "unitPrice": 74.66
+      }
+    ],
+    "subtotal": 456.6,
+    "shipping": 0,
+    "tax": 36.53,
+    "total": 493.13,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-06-19T07:47:08.940Z",
+    "updatedAt": "2026-06-21T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1047",
+    "number": "ORD-1071",
+    "customerName": "Simon Reyes",
+    "customerEmail": "simon.reyes@outlook.com",
+    "items": [
+      {
+        "productId": "prd_1025",
+        "name": "Willow Throw Blanket",
+        "quantity": 3,
+        "unitPrice": 38.84
+      },
+      {
+        "productId": "prd_1007",
+        "name": "Echo Noise Meter",
+        "quantity": 2,
+        "unitPrice": 275.09
+      },
+      {
+        "productId": "prd_1028",
+        "name": "Cascade Water Bottle",
+        "quantity": 3,
+        "unitPrice": 45.34
+      },
+      {
+        "productId": "prd_1020",
+        "name": "Inkwell Fountain Pen",
+        "quantity": 1,
+        "unitPrice": 58.3
+      }
+    ],
+    "subtotal": 861.02,
+    "shipping": 0,
+    "tax": 68.88,
+    "total": 929.9,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-06-17T07:47:08.940Z",
+    "updatedAt": "2026-06-20T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1048",
+    "number": "ORD-1072",
+    "customerName": "Xavier Bergstrom",
+    "customerEmail": "xavier.bergstrom@outlook.com",
+    "items": [
+      {
+        "productId": "prd_1013",
+        "name": "Ridge Desk Lamp",
+        "quantity": 3,
+        "unitPrice": 911.62
+      },
+      {
+        "productId": "prd_1011",
+        "name": "Summit Bookshelf",
+        "quantity": 3,
+        "unitPrice": 643.82
+      },
+      {
+        "productId": "prd_1019",
+        "name": "Basalt Chino Pants",
+        "quantity": 2,
+        "unitPrice": 151.09
+      },
+      {
+        "productId": "prd_1022",
+        "name": "Stalwart Desk Organizer",
+        "quantity": 2,
+        "unitPrice": 12.59
+      }
+    ],
+    "subtotal": 4993.68,
+    "shipping": 0,
+    "tax": 399.49,
+    "total": 5393.17,
+    "status": "cancelled",
+    "paymentStatus": "failed",
+    "placedAt": "2026-06-15T07:47:08.940Z",
+    "updatedAt": "2026-06-16T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1049",
+    "number": "ORD-1073",
+    "customerName": "Yuki Vargas",
+    "customerEmail": "yuki.vargas@orbitworks.app",
+    "items": [
+      {
+        "productId": "prd_1031",
+        "name": "Kinetic Resistance Bands",
+        "quantity": 1,
+        "unitPrice": 104.22
+      }
+    ],
+    "subtotal": 104.22,
+    "shipping": 9.99,
+    "tax": 8.34,
+    "total": 122.55,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-06-13T07:47:08.940Z",
+    "updatedAt": "2026-06-15T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1050",
+    "number": "ORD-1074",
+    "customerName": "Caleb Silva",
+    "customerEmail": "caleb.silva@northwind.io",
+    "items": [
+      {
+        "productId": "prd_1017",
+        "name": "Fieldkit Canvas Tote",
+        "quantity": 1,
+        "unitPrice": 150.58
+      },
+      {
+        "productId": "prd_1020",
+        "name": "Inkwell Fountain Pen",
+        "quantity": 2,
+        "unitPrice": 58.3
+      },
+      {
+        "productId": "prd_1015",
+        "name": "Trailblaze Merino Hoodie",
+        "quantity": 3,
+        "unitPrice": 152.66
+      },
+      {
+        "productId": "prd_1014",
+        "name": "Cove Lounge Chair",
+        "quantity": 1,
+        "unitPrice": 581.97
+      }
+    ],
+    "subtotal": 1307.13,
+    "shipping": 0,
+    "tax": 104.57,
+    "total": 1411.7,
+    "status": "processing",
+    "paymentStatus": "paid",
+    "placedAt": "2026-06-11T07:47:08.940Z",
+    "updatedAt": "2026-06-14T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1051",
+    "number": "ORD-1075",
+    "customerName": "Ingrid Garcia",
+    "customerEmail": "ingrid.garcia@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1001",
+        "name": "Aurora Wireless Headphones",
+        "quantity": 2,
+        "unitPrice": 73.03
+      },
+      {
+        "productId": "prd_1003",
+        "name": "Vertex 4K Monitor",
+        "quantity": 1,
+        "unitPrice": 463.58
+      },
+      {
+        "productId": "prd_1010",
+        "name": "Atlas Office Chair",
+        "quantity": 3,
+        "unitPrice": 439.16
+      },
+      {
+        "productId": "prd_1030",
+        "name": "Summitline Insulated Bottle",
+        "quantity": 1,
+        "unitPrice": 158.43
+      }
+    ],
+    "subtotal": 2085.55,
+    "shipping": 0,
+    "tax": 166.84,
+    "total": 2252.39,
+    "status": "shipped",
+    "paymentStatus": "pending",
+    "placedAt": "2026-06-09T07:47:08.940Z",
+    "updatedAt": "2026-06-11T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1052",
+    "number": "ORD-1076",
+    "customerName": "Simon Kowalski",
+    "customerEmail": "simon.kowalski@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1022",
+        "name": "Stalwart Desk Organizer",
+        "quantity": 2,
+        "unitPrice": 12.59
+      },
+      {
+        "productId": "prd_1025",
+        "name": "Willow Throw Blanket",
+        "quantity": 2,
+        "unitPrice": 38.84
+      }
+    ],
+    "subtotal": 102.86,
+    "shipping": 9.99,
+    "tax": 8.23,
+    "total": 121.08,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-06-07T07:47:08.940Z",
+    "updatedAt": "2026-06-10T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1053",
+    "number": "ORD-1077",
+    "customerName": "Dalia Silva",
+    "customerEmail": "dalia.silva@gmail.com",
+    "items": [
+      {
+        "productId": "prd_1027",
+        "name": "Lumen Table Lamp",
+        "quantity": 1,
+        "unitPrice": 122.77
+      },
+      {
+        "productId": "prd_1003",
+        "name": "Vertex 4K Monitor",
+        "quantity": 3,
+        "unitPrice": 463.58
+      },
+      {
+        "productId": "prd_1012",
+        "name": "Harbor Coffee Table",
+        "quantity": 3,
+        "unitPrice": 357.21
+      },
+      {
+        "productId": "prd_1024",
+        "name": "Hearthstone Ceramic Mug Set",
+        "quantity": 3,
+        "unitPrice": 65.3
+      }
+    ],
+    "subtotal": 2781.04,
+    "shipping": 0,
+    "tax": 222.48,
+    "total": 3003.52,
+    "status": "pending",
+    "paymentStatus": "paid",
+    "placedAt": "2026-06-05T07:47:08.940Z",
+    "updatedAt": "2026-06-08T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1054",
+    "number": "ORD-1078",
+    "customerName": "Sofia Ibrahim",
+    "customerEmail": "sofia.ibrahim@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1001",
+        "name": "Aurora Wireless Headphones",
+        "quantity": 3,
+        "unitPrice": 73.03
+      },
+      {
+        "productId": "prd_1026",
+        "name": "Terrace Plant Pot",
+        "quantity": 3,
+        "unitPrice": 67.41
+      },
+      {
+        "productId": "prd_1019",
+        "name": "Basalt Chino Pants",
+        "quantity": 3,
+        "unitPrice": 151.09
+      },
+      {
+        "productId": "prd_1024",
+        "name": "Hearthstone Ceramic Mug Set",
+        "quantity": 2,
+        "unitPrice": 65.3
+      }
+    ],
+    "subtotal": 1005.19,
+    "shipping": 0,
+    "tax": 80.42,
+    "total": 1085.61,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-06-03T07:47:08.940Z",
+    "updatedAt": "2026-06-03T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1055",
+    "number": "ORD-1079",
+    "customerName": "Marco Garcia",
+    "customerEmail": "marco.garcia@vantagehq.dev",
+    "items": [
+      {
+        "productId": "prd_1028",
+        "name": "Cascade Water Bottle",
+        "quantity": 1,
+        "unitPrice": 45.34
+      },
+      {
+        "productId": "prd_1007",
+        "name": "Echo Noise Meter",
+        "quantity": 3,
+        "unitPrice": 275.09
+      }
+    ],
+    "subtotal": 870.61,
+    "shipping": 0,
+    "tax": 69.65,
+    "total": 940.26,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-06-01T07:47:08.940Z",
+    "updatedAt": "2026-06-02T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1056",
+    "number": "ORD-1080",
+    "customerName": "Henrik Jansen",
+    "customerEmail": "henrik.jansen@outlook.com",
+    "items": [
+      {
+        "productId": "prd_1004",
+        "name": "Pulse Smart Speaker",
+        "quantity": 2,
+        "unitPrice": 613.96
+      },
+      {
+        "productId": "prd_1027",
+        "name": "Lumen Table Lamp",
+        "quantity": 2,
+        "unitPrice": 122.77
+      },
+      {
+        "productId": "prd_1012",
+        "name": "Harbor Coffee Table",
+        "quantity": 3,
+        "unitPrice": 357.21
+      }
+    ],
+    "subtotal": 2545.09,
+    "shipping": 0,
+    "tax": 203.61,
+    "total": 2748.7,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-05-30T07:47:08.940Z",
+    "updatedAt": "2026-05-30T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1057",
+    "number": "ORD-1081",
+    "customerName": "Ingrid Garcia",
+    "customerEmail": "ingrid.garcia@proton.me",
+    "items": [
+      {
+        "productId": "prd_1026",
+        "name": "Terrace Plant Pot",
+        "quantity": 1,
+        "unitPrice": 67.41
+      }
+    ],
+    "subtotal": 67.41,
+    "shipping": 9.99,
+    "tax": 5.39,
+    "total": 82.79,
+    "status": "shipped",
+    "paymentStatus": "refunded",
+    "placedAt": "2026-05-28T07:47:08.940Z",
+    "updatedAt": "2026-05-28T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1058",
+    "number": "ORD-1082",
+    "customerName": "Oscar Petrov",
+    "customerEmail": "oscar.petrov@northwind.io",
+    "items": [
+      {
+        "productId": "prd_1028",
+        "name": "Cascade Water Bottle",
+        "quantity": 3,
+        "unitPrice": 45.34
+      },
+      {
+        "productId": "prd_1031",
+        "name": "Kinetic Resistance Bands",
+        "quantity": 2,
+        "unitPrice": 104.22
+      }
+    ],
+    "subtotal": 344.46,
+    "shipping": 0,
+    "tax": 27.56,
+    "total": 372.02,
+    "status": "processing",
+    "paymentStatus": "paid",
+    "placedAt": "2026-05-26T07:47:08.940Z",
+    "updatedAt": "2026-05-29T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1059",
+    "number": "ORD-1083",
+    "customerName": "Oscar Moreau",
+    "customerEmail": "oscar.moreau@proton.me",
+    "items": [
+      {
+        "productId": "prd_1028",
+        "name": "Cascade Water Bottle",
+        "quantity": 1,
+        "unitPrice": 45.34
+      }
+    ],
+    "subtotal": 45.34,
+    "shipping": 12.5,
+    "tax": 3.63,
+    "total": 61.47,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-05-24T07:47:08.940Z",
+    "updatedAt": "2026-05-24T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1060",
+    "number": "ORD-1084",
+    "customerName": "Tara Weber",
+    "customerEmail": "tara.weber@vantagehq.dev",
+    "items": [
+      {
+        "productId": "prd_1014",
+        "name": "Cove Lounge Chair",
+        "quantity": 2,
+        "unitPrice": 581.97
+      }
+    ],
+    "subtotal": 1163.94,
+    "shipping": 0,
+    "tax": 93.12,
+    "total": 1257.06,
+    "status": "delivered",
+    "paymentStatus": "refunded",
+    "placedAt": "2026-05-22T07:47:08.940Z",
+    "updatedAt": "2026-05-23T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1061",
+    "number": "ORD-1085",
+    "customerName": "Amara Chen",
+    "customerEmail": "amara.chen@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1018",
+        "name": "Drift Linen Shirt",
+        "quantity": 3,
+        "unitPrice": 98.75
+      }
+    ],
+    "subtotal": 296.25,
+    "shipping": 0,
+    "tax": 23.7,
+    "total": 319.95,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-05-20T07:47:08.940Z",
+    "updatedAt": "2026-05-21T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1062",
+    "number": "ORD-1086",
+    "customerName": "Caleb Okafor",
+    "customerEmail": "caleb.okafor@brightlab.co",
+    "items": [
+      {
+        "productId": "prd_1015",
+        "name": "Trailblaze Merino Hoodie",
+        "quantity": 1,
+        "unitPrice": 152.66
+      },
+      {
+        "productId": "prd_1009",
+        "name": "Meridian Standing Desk",
+        "quantity": 3,
+        "unitPrice": 533.73
+      },
+      {
+        "productId": "prd_1022",
+        "name": "Stalwart Desk Organizer",
+        "quantity": 3,
+        "unitPrice": 12.59
+      },
+      {
+        "productId": "prd_1028",
+        "name": "Cascade Water Bottle",
+        "quantity": 3,
+        "unitPrice": 45.34
+      }
+    ],
+    "subtotal": 1927.64,
+    "shipping": 0,
+    "tax": 154.21,
+    "total": 2081.85,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-05-17T07:47:08.940Z",
+    "updatedAt": "2026-05-18T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1063",
+    "number": "ORD-1087",
+    "customerName": "Amara Weber",
+    "customerEmail": "amara.weber@vantagehq.dev",
+    "items": [
+      {
+        "productId": "prd_1010",
+        "name": "Atlas Office Chair",
+        "quantity": 2,
+        "unitPrice": 439.16
+      },
+      {
+        "productId": "prd_1020",
+        "name": "Inkwell Fountain Pen",
+        "quantity": 1,
+        "unitPrice": 58.3
+      },
+      {
+        "productId": "prd_1030",
+        "name": "Summitline Insulated Bottle",
+        "quantity": 1,
+        "unitPrice": 158.43
+      },
+      {
+        "productId": "prd_1032",
+        "name": "Stride Running Belt",
+        "quantity": 1,
+        "unitPrice": 203.61
+      }
+    ],
+    "subtotal": 1298.66,
+    "shipping": 0,
+    "tax": 103.89,
+    "total": 1402.55,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-05-15T07:47:08.940Z",
+    "updatedAt": "2026-05-18T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1064",
+    "number": "ORD-1088",
+    "customerName": "Quinn Haddad",
+    "customerEmail": "quinn.haddad@orbitworks.app",
+    "items": [
+      {
+        "productId": "prd_1031",
+        "name": "Kinetic Resistance Bands",
+        "quantity": 2,
+        "unitPrice": 104.22
+      },
+      {
+        "productId": "prd_1013",
+        "name": "Ridge Desk Lamp",
+        "quantity": 2,
+        "unitPrice": 911.62
+      },
+      {
+        "productId": "prd_1023",
+        "name": "Quillsoft Marker Set",
+        "quantity": 3,
+        "unitPrice": 40.09
+      },
+      {
+        "productId": "prd_1012",
+        "name": "Harbor Coffee Table",
+        "quantity": 2,
+        "unitPrice": 357.21
+      }
+    ],
+    "subtotal": 2866.37,
+    "shipping": 0,
+    "tax": 229.31,
+    "total": 3095.68,
+    "status": "pending",
+    "paymentStatus": "pending",
+    "placedAt": "2026-05-13T07:47:08.940Z",
+    "updatedAt": "2026-05-16T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1065",
+    "number": "ORD-1089",
+    "customerName": "Clara Sorensen",
+    "customerEmail": "clara.sorensen@proton.me",
+    "items": [
+      {
+        "productId": "prd_1007",
+        "name": "Echo Noise Meter",
+        "quantity": 1,
+        "unitPrice": 275.09
+      },
+      {
+        "productId": "prd_1030",
+        "name": "Summitline Insulated Bottle",
+        "quantity": 3,
+        "unitPrice": 158.43
+      },
+      {
+        "productId": "prd_1010",
+        "name": "Atlas Office Chair",
+        "quantity": 3,
+        "unitPrice": 439.16
+      },
+      {
+        "productId": "prd_1008",
+        "name": "Halo Webcam Pro",
+        "quantity": 2,
+        "unitPrice": 39.96
+      }
+    ],
+    "subtotal": 2147.78,
+    "shipping": 0,
+    "tax": 171.82,
+    "total": 2319.6,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-05-11T07:47:08.940Z",
+    "updatedAt": "2026-05-14T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1066",
+    "number": "ORD-1090",
+    "customerName": "Rania Muller",
+    "customerEmail": "rania.muller@proton.me",
+    "items": [
+      {
+        "productId": "prd_1032",
+        "name": "Stride Running Belt",
+        "quantity": 2,
+        "unitPrice": 203.61
+      }
+    ],
+    "subtotal": 407.22,
+    "shipping": 0,
+    "tax": 32.58,
+    "total": 439.8,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-05-09T07:47:08.940Z",
+    "updatedAt": "2026-05-09T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1067",
+    "number": "ORD-1091",
+    "customerName": "Leila Haddad",
+    "customerEmail": "leila.haddad@outlook.com",
+    "items": [
+      {
+        "productId": "prd_1015",
+        "name": "Trailblaze Merino Hoodie",
+        "quantity": 1,
+        "unitPrice": 152.66
+      }
+    ],
+    "subtotal": 152.66,
+    "shipping": 0,
+    "tax": 12.21,
+    "total": 164.87,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-05-07T07:47:08.940Z",
+    "updatedAt": "2026-05-08T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1068",
+    "number": "ORD-1092",
+    "customerName": "Clara Vargas",
+    "customerEmail": "clara.vargas@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1021",
+        "name": "Gridpaper Notebook A5",
+        "quantity": 2,
+        "unitPrice": 12.34
+      }
+    ],
+    "subtotal": 24.68,
+    "shipping": 12.5,
+    "tax": 1.97,
+    "total": 39.15,
+    "status": "shipped",
+    "paymentStatus": "pending",
+    "placedAt": "2026-05-04T07:47:08.940Z",
+    "updatedAt": "2026-05-05T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1069",
+    "number": "ORD-1093",
+    "customerName": "Zara Haddad",
+    "customerEmail": "zara.haddad@outlook.com",
+    "items": [
+      {
+        "productId": "prd_1012",
+        "name": "Harbor Coffee Table",
+        "quantity": 2,
+        "unitPrice": 357.21
+      },
+      {
+        "productId": "prd_1004",
+        "name": "Pulse Smart Speaker",
+        "quantity": 3,
+        "unitPrice": 613.96
+      }
+    ],
+    "subtotal": 2556.3,
+    "shipping": 0,
+    "tax": 204.5,
+    "total": 2760.8,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-05-02T07:47:08.940Z",
+    "updatedAt": "2026-05-02T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1070",
+    "number": "ORD-1094",
+    "customerName": "Aisha Dupont",
+    "customerEmail": "aisha.dupont@proton.me",
+    "items": [
+      {
+        "productId": "prd_1007",
+        "name": "Echo Noise Meter",
+        "quantity": 1,
+        "unitPrice": 275.09
+      },
+      {
+        "productId": "prd_1019",
+        "name": "Basalt Chino Pants",
+        "quantity": 3,
+        "unitPrice": 151.09
+      },
+      {
+        "productId": "prd_1021",
+        "name": "Gridpaper Notebook A5",
+        "quantity": 3,
+        "unitPrice": 12.34
+      }
+    ],
+    "subtotal": 765.38,
+    "shipping": 0,
+    "tax": 61.23,
+    "total": 826.61,
+    "status": "shipped",
+    "paymentStatus": "paid",
+    "placedAt": "2026-04-30T07:47:08.940Z",
+    "updatedAt": "2026-04-30T07:47:08.940Z"
+  },
+  {
+    "id": "ord_1071",
+    "number": "ORD-1095",
+    "customerName": "Noah Novak",
+    "customerEmail": "noah.novak@quillsoft.dev",
+    "items": [
+      {
+        "productId": "prd_1008",
+        "name": "Halo Webcam Pro",
+        "quantity": 3,
+        "unitPrice": 39.96
+      }
+    ],
+    "subtotal": 119.88,
+    "shipping": 4.99,
+    "tax": 9.59,
+    "total": 134.46,
+    "status": "delivered",
+    "paymentStatus": "paid",
+    "placedAt": "2026-04-28T07:47:08.940Z",
+    "updatedAt": "2026-04-28T07:47:08.940Z"
+  }
+]

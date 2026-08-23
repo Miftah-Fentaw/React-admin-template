@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ntf_0001",
+    "title": "New order received",
+    "message": "Wren Haddad placed ORD-1026 ($3161.74).",
+    "type": "success",
+    "read": false,
+    "createdAt": "2026-08-23T06:35:08.940Z"
+  },
+  {
+    "id": "ntf_0002",
+    "title": "Product out of stock",
+    "message": "Summit Bookshelf (VN-FU-1011) has sold out and needs a restock.",
+    "type": "warning",
+    "read": false,
+    "createdAt": "2026-08-22T22:11:08.940Z"
+  },
+  {
+    "id": "ntf_0003",
+    "title": "Product out of stock",
+    "message": "Drift Linen Shirt (VN-AP-1018) has sold out and needs a restock.",
+    "type": "warning",
+    "read": false,
+    "createdAt": "2026-08-21T22:11:08.940Z"
+  },
+  {
+    "id": "ntf_0004",
+    "title": "Payment failed",
+    "message": "A card charge for ORD-1031 failed. The customer has been notified.",
+    "type": "error",
+    "read": false,
+    "createdAt": "2026-08-22T02:59:08.940Z"
+  },
+  {
+    "id": "ntf_0005",
+    "title": "Weekly report ready",
+    "message": "Your workspace analytics summary for last week is available.",
+    "type": "info",
+    "read": true,
+    "createdAt": "2026-08-21T05:23:08.940Z"
+  },
+  {
+    "id": "ntf_0006",
+    "title": "New team member",
+    "message": "Petra Lindqvist accepted their invitation and joined as Manager.",
+    "type": "success",
+    "read": true,
+    "createdAt": "2026-08-19T22:11:08.940Z"
+  },
+  {
+    "id": "ntf_0007",
+    "title": "Scheduled maintenance",
+    "message": "Reports may be delayed on Sunday between 02:00–03:00 UTC.",
+    "type": "info",
+    "read": true,
+    "createdAt": "2026-08-17T17:23:08.940Z"
+  }
+]
