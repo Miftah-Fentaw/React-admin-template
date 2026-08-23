@@ -123,16 +123,18 @@ Other seeded users accept **any password ≥ 8 chars**. Suspended users get HTTP
     │   ├── app.ts                appConfig (name/version/apiBaseUrl/enableMockApi/demoAccounts), STORAGE_KEYS
     │   └── navigation.ts         NAV_SECTIONS consumed by Sidebar
     ├── data/
-    │   ├── db/*.json             GENERATED seed records (44 users, 33 products, 72 orders, 7 notifications, 26 activity). Never hand-edit; run npm run seed
+    │   ├── db/*.json             GENERATED seed records (44 users, 33 products, 72 orders, 30 projects, 42 invoices, 7 notifications, 26 activity). Never hand-edit; run npm run seed
     │   └── mock-server/          THE SWAPPABLE BACKEND (§7): db.ts, utils.ts, browser.ts, handlers.ts aggregator, handlers/*-.handlers.ts
     ├── features/                 ← one folder per domain (§5 has the template)
     │   ├── auth/LoginPage.tsx
     │   ├── dashboard/            DashboardPage + service + components/{KpiCard,ActivityFeed,QuickActions,TrafficSources}
     │   ├── analytics/            analytics.service, hooks/use-analytics, pages/AnalyticsPage
-    │   ├── users/                users.service, hooks, pages/{UsersPage,UserDetailPage}, components/{UserFormDialog,DeleteUserDialog}
-    │   ├── products/             products.service, hooks, pages/{ProductsPage,ProductDetailPage}, components/{ProductFormDialog,DeleteProductDialog}
-    │   ├── orders/               orders.service, hooks, pages/{OrdersPage,OrderDetailPage}
-    │   ├── notifications/        notifications.service + hooks (UI lives in layout/NotificationsMenu)
+│   ├── users/                users.service, hooks, pages/{UsersPage,UserDetailPage}, components/{UserFormDialog,DeleteUserDialog}
+│   ├── products/             products.service, hooks, pages/{ProductsPage,ProductDetailPage}, components/{ProductFormDialog,DeleteProductDialog}
+│   ├── orders/               orders.service, hooks, pages/{OrdersPage,OrderDetailPage}
+│   ├── projects/             projects.service, hooks, pages/ProjectsPage, components/{ProjectFormDialog,DeleteProjectDialog}
+│   ├── invoices/             invoices.service, hooks (list + status transitions), pages/InvoicesPage
+│   ├── notifications/        notifications.service + hooks (UI lives in layout/NotificationsMenu)
     │   └── settings/pages/SettingsPage.tsx   profile form + theme picker + about card
     ├── hooks/                    useForm+validate, useDebouncedValue
     ├── lib/                      cn, format (all Intl helpers), errors (getUserMessage), query-keys
@@ -250,7 +252,9 @@ Charts (`components/charts/`):
 | POST `/auth/logout` | invalidates token |
 | GET/POST `/users`, GET/PATCH/DELETE `/users/:id` | role/status filters, search name+email, sortable: name,email,role,status,createdAt,lastLoginAt; POST dup-email→422 with `fields.email`; DELETE self→409 conflict; manager-role restrictions apply where relevant |
 | GET/POST `/products`, GET/PATCH/DELETE `/products/:id` | search name/description/category, category filter, sortable: name,price,inventory,status,createdAt |
-| GET `/orders`, GET `/orders/:id`, PATCH `/orders/:id` | status/paymentStatus filters, search number/customerName, sortable: number,customerName,placedAt,total,status; PATCH accepts partial `{status?, paymentStatus?}` |
+| GET /orders, GET `/orders/:id`, PATCH `/orders/:id` | status/paymentStatus filters, search number/customerName, sortable: number,customerName,placedAt,total,status; PATCH accepts partial `{status?, paymentStatus?}` |
+| GET/POST `/projects`, GET/PATCH/DELETE `/projects/:id` | status filter, search name/client/ownerName, sortable: name,client,ownerName,status,progress,dueDate,createdAt; POST dup name+client→422 with `fields.name`; dueDate is `YYYY-MM-DD` or null |
+| GET `/invoices`, PATCH `/invoices/:id` | status filter, search number/customerName/customerEmail, sortable: number,customerName,amount,status,issuedAt,dueAt; PATCH takes `{status}` — setting paid stamps `paidAt`, leaving paid clears it |
 | GET `/dashboard/overview` | KPIs w/ changePct, revenueByMonth, ordersByDay, trafficSources |
 | GET `/dashboard/activity` | Paginated activity feed |
 | GET `/analytics/overview?range=` | `range` ∈ 7d\|30d\|90d; totals + per-metric `changes` (vs previous window), daily `series`, `topPages`, `topCountries` |
@@ -269,7 +273,7 @@ Charts (`components/charts/`):
 
 ## 8. Models & validation (`src/models/`)
 
-- Domain types: `User.ts` (incl. `UsersQuery`, `AuthUser`), `Product.ts`, `Order.ts` (statuses as `readonly` tuple consts + derived unions), `Notification.ts`, `Dashboard.ts` (Kpi/SeriesPoint/TrafficSource/ActivityEvent), `Analytics.ts`, `Auth.ts` (LoginRequest/LoginResponse/UpdateProfileInput).
+- Domain types: `User.ts` (incl. `UsersQuery`, `AuthUser`), `Product.ts`, `Order.ts` (statuses as `readonly` tuple consts + derived unions), `Project.ts` (incl. `progress` 0–100, `dueDate` as YYYY-MM-DD|null), `Invoice.ts` (status lifecycle: draft→sent→paid/overdue/cancelled, `paidAt` stamp), `Notification.ts`, `Dashboard.ts` (Kpi/SeriesPoint/TrafficSource/ActivityEvent), `Analytics.ts`, `Auth.ts` (LoginRequest/LoginResponse/UpdateProfileInput).
 - `schemas.ts` — request contracts: `loginSchema`, `updateProfileSchema`, `createUserSchema`(+`.partial()` = updateUserSchema), `createProductSchema` (note `z.coerce.number()` for price/inventory from inputs), `updateOrderSchema`, plus `zodFieldErrors(error)` → `Record<string,string>` keyed by field.
 - Zod v4 gotchas: top-level `z.email('msg')`; `z.enum(READONLY_TUPLE)` works with `as const` arrays; message strings are positional first args.
 
@@ -327,9 +331,9 @@ Import order matters (`styles/index.css`): `tokens → base → utilities → co
 
 ## 12. Current status (as of last verified run)
 
-All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 20/20 across 4 files ✓ · `vite build` ✓ (pages code-split per route).
+All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 25/25 across 5 files ✓ · `vite build` ✓ (pages code-split per route).
 
-**Complete:** auth/session/401 handling · dashboard (education-focused UI redesign) · users CRUD + detail · products CRUD + detail · orders list/detail + status updates · analytics overview · notifications panel · settings (profile + theme) · full mock API + seed script · design system · dark/light/system theming · README/LICENSE/CONTRIBUTION/CODE_OF_CONDUCT/SECURITY docs · route error boundary · tests · `.github/` CI (active `ci.yml`) + demo deploy/release workflows + issue/PR templates + dependabot.
+**Complete:** auth/session/401 handling · dashboard (education-focused UI redesign) · users CRUD + detail · products CRUD + detail · orders list/detail + status updates · projects CRUD (list + create/edit/delete dialogs, progress bars, `?create=1` deep-link) · invoices list with status-transition menu (paid stamps `paidAt`) · analytics overview · notifications panel · settings (profile + theme) · full mock API + seed script · design system · dark/light/system theming · README/LICENSE/CONTRIBUTION/CODE_OF_CONDUCT/SECURITY docs · route error boundary · tests · `.github/` CI (active `ci.yml`) + demo deploy/release workflows + issue/PR templates + dependabot.
 
 **Dashboard redesign (added):** KPI cards with inline sparklines (Students, Teachers, Programs) · Top Programs donut chart with center label · Total Children stacked area chart (Infant/Toddler/School Age) · Program cards with cover images and session details · Revenue bar chart with 1st/2nd biannually period toggle · Messages panel with Add Message CTA · Student list with search, edit/delete action buttons · Calendar widget (monthly grid, today highlight, event dots, prev/next navigation) · Schedule section with colored date badges · Three-column layout (main content + right sidebar). New mock endpoints: `GET /dashboard/programs`, `GET /dashboard/messages`, `GET /dashboard/schedule`.
 
