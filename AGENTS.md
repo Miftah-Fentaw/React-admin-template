@@ -90,14 +90,14 @@ Other seeded users accept **any password ≥ 8 chars**. Suspended users get HTTP
 ├── AGENTS.md                     ← this file
 ├── README.md                     ← human docs incl. backend-swap guide
 ├── LICENSE                       ← MIT
-├── CONTRIBUTION.md               ← contributing guide (gates, PR conventions)
+├── CONTRIBUTING.md               ← contributing guide (gates, PR conventions)
 ├── CODE_OF_CONDUCT.md            ← Contributor Covenant v2.1
 ├── SECURITY.md                   ← security policy + mock-API scope notes
 ├── .github/                      ← CI (active) + demo deploy/release workflows, issue/PR templates, dependabot — see .github/README.md
-├── index.html                    ← inline pre-paint theme script (localStorage key 'vantage.theme')
+├── index.html                    ← SEO head (title/description/canonical/OG/Twitter/JSON-LD) + inline pre-paint theme script (localStorage key 'vital.theme')
 ├── vite.config.ts / vitest.config.ts / tsconfig.app.json / eslint.config.js / prettier.config.js
 ├── scripts/generate-db.mjs       ← deterministic seed generator → src/data/db/*.json
-├── public/                       favicon.svg, logo.svg, icons.svg, mockServiceWorker.js (msw)
+├── public/                       favicon.svg, logo.svg, icons.svg, preview.png (og:image + landing screenshot — root ./preview.png is the README/GitHub copy), robots.txt, sitemap.xml, mockServiceWorker.js (msw)
 └── src/
     ├── main.tsx                  ← enableMocking() gate (VITE_ENABLE_MOCK_API !== 'false'), then render <App/>
     ├── app/
@@ -107,9 +107,9 @@ Other seeded users accept **any password ≥ 8 chars**. Suspended users get HTTP
     │   │   ├── ThemeProvider.tsx   light/dark/system pref, persists 'vantage.theme', sets document.documentElement.dataset.theme
     │   │   └── AuthProvider.tsx    session restore on mount (/auth/me), login/logout/setUser; status: 'loading'|'authenticated'|'unauthenticated'
     │   └── router/
-    │       ├── index.tsx           createBrowserRouter; lazy() pages; handle:{crumb} per route; errorElement=RouteErrorBoundary
-    │       ├── protected-routes.tsx  redirects to /login when unauthenticated (waits out loading)
-    │       ├── public-routes.tsx     redirects authenticated users away from public pages
+    │       ├── index.tsx           createBrowserRouter; `/` = public LandingPage; app routes under `/dashboard`; lazy() pages; handle:{crumb} per route; errorElement=RouteErrorBoundary
+    │       ├── protected-routes.tsx  gate for the `/dashboard` subtree
+    │       ├── public-routes.tsx     redirects /login to /dashboard
     │       ├── RouteErrorBoundary.tsx friendly errorElement screen (useRouteError)
     │       └── NotFoundPage.tsx
     ├── components/
@@ -127,6 +127,7 @@ Other seeded users accept **any password ≥ 8 chars**. Suspended users get HTTP
     │   └── mock-server/          THE SWAPPABLE BACKEND (§7): db.ts, utils.ts, browser.ts, handlers.ts aggregator, handlers/*-.handlers.ts
     ├── features/                 ← one folder per domain (§5 has the template)
     │   ├── auth/LoginPage.tsx
+    │   ├── landing/LandingPage.tsx   public SEO landing page at `/` (single H1, section anchors #features/#architecture/#getting-started/#faq)
     │   ├── dashboard/            DashboardPage + service + components/{KpiCard,ActivityFeed,QuickActions,TrafficSources}
     │   ├── analytics/            analytics.service, hooks/use-analytics, pages/AnalyticsPage
 │   ├── users/                users.service, hooks, pages/{UsersPage,UserDetailPage}, components/{UserFormDialog,DeleteUserDialog}
@@ -333,7 +334,9 @@ Import order matters (`styles/index.css`): `tokens → base → utilities → co
 
 All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 25/25 across 5 files ✓ · `vite build` ✓ (pages code-split per route).
 
-**Complete:** auth/session/401 handling · dashboard (education-focused UI redesign) · users CRUD + detail · products CRUD + detail · orders list/detail + status updates · projects CRUD (list + create/edit/delete dialogs, progress bars, `?create=1` deep-link) · invoices list with status-transition menu (paid stamps `paidAt`) · analytics overview · notifications panel · settings (profile + theme) · full mock API + seed script · design system · dark/light/system theming · README/LICENSE/CONTRIBUTION/CODE_OF_CONDUCT/SECURITY docs · route error boundary · tests · `.github/` CI (active `ci.yml`) + demo deploy/release workflows + issue/PR templates + dependabot.
+**Complete:** auth/session/401 handling · dashboard (education-focused UI redesign) · users CRUD + detail · products CRUD + detail · orders list/detail + status updates · projects CRUD (list + create/edit/delete dialogs, progress bars, `?create=1` deep-link) · invoices list with status-transition menu (paid stamps `paidAt`) · analytics overview · notifications panel · settings (profile + theme) · full mock API + seed script · design system · dark/light/system theming · README/LICENSE/CONTRIBUTING/CODE_OF_CONDUCT/SECURITY docs · route error boundary · tests · `.github/` CI (active `ci.yml`) + demo deploy/release workflows + issue/PR templates + dependabot.
+
+**SEO & discoverability (added):** public landing page at `/` (`features/landing/LandingPage.tsx`, single H1, sections: Why/Features/Built for Real Applications/Mock API Architecture/Connect Your Own Backend/Responsive/Dark Mode/Getting Started/FAQ) · dashboard app moved under `/dashboard` (all internal links prefixed) · index.html head: title, meta description, canonical, OG (+image alt/dimensions), Twitter large card, JSON-LD WebSite + SoftwareApplication (no fabricated ratings) · `public/robots.txt` + `public/sitemap.xml` (single canonical URL https://vital-admin-template.vercel.app/) · README rewritten for Vital Admin with preview.png near top · CONTRIBUTION.md renamed to CONTRIBUTING.md.
 
 **Dashboard redesign (added):** KPI cards with inline sparklines (Students, Teachers, Programs) · Top Programs donut chart with center label · Total Children stacked area chart (Infant/Toddler/School Age) · Program cards with cover images and session details · Revenue bar chart with 1st/2nd biannually period toggle · Messages panel with Add Message CTA · Student list with search, edit/delete action buttons · Calendar widget (monthly grid, today highlight, event dots, prev/next navigation) · Schedule section with colored date badges · Three-column layout (main content + right sidebar). New mock endpoints: `GET /dashboard/programs`, `GET /dashboard/messages`, `GET /dashboard/schedule`.
 
@@ -365,6 +368,9 @@ All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 25/25 across 5 files ✓
 12. **`placeholderData: (previous) => previous`** makes range/filter switches report `success` with stale data — early-return skeletons only on genuine first-load `isPending`, and always branch `isError || !data` afterwards (AnalyticsPage shows the correct structure).
 13. **Auth token plumbing**: `auth.service.ts` wires `setAuthTokenReader` at module load AND after login; storage-backed. If you swap auth, keep the reader indirection or first-request `/auth/me` will be unauthenticated.
 14. **Seed data is generated** — editing `src/data/db/*.json` by hand will be overwritten by `npm run seed`; change `scripts/generate-db.mjs` instead.
+15. **Two preview.png copies exist on purpose** — repo-root `./preview.png` renders in the README/GitHub UI; `public/preview.png` is what the site serves (og:image, Twitter card, landing hero). Keep them in sync when the screenshot changes.
+16. **The dashboard lives under `/dashboard`, not `/`** — `/` is the public SEO landing page. All internal links must use the `/dashboard` prefix; breadcrumbs derive from `useMatches()` so they adapt automatically. Old demo URLs like `/users` now 404 by design.
+17. **`Github` icon does not exist in lucide-react v1.33+** — brand icons were removed; use text links to GitHub instead.
 
 ---
 
