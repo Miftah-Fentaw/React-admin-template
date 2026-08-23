@@ -1,6 +1,10 @@
 import type { ReactNode } from 'react'
 import type { BadgeTone } from '../ui/Badge'
 import { Badge } from '../ui/Badge'
+import type { InvoiceStatus } from '@/models/Invoice'
+import {
+  INVOICE_STATUSES,
+} from '@/models/Invoice'
 import {
   ORDER_PAYMENT_STATUSES,
   ORDER_STATUSES,
@@ -12,6 +16,10 @@ import {
   type ProductCategory,
   type ProductStatus,
 } from '@/models/Product'
+import {
+  PROJECT_STATUSES,
+  type ProjectStatus,
+} from '@/models/Project'
 import type { UserRole, UserStatus } from '@/models/User'
 
 /**
@@ -104,6 +112,38 @@ export const ORDER_STATUS_OPTIONS = ORDER_STATUSES.map((value) => ({
   label: value.charAt(0).toUpperCase() + value.slice(1),
 }))
 
+const PROJECT_STATUS_TONES: Record<ProjectStatus, BadgeTone> = {
+  planning: 'info',
+  active: 'success',
+  on_hold: 'warning',
+  completed: 'primary',
+  archived: 'neutral',
+}
+
+export function ProjectStatusBadge({ status }: { status: ProjectStatus }): ReactNode {
+  return (
+    <Badge tone={PROJECT_STATUS_TONES[status]} dot>
+      <span style={{ textTransform: 'capitalize' }}>{status.replace('_', ' ')}</span>
+    </Badge>
+  )
+}
+
+const INVOICE_STATUS_TONES: Record<InvoiceStatus, BadgeTone> = {
+  draft: 'neutral',
+  sent: 'info',
+  paid: 'success',
+  overdue: 'destructive',
+  cancelled: 'neutral',
+}
+
+export function InvoiceStatusBadge({ status }: { status: InvoiceStatus }): ReactNode {
+  return (
+    <Badge tone={INVOICE_STATUS_TONES[status]} dot>
+      <span style={{ textTransform: 'capitalize' }}>{status}</span>
+    </Badge>
+  )
+}
+
 export const PAYMENT_STATUS_OPTIONS = ORDER_PAYMENT_STATUSES.map((value) => ({
   value,
   label: value.charAt(0).toUpperCase() + value.slice(1),
@@ -119,6 +159,16 @@ export const PRODUCT_CATEGORY_OPTIONS: Array<{ value: string; label: string }> =
 ].map((value) => ({ value, label: value.charAt(0).toUpperCase() + value.slice(1) }))
 
 export const PRODUCT_STATUS_OPTIONS = PRODUCT_STATUSES.map((value) => ({
+  value,
+  label: value.charAt(0).toUpperCase() + value.slice(1),
+}))
+
+export const PROJECT_STATUS_OPTIONS = PROJECT_STATUSES.map((value) => ({
+  value,
+  label: (value.charAt(0).toUpperCase() + value.slice(1)).replace('_', ' '),
+}))
+
+export const INVOICE_STATUS_OPTIONS = INVOICE_STATUSES.map((value) => ({
   value,
   label: value.charAt(0).toUpperCase() + value.slice(1),
 }))
