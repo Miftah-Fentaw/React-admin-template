@@ -13,19 +13,19 @@
 
 ### Tech stack (do not add alternatives without strong reason)
 
-| Concern | Choice | Notes |
-|---|---|---|
-| Build | Vite 8 | `@` alias → `./src` (in both `vite.config.ts` and `vitest.config.ts`) |
-| UI | React 19 | StrictMode on |
-| Styling | Plain CSS + semantic tokens | **No Tailwind, no CSS-in-JS.** Tokens in `src/styles/tokens.css` |
-| Routing | react-router-dom v7 | `createBrowserRouter`, lazy routes, `handle.crumb` breadcrumbs |
-| Server state | TanStack Query v5 | Key registry in `src/lib/query-keys.ts` |
-| Forms | Custom `useForm` hook + Zod | **No form library.** Schemas in `src/models/schemas.ts` |
-| Validation | Zod v4 | Note: uses new API (`z.email()`, not `z.string().email()`) |
-| Charts | Hand-rolled SVG components | **No chart library**, by design |
-| Mock API | MSW v2 (`msw/browser` + `msw/node`) | Seeded JSON db under `src/data/db/` |
-| Icons | lucide-react | Only icon source |
-| Tests | Vitest 4 + Testing Library + msw/node | Config: `vitest.config.ts` |
+| Concern      | Choice                                | Notes                                                                 |
+| ------------ | ------------------------------------- | --------------------------------------------------------------------- |
+| Build        | Vite 8                                | `@` alias → `./src` (in both `vite.config.ts` and `vitest.config.ts`) |
+| UI           | React 19                              | StrictMode on                                                         |
+| Styling      | Plain CSS + semantic tokens           | **No Tailwind, no CSS-in-JS.** Tokens in `src/styles/tokens.css`      |
+| Routing      | react-router-dom v7                   | `createBrowserRouter`, lazy routes, `handle.crumb` breadcrumbs        |
+| Server state | TanStack Query v5                     | Key registry in `src/lib/query-keys.ts`                               |
+| Forms        | Custom `useForm` hook + Zod           | **No form library.** Schemas in `src/models/schemas.ts`               |
+| Validation   | Zod v4                                | Note: uses new API (`z.email()`, not `z.string().email()`)            |
+| Charts       | Hand-rolled SVG components            | **No chart library**, by design                                       |
+| Mock API     | MSW v2 (`msw/browser` + `msw/node`)   | Seeded JSON db under `src/data/db/`                                   |
+| Icons        | lucide-react                          | Only icon source                                                      |
+| Tests        | Vitest 4 + Testing Library + msw/node | Config: `vitest.config.ts`                                            |
 
 ### TypeScript configuration (non-negotiable constraints)
 
@@ -59,9 +59,9 @@ If the dev server behaves strangely after files were added/renamed (e.g. "Failed
 
 ### Demo credentials (mock API only)
 
-| Email | Password | Role |
-|---|---|---|
-| `admin@vantage.dev` | `admin123` | admin |
+| Email                 | Password     | Role    |
+| --------------------- | ------------ | ------- |
+| `admin@vantage.dev`   | `admin123`   | admin   |
 | `manager@vantage.dev` | `manager123` | manager |
 
 Other seeded users accept **any password ≥ 8 chars**. Suspended users get HTTP 403 on login. Deleting your own account returns HTTP 409 conflict.
@@ -80,7 +80,7 @@ Other seeded users accept **any password ≥ 8 chars**. Suspended users get HTTP
 5. **Errors are translated once.** Thrown values are typed (`ApiError` hierarchy); UI copy comes exclusively from `getUserMessage()` in `src/lib/errors.ts`. Raw error details never reach components.
 6. **Global 401 handling = hard redirect.** `AppProvider`'s QueryCache `onError` clears the session and does `window.location.assign('/login')` (drops all cached data). Auth-prefixed queries are exempt.
 7. **Accessibility is a feature, not a chore.** Dialogs trap focus, dropdowns/tabs implement WAI-ARIA keyboard patterns, tables expose `aria-sort`, icon-only buttons have labels, skip link present.
-8. **No comments unless they explain *why*** (per repo convention). JSDoc on exported infra APIs is fine and encouraged.
+8. **No comments unless they explain _why_** (per repo convention). JSDoc on exported infra APIs is fine and encouraged.
 
 ---
 
@@ -210,21 +210,21 @@ export const widgetService = {
 
 ## 6. Design-system primitives (`src/components/ui/`) — API cheat sheet
 
-| Component | Key props / notes |
-|---|---|
-| `Button` | `variant`: primary\|secondary\|ghost\|danger\|danger-ghost; `size`: sm\|md\|lg\|icon; `isLoading` (spinner + disabled); `iconLeft/iconRight`; extends native button attrs |
-| `Card` family | `Card` (`as`: section\|div\|article\|aside), `CardHeader`, `CardTitle` (`as` h1-h3), `CardDescription`, `CardContent`, `CardFooter` — all accept `className`; Card/Header/Content/Footer also accept `style` |
-| `Input.tsx` | Exports `Field` (label+error wiring, `required`, `error`, `hint`), `Input` (`invalid`, aria wiring), `Textarea`, `Select` (takes `options: {value,label}[]`), `Checkbox`, `Switch` |
-| `Badge` | `tone` (success/info/warning/destructive/neutral…), `dot` flag; tone type exported as `BadgeTone` |
-| `Avatar` | `name` fallback initials, `src?`, `size` sm/md/lg |
-| `Feedback` | `EmptyState` (`icon`, `title`, `description`, `action`, `compact`), `ErrorState` (`message`, `title?`, `onRetry`), `Alert` (`tone` incl. destructive, `title?`) — Alert takes NO style prop; wrap in a div if spacing needed |
-| `Dialog` | Controlled: `open`, `onClose`, `title`, `description?`, `footer?` (render actions), `size`. Focus trap + ESC + scroll lock + focus restore |
-| `DropdownMenu` | TWO modes: (a) menu items mode — pass `items: DropdownMenuItem[]` ({label, icon?, onSelect, tone?:'danger', disabled?}); (b) rich panel mode — pass `children` (used by NotificationsMenu). Always provide `trigger` render-prop and spread its props onto your `<button>`; `align`, `label`, `panelClassName` |
-| `Tabs` | Fully controlled generic: `<Tabs items={[{value,label}]} value onChange label />` with roving arrow-key focus. There are NO TabsList/TabsTrigger subcomponents |
-| `Table` | `TableRoot` (caption prop), `THead`, `TBody`, `Tr` (**deliberately no onClick — rows navigate via link/menu for a11y**), `Th`/`Td` (native cell attrs), `SortableTh { label, state: 'asc'\|'desc'\|null, onToggle, align? }` handles aria-sort + icon |
-| `Pagination` | `meta: PaginationMeta`, `onPageChange(page)`, `noun` ("users") |
-| `Breadcrumbs` | From route crumbs (used by PageHeader) |
-| `Spinner`, `Skeleton` | Spinner takes `label`; Skeleton accepts `style` for sizing |
+| Component             | Key props / notes                                                                                                                                                                                                                                                                                              |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Button`              | `variant`: primary\|secondary\|ghost\|danger\|danger-ghost; `size`: sm\|md\|lg\|icon; `isLoading` (spinner + disabled); `iconLeft/iconRight`; extends native button attrs                                                                                                                                      |
+| `Card` family         | `Card` (`as`: section\|div\|article\|aside), `CardHeader`, `CardTitle` (`as` h1-h3), `CardDescription`, `CardContent`, `CardFooter` — all accept `className`; Card/Header/Content/Footer also accept `style`                                                                                                   |
+| `Input.tsx`           | Exports `Field` (label+error wiring, `required`, `error`, `hint`), `Input` (`invalid`, aria wiring), `Textarea`, `Select` (takes `options: {value,label}[]`), `Checkbox`, `Switch`                                                                                                                             |
+| `Badge`               | `tone` (success/info/warning/destructive/neutral…), `dot` flag; tone type exported as `BadgeTone`                                                                                                                                                                                                              |
+| `Avatar`              | `name` fallback initials, `src?`, `size` sm/md/lg                                                                                                                                                                                                                                                              |
+| `Feedback`            | `EmptyState` (`icon`, `title`, `description`, `action`, `compact`), `ErrorState` (`message`, `title?`, `onRetry`), `Alert` (`tone` incl. destructive, `title?`) — Alert takes NO style prop; wrap in a div if spacing needed                                                                                   |
+| `Dialog`              | Controlled: `open`, `onClose`, `title`, `description?`, `footer?` (render actions), `size`. Focus trap + ESC + scroll lock + focus restore                                                                                                                                                                     |
+| `DropdownMenu`        | TWO modes: (a) menu items mode — pass `items: DropdownMenuItem[]` ({label, icon?, onSelect, tone?:'danger', disabled?}); (b) rich panel mode — pass `children` (used by NotificationsMenu). Always provide `trigger` render-prop and spread its props onto your `<button>`; `align`, `label`, `panelClassName` |
+| `Tabs`                | Fully controlled generic: `<Tabs items={[{value,label}]} value onChange label />` with roving arrow-key focus. There are NO TabsList/TabsTrigger subcomponents                                                                                                                                                 |
+| `Table`               | `TableRoot` (caption prop), `THead`, `TBody`, `Tr` (**deliberately no onClick — rows navigate via link/menu for a11y**), `Th`/`Td` (native cell attrs), `SortableTh { label, state: 'asc'\|'desc'\|null, onToggle, align? }` handles aria-sort + icon                                                          |
+| `Pagination`          | `meta: PaginationMeta`, `onPageChange(page)`, `noun` ("users")                                                                                                                                                                                                                                                 |
+| `Breadcrumbs`         | From route crumbs (used by PageHeader)                                                                                                                                                                                                                                                                         |
+| `Spinner`, `Skeleton` | Spinner takes `label`; Skeleton accepts `style` for sizing                                                                                                                                                                                                                                                     |
 
 Charts (`components/charts/`):
 
@@ -245,27 +245,32 @@ Charts (`components/charts/`):
 
 ### Endpoint map
 
-| Method & path | Notes |
-|---|---|
-| POST `/auth/login` | Validates loginSchema; suspended→403 forbidden; returns `{user, token}` |
-| GET `/auth/me` | 401 without valid token |
-| PATCH `/auth/me` | updateProfileSchema; email-uniqueness enforced |
-| POST `/auth/logout` | invalidates token |
-| GET/POST `/users`, GET/PATCH/DELETE `/users/:id` | role/status filters, search name+email, sortable: name,email,role,status,createdAt,lastLoginAt; POST dup-email→422 with `fields.email`; DELETE self→409 conflict; manager-role restrictions apply where relevant |
-| GET/POST `/products`, GET/PATCH/DELETE `/products/:id` | search name/description/category, category filter, sortable: name,price,inventory,status,createdAt |
-| GET /orders, GET `/orders/:id`, PATCH `/orders/:id` | status/paymentStatus filters, search number/customerName, sortable: number,customerName,placedAt,total,status; PATCH accepts partial `{status?, paymentStatus?}` |
-| GET/POST `/projects`, GET/PATCH/DELETE `/projects/:id` | status filter, search name/client/ownerName, sortable: name,client,ownerName,status,progress,dueDate,createdAt; POST dup name+client→422 with `fields.name`; dueDate is `YYYY-MM-DD` or null |
-| GET `/invoices`, PATCH `/invoices/:id` | status filter, search number/customerName/customerEmail, sortable: number,customerName,amount,status,issuedAt,dueAt; PATCH takes `{status}` — setting paid stamps `paidAt`, leaving paid clears it |
-| GET `/dashboard/overview` | KPIs w/ changePct, revenueByMonth, ordersByDay, trafficSources |
-| GET `/dashboard/activity` | Paginated activity feed |
-| GET `/analytics/overview?range=` | `range` ∈ 7d\|30d\|90d; totals + per-metric `changes` (vs previous window), daily `series`, `topPages`, `topCountries` |
-| GET/PATCH `/notifications`, POST `/notifications/read-all`, PATCH `/notifications/:id/read` | unread counts drive topbar dot |
+| Method & path                                                                               | Notes                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| POST `/auth/login`                                                                          | Validates loginSchema; suspended→403 forbidden; returns `{user, token}`                                                                                                                                          |
+| GET `/auth/me`                                                                              | 401 without valid token                                                                                                                                                                                          |
+| PATCH `/auth/me`                                                                            | updateProfileSchema; email-uniqueness enforced                                                                                                                                                                   |
+| POST `/auth/logout`                                                                         | invalidates token                                                                                                                                                                                                |
+| GET/POST `/users`, GET/PATCH/DELETE `/users/:id`                                            | role/status filters, search name+email, sortable: name,email,role,status,createdAt,lastLoginAt; POST dup-email→422 with `fields.email`; DELETE self→409 conflict; manager-role restrictions apply where relevant |
+| GET/POST `/products`, GET/PATCH/DELETE `/products/:id`                                      | search name/description/category, category filter, sortable: name,price,inventory,status,createdAt                                                                                                               |
+| GET /orders, GET `/orders/:id`, PATCH `/orders/:id`                                         | status/paymentStatus filters, search number/customerName, sortable: number,customerName,placedAt,total,status; PATCH accepts partial `{status?, paymentStatus?}`                                                 |
+| GET/POST `/projects`, GET/PATCH/DELETE `/projects/:id`                                      | status filter, search name/client/ownerName, sortable: name,client,ownerName,status,progress,dueDate,createdAt; POST dup name+client→422 with `fields.name`; dueDate is `YYYY-MM-DD` or null                     |
+| GET `/invoices`, PATCH `/invoices/:id`                                                      | status filter, search number/customerName/customerEmail, sortable: number,customerName,amount,status,issuedAt,dueAt; PATCH takes `{status}` — setting paid stamps `paidAt`, leaving paid clears it               |
+| GET `/dashboard/overview`                                                                   | KPIs w/ changePct, revenueByMonth, ordersByDay, trafficSources                                                                                                                                                   |
+| GET `/dashboard/activity`                                                                   | Paginated activity feed                                                                                                                                                                                          |
+| GET `/analytics/overview?range=`                                                            | `range` ∈ 7d\|30d\|90d; totals + per-metric `changes` (vs previous window), daily `series`, `topPages`, `topCountries`                                                                                           |
+| GET/PATCH `/notifications`, POST `/notifications/read-all`, PATCH `/notifications/:id/read` | unread counts drive topbar dot                                                                                                                                                                                   |
 
 ### Error envelope (both mock + expected from real backends)
 
 ```jsonc
-{ "error": { "code": "validation_error", "message": "Please fix the highlighted fields.",
-             "fields": { "email": "A user with this email already exists." } } }
+{
+  "error": {
+    "code": "validation_error",
+    "message": "Please fix the highlighted fields.",
+    "fields": { "email": "A user with this email already exists." },
+  },
+}
 ```
 
 `code` ∈ `bad_request | unauthorized | forbidden | not_found | conflict | validation_error | rate_limited | internal_error | network_error`.
@@ -288,7 +293,7 @@ const result = validate(updateProfileSchema, form.values) // zod validate helper
 if (!result.ok) return form.setErrors(result.fieldErrors) // {ok:true,data} | {ok:false,fieldErrors}
 
 // On submit catch:
-applyServerFields((error as { fields?: Record<string,string> }).fields) // merge 422 field msgs
+applyServerFields((error as { fields?: Record<string, string> }).fields) // merge 422 field msgs
 setServerError(getUserMessage(error)) // otherwise show banner
 ```
 
@@ -341,6 +346,7 @@ All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 25/25 across 5 files ✓
 **Dashboard redesign (added):** KPI cards with inline sparklines (Students, Teachers, Programs) · Top Programs donut chart with center label · Total Children stacked area chart (Infant/Toddler/School Age) · Program cards with cover images and session details · Revenue bar chart with 1st/2nd biannually period toggle · Messages panel with Add Message CTA · Student list with search, edit/delete action buttons · Calendar widget (monthly grid, today highlight, event dots, prev/next navigation) · Schedule section with colored date badges · Three-column layout (main content + right sidebar). New mock endpoints: `GET /dashboard/programs`, `GET /dashboard/messages`, `GET /dashboard/schedule`.
 
 **Known remaining ideas / backlog (none blocking):**
+
 - Error boundary exists but there is no per-feature Suspense error boundary inside AdminLayout.
 - No i18n layer (copy is hardcoded English).
 - No end-to-end browser tests (Playwright would fit; none installed).
@@ -374,4 +380,4 @@ All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 25/25 across 5 files ✓
 
 ---
 
-*When you finish work, update §12 (status) and, if you hit something new and non-obvious, append it to §13. That keeps this document trustworthy for the next agent.*
+_When you finish work, update §12 (status) and, if you hit something new and non-obvious, append it to §13. That keeps this document trustworthy for the next agent._
