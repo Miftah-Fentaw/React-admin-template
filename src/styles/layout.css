@@ -39,23 +39,40 @@
   flex-shrink: 0;
 }
 
-.sidebar__logo {
+.sidebar__text-logo {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: var(--foreground);
+  display: inline-flex;
+  align-items: center;
+}
+
+.sidebar__text-logo-brand {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.sidebar__text-logo-sub {
+  font-weight: 600;
+  color: var(--muted-foreground);
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.sidebar__text-logo-compact {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-sm);
   background: var(--primary);
-  color: #fff;
-  flex-shrink: 0;
-}
-
-.sidebar__title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  white-space: nowrap;
+  color: var(--primary-foreground);
+  font-weight: 800;
+  font-size: 1.05rem;
 }
 
 .sidebar__nav {
