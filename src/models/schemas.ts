@@ -110,7 +110,10 @@ export const createProjectSchema = z.object({
     .max(100, 'Progress cannot exceed 100')
     .optional(),
   /** ISO date string (YYYY-MM-DD); omitted when unscheduled. */
-  dueDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Use the date picker').optional(),
+  dueDate: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, 'Use the date picker')
+    .optional(),
 })
 
 export const updateProjectSchema = createProjectSchema.partial()
