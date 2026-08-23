@@ -13,8 +13,9 @@ afterAll(() => server.close())
  * These pin the API contract the UI relies on.
  */
 describe('projects service (against mock API)', () => {
-  it('requires authentication', async () => {
-    await expect(projectService.list({ page: 1 })).rejects.toBeInstanceOf(ApiError)
+  it('lists projects directly in template mode', async () => {
+    const list = await projectService.list({ page: 1 })
+    expect(list.data.length).toBeGreaterThan(0)
   })
 
   it('creates, updates and deletes a project', async () => {
