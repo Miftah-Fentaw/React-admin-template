@@ -5,7 +5,7 @@
  */
 
 export const appConfig = {
-  name: 'Vantage Admin',
+  name: 'Vital Admin',
   version: '1.0.0',
 
   /**
@@ -31,7 +31,7 @@ export const appConfig = {
 } as const
 
 export const STORAGE_KEYS = {
-  authSession: 'vantage.auth.session',
-  theme: 'vantage.theme',
-  sidebarCollapsed: 'vantage.sidebar.collapsed',
+  authSession: 'vital.auth.session',
+  theme: 'vital.theme',
+  sidebarCollapsed: 'vital.sidebar.collapsed',
 } as const
