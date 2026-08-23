@@ -64,7 +64,7 @@ jobs:
       # Demo artifact upload — inspect the production bundle on every build.
       # Remove this step if you don't need it.
       - name: Upload dist artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dist
           path: dist/
