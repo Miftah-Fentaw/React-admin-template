@@ -8,10 +8,10 @@ A production-quality React admin template with a fully working mock API — clon
 
 The mock API seeds realistic fictional data and accepts:
 
-| Email                | Password     | Role    |
-| -------------------- | ------------ | ------- |
-| `admin@vantage.dev`  | `admin123`   | Admin   |
-| `manager@vantage.dev`| `manager123` | Manager |
+| Email                 | Password     | Role    |
+| --------------------- | ------------ | ------- |
+| `admin@vantage.dev`   | `admin123`   | Admin   |
+| `manager@vantage.dev` | `manager123` | Manager |
 
 Any other seeded user accepts any password of 8+ characters. Suspended accounts are rejected; you cannot delete your own account.
 
@@ -28,17 +28,17 @@ Any other seeded user accepts any password of 8+ characters. Suspended accounts 
 
 ## Tech stack
 
-| Concern            | Choice                                        |
-| ------------------ | --------------------------------------------- |
-| Build              | Vite                                          |
-| UI                 | React 19, plain CSS with design tokens        |
-| Routing            | react-router v7 (lazy routes, breadcrumbs)    |
-| Server state       | TanStack Query v5                             |
-| Forms              | Custom `useForm` hook + Zod schemas           |
-| Charts             | Hand-rolled SVG (zero dependencies)           |
-| Mock API           | MSW v2 with a seeded JSON database            |
-| Validation         | Zod v4 (shared by forms **and** mock server)  |
-| Testing            | Vitest + Testing Library + msw/node           |
+| Concern      | Choice                                       |
+| ------------ | -------------------------------------------- |
+| Build        | Vite                                         |
+| UI           | React 19, plain CSS with design tokens       |
+| Routing      | react-router v7 (lazy routes, breadcrumbs)   |
+| Server state | TanStack Query v5                            |
+| Forms        | Custom `useForm` hook + Zod schemas          |
+| Charts       | Hand-rolled SVG (zero dependencies)          |
+| Mock API     | MSW v2 with a seeded JSON database           |
+| Validation   | Zod v4 (shared by forms **and** mock server) |
+| Testing      | Vitest + Testing Library + msw/node          |
 
 ## Getting started
 
@@ -51,17 +51,17 @@ Sign in with a demo account above. That's it — no environment variables requir
 
 ## Scripts
 
-| Script              | What it does                                    |
-| ------------------- | ----------------------------------------------- |
-| `npm run dev`       | Start the dev server                            |
-| `npm run build`     | Type-check then production build                |
-| `npm run preview`   | Preview the production build                    |
-| `npm run lint`      | ESLint                                          |
-| `npm run typecheck` | `tsc -b`                                        |
-| `npm run format`    | Prettier write                                  |
-| `npm run test`      | Vitest in watch mode                            |
-| `npm run test:run`  | Vitest once (CI)                                |
-| `npm run seed`      | Regenerate the mock database (`src/data/db`)    |
+| Script              | What it does                                 |
+| ------------------- | -------------------------------------------- |
+| `npm run dev`       | Start the dev server                         |
+| `npm run build`     | Type-check then production build             |
+| `npm run preview`   | Preview the production build                 |
+| `npm run lint`      | ESLint                                       |
+| `npm run typecheck` | `tsc -b`                                     |
+| `npm run format`    | Prettier write                               |
+| `npm run test`      | Vitest in watch mode                         |
+| `npm run test:run`  | Vitest once (CI)                             |
+| `npm run seed`      | Regenerate the mock database (`src/data/db`) |
 
 ## Project structure
 
