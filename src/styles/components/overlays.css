@@ -1,0 +1,215 @@
+/* ==========================================================================
+   Overlays: dialog, dropdown menu, toast
+   ========================================================================== */
+
+/* ----- Dialog ---------------------------------------------------------------- */
+
+.overlay-root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 6vh 16px 16px;
+}
+
+.overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  backdrop-filter: blur(2px);
+  animation: fade-in var(--transition-base);
+}
+
+.dialog {
+  position: relative;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  animation: dialog-in var(--transition-base);
+}
+
+.dialog--sm { max-width: 420px; }
+.dialog--md { max-width: 540px; }
+.dialog--lg { max-width: 720px; }
+
+.dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 22px 0;
+}
+
+.dialog__title {
+  font-size: 1.05rem;
+}
+
+.dialog__description {
+  padding: 4px 22px 0;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.dialog__body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px 22px;
+}
+
+.dialog__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 14px 22px;
+  border-top: 1px solid var(--border);
+  background: var(--subtle);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+/* ----- Dropdown menu ----------------------------------------------------------- */
+
+.dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+.dropdown__menu {
+  position: fixed;
+  z-index: var(--z-dropdown);
+  min-width: 180px;
+  padding: 5px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  animation: dropdown-in 110ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 7px 9px;
+  border-radius: var(--radius-xs);
+  font-size: 0.84rem;
+  color: var(--foreground);
+  text-align: left;
+}
+
+.dropdown__item:hover:not(:disabled),
+.dropdown__item:focus-visible {
+  background: var(--muted);
+  outline: none;
+}
+
+.dropdown__item:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dropdown__item--danger {
+  color: var(--destructive);
+}
+
+.dropdown__item--danger:hover:not(:disabled),
+.dropdown__item--danger:focus-visible {
+  background: var(--destructive-subtle);
+}
+
+.dropdown__item-icon {
+  display: inline-flex;
+  color: var(--muted-foreground);
+}
+
+.dropdown__item--danger .dropdown__item-icon {
+  color: inherit;
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+}
+
+/* ----- Toast ------------------------------------------------------------------------ */
+
+.toast-region {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(360px, calc(100vw - 36px));
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 13px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left-width: 3px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  animation: toast-in var(--transition-base);
+}
+
+.toast--info { border-left-color: var(--info); }
+.toast--success { border-left-color: var(--success); }
+.toast--warning { border-left-color: var(--warning); }
+.toast--error { border-left-color: var(--destructive); }
+
+.toast__icon {
+  display: inline-flex;
+  margin-top: 1px;
+}
+
+.toast--info .toast__icon { color: var(--info); }
+.toast--success .toast__icon { color: var(--success); }
+.toast--warning .toast__icon { color: var(--warning); }
+.toast--error .toast__icon { color: var(--destructive); }
+
+.toast__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.toast__title {
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.toast__description {
+  margin-top: 2px;
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+}

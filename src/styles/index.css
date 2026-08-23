@@ -1,0 +1,11 @@
+/* Entry point for all styles. Import order matters: tokens → base →
+   utilities → components → layout → pages. */
+
+@import './tokens.css';
+@import './base.css';
+@import './utilities.css';
+@import './components/primitives.css';
+@import './components/overlays.css';
+@import './components/data-display.css';
+@import './layout.css';
+@import './pages.css';
