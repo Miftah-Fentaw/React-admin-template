@@ -31,24 +31,24 @@ export const NAV_SECTIONS: NavSection[] = [
   {
     id: 'overview',
     items: [
-      { label: 'Dashboard', to: '/', icon: LayoutDashboard },
-      { label: 'Analytics', to: '/analytics', icon: BarChart3 },
+      { label: 'Dashboard', to: '/dashboard', icon: LayoutDashboard },
+      { label: 'Analytics', to: '/dashboard/analytics', icon: BarChart3 },
     ],
   },
   {
     id: 'management',
     label: 'Management',
     items: [
-      { label: 'Users', to: '/users', icon: Users },
-      { label: 'Products', to: '/products', icon: Package },
-      { label: 'Orders', to: '/orders', icon: ShoppingCart },
-      { label: 'Projects', to: '/projects', icon: FolderKanban },
-      { label: 'Invoices', to: '/invoices', icon: ReceiptText },
+      { label: 'Users', to: '/dashboard/users', icon: Users },
+      { label: 'Products', to: '/dashboard/products', icon: Package },
+      { label: 'Orders', to: '/dashboard/orders', icon: ShoppingCart },
+      { label: 'Projects', to: '/dashboard/projects', icon: FolderKanban },
+      { label: 'Invoices', to: '/dashboard/invoices', icon: ReceiptText },
     ],
   },
   {
     id: 'account',
     label: 'Account',
-    items: [{ label: 'Settings', to: '/settings', icon: Settings }],
+    items: [{ label: 'Settings', to: '/dashboard/settings', icon: Settings }],
   },
 ]
