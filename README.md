@@ -9,7 +9,7 @@ Unlike templates that hard-wire their UI to fake data, Vital Admin follows a bac
 [![React](https://img.shields.io/badge/React-19-61dafb.svg)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-a855f7.svg)](https://vite.dev/)
 
-**[Try the live demo](https://vital-admin-template.vercel.app/)** · **[View the source code on GitHub](https://github.com/Miftah-Fentaw/React-admin-template)**
+**[Try the live demo](https://vital-admin-template.vercel.app/)** 
 
 ## Screenshots
 
