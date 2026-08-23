@@ -10,7 +10,6 @@ import {
 import type { LoginRequest } from '@/models/Auth'
 import type { AuthUser } from '@/models/User'
 import { authService } from '@/services/auth/auth.service'
-import { storage } from '@/services/storage/storage'
 
 type AuthStatus = 'loading' | 'authenticated' | 'unauthenticated'
 
@@ -25,41 +24,39 @@ interface AuthContextValue {
 
 const AuthContext = createContext<AuthContextValue | null>(null)
 
+const DEFAULT_USER: AuthUser = {
+  id: 'usr_0001',
+  name: 'Alex Morgan',
+  email: 'admin@vital.dev',
+  role: 'admin',
+  status: 'active',
+  lastLoginAt: new Date().toISOString(),
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+}
+
 /**
- * Application-wide session state.
- *
- * ⚠️ Demo-grade security only. The token is an opaque mock value stored in
- * localStorage. For production, swap `authService` for your identity
- * provider (JWT refresh flow, httpOnly cookie sessions, OAuth, Supabase,
- * Firebase…) — the UI contract stays identical. See README → Authentication.
+ * Application-wide session state for template mode.
+ * Automatically authenticated with mock user Alex Morgan.
  */
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [status, setStatus] = useState<AuthStatus>('loading')
-  const [user, setUserState] = useState<AuthUser | null>(null)
+  const [status, setStatus] = useState<AuthStatus>('authenticated')
+  const [user, setUserState] = useState<AuthUser | null>(DEFAULT_USER)
 
-  // Restore an existing session on first load.
   useEffect(() => {
     let cancelled = false
 
     const restore = async () => {
-      const hasToken = storage.readSession() !== null
-      if (!hasToken) {
-        setStatus('unauthenticated')
-        return
-      }
       try {
         const profile = await authService.getProfile()
         if (cancelled) return
         if (profile) {
           setUserState(profile)
-          setStatus('authenticated')
-        } else {
-          setStatus('unauthenticated')
         }
       } catch {
-        if (cancelled) return
-        authService.clearSession()
-        setStatus('unauthenticated')
+        if (!cancelled) {
+          setUserState(DEFAULT_USER)
+        }
       }
     }
 
@@ -80,8 +77,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       await authService.logout()
     } finally {
-      setUserState(null)
-      setStatus('unauthenticated')
+      setUserState(DEFAULT_USER)
+      setStatus('authenticated')
     }
   }, [])
 
@@ -93,7 +90,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     () => ({
       status,
       user,
-      isAuthenticated: status === 'authenticated',
+      isAuthenticated: true,
       login,
       logout,
       setUser,
