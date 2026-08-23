@@ -10,24 +10,24 @@
   color-scheme: light;
 
   /* ----- Neutral surfaces ------------------------------------------------ */
-  --background: #f6f7f9;
-  --foreground: #191c20;
+  --background: #f0f2f8;
+  --foreground: #1a1d23;
   --card: #ffffff;
-  --card-foreground: #191c20;
-  --muted: #eef0f3;
-  --muted-foreground: #5c6470;
-  --subtle: #fafbfc;
-  --border: #e3e6ea;
-  --border-strong: #cdd2d9;
+  --card-foreground: #1a1d23;
+  --muted: #eef0f5;
+  --muted-foreground: #6b7280;
+  --subtle: #f8f9fc;
+  --border: #e5e7ef;
+  --border-strong: #cbd0dc;
   --overlay: rgb(15 18 22 / 45%);
 
   /* ----- Brand ----------------------------------------------------------- */
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --primary-active: #3730a3;
+  --primary: #4f6ef7;
+  --primary-hover: #3d5ef0;
+  --primary-active: #2d4ee8;
   --primary-foreground: #ffffff;
-  --primary-subtle: #eef0fe;
-  --primary-subtle-foreground: #4038b8;
+  --primary-subtle: #eef1fe;
+  --primary-subtle-foreground: #3d5ef0;
 
   /* ----- Semantic --------------------------------------------------------- */
   --success: #16803c;
@@ -44,12 +44,12 @@
   --info-subtle: #e6f4fb;
 
   /* ----- Charts ------------------------------------------------------------ */
-  --chart-1: #4f46e5;
-  --chart-2: #0891b2;
-  --chart-3: #9333ea;
-  --chart-4: #d97706;
-  --chart-grid: #e3e6ea;
-  --chart-axis: #5c6470;
+  --chart-1: #4f6ef7;
+  --chart-2: #f97316;
+  --chart-3: #a3b4fb;
+  --chart-4: #fdba74;
+  --chart-grid: #e5e7ef;
+  --chart-axis: #9ca3af;
 
   /* ----- Typography ---------------------------------------------------------- */
   --font-sans:
@@ -59,20 +59,20 @@
     ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
 
   /* ----- Radii ---------------------------------------------------------------- */
-  --radius-xs: 5px;
-  --radius-sm: 7px;
-  --radius-md: 9px;
-  --radius-lg: 12px;
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
   --radius-full: 999px;
 
   /* ----- Shadows ------------------------------------------------------------------ */
-  --shadow-xs: 0 1px 2px rgb(16 20 26 / 5%);
-  --shadow-sm: 0 1px 2px rgb(16 20 26 / 6%), 0 1px 3px rgb(16 20 26 / 8%);
-  --shadow-md: 0 4px 10px -2px rgb(16 20 26 / 10%), 0 2px 4px -2px rgb(16 20 26 / 6%);
-  --shadow-lg: 0 16px 32px -8px rgb(16 20 26 / 18%), 0 4px 8px -4px rgb(16 20 26 / 8%);
+  --shadow-xs: 0 1px 3px rgb(16 20 40 / 5%);
+  --shadow-sm: 0 1px 4px rgb(16 20 40 / 6%), 0 1px 3px rgb(16 20 40 / 4%);
+  --shadow-md: 0 4px 14px -2px rgb(16 20 40 / 8%), 0 2px 4px -2px rgb(16 20 40 / 5%);
+  --shadow-lg: 0 16px 32px -8px rgb(16 20 40 / 14%), 0 4px 8px -4px rgb(16 20 40 / 6%);
 
   /* ----- Focus ring ------------------------------------------------------------- */
-  --ring: #4f46e5;
+  --ring: #4f6ef7;
   --ring-offset: #ffffff;
 
   /* ----- Z-index scale -------------------------------------------------------------- */
@@ -131,9 +131,9 @@
   --info-subtle: #10283a;
 
   --chart-1: #818cf8;
-  --chart-2: #22d3ee;
-  --chart-3: #c084fc;
-  --chart-4: #fbbf24;
+  --chart-2: #fb923c;
+  --chart-3: #c4b5fd;
+  --chart-4: #fcd34d;
   --chart-grid: #262a31;
   --chart-axis: #98a0ac;
 

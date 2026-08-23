@@ -89,9 +89,9 @@
   display: flex;
   align-items: center;
   gap: 11px;
-  height: 34px;
-  padding: 0 9px;
-  border-radius: var(--radius-sm);
+  height: 38px;
+  padding: 0 12px;
+  border-radius: var(--radius-md);
   font-size: 0.86rem;
   font-weight: 450;
   color: var(--muted-foreground);
@@ -112,20 +112,13 @@
 }
 
 .sidebar__link--active {
-  background: var(--primary-subtle);
-  color: var(--primary-subtle-foreground);
-  font-weight: 550;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
 }
 
 .sidebar__link--active::before {
-  content: '';
-  position: absolute;
-  left: -10px;
-  top: 7px;
-  bottom: 7px;
-  width: 3px;
-  border-radius: 0 2px 2px 0;
-  background: var(--primary);
+  display: none;
 }
 
 .sidebar__footer {
@@ -230,18 +223,56 @@
   z-index: var(--z-sticky);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   height: var(--topbar-height);
   padding: 0 20px;
-  background: color-mix(in srgb, var(--background) 82%, transparent);
-  backdrop-filter: blur(10px);
+  background: var(--card);
   border-bottom: 1px solid var(--border);
+}
+
+.topbar__search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.topbar__search-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--muted-foreground);
+  pointer-events: none;
+}
+
+.topbar__search-input {
+  width: 100%;
+  height: 34px;
+  padding: 0 10px 0 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  color: var(--foreground);
+  font-size: 0.82rem;
+  outline: none;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.topbar__search-input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.topbar__search-input:focus {
+  background: var(--card);
+  border-color: var(--ring);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ring) 15%, transparent);
 }
 
 .topbar__actions {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   margin-left: auto;
 }
 
