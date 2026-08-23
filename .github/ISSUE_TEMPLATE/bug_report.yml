@@ -1,0 +1,70 @@
+name: 🐞 Bug report
+description: Report something that is broken or behaves unexpectedly
+labels: ['bug', 'triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the sections
+        below. The more precise the reproduction steps, the faster the fix.
+
+        **Security vulnerabilities must not be reported here** — see [SECURITY.md](../blob/main/SECURITY.md).
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the bug, including console errors if any.
+      placeholder: Clicking "Save changes" on Settings throws `TypeError: …`
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Sign in as admin@vantage.dev
+        2. Go to Settings → Appearance
+        3. Switch theme to Dark → error appears
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which area is affected?
+      options:
+        - Login / auth
+        - Dashboard
+        - Users
+        - Products
+        - Orders
+        - Analytics
+        - Notifications
+        - Settings / theming
+        - Design system (ui components)
+        - Mock API / seed data
+        - Build / tooling / CI
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser + version, OS, Node version if relevant.
+      placeholder: Chrome 126, Ubuntu 24.04, Node 22
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight checks
+      options:
+        - label: I searched existing issues for duplicates
+          required: true
+        - label: I can reproduce this on the latest `main` after a clean `npm ci && npm run dev`
+          required: true

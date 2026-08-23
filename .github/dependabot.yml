@@ -1,0 +1,28 @@
+# Dependabot keeps dependencies fresh — important for a template people clone.
+#
+# Two ecosystems are watched:
+#   - npm: runtime + devDependencies in package.json
+#   - github-actions: the @v4/@v2 action versions pinned inside .github/workflows
+#
+# PRs arrive weekly, grouped by dev/prod so review is one click per group.
+
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      production-dependencies:
+        dependency-type: production
+      development-dependencies:
+        dependency-type: development
+    # The template's stack moves fast (React/Vite majors); cap noisy majors
+    # if you prefer to upgrade deliberately instead of via bot PRs.
+    # open-pull-requests-limit: 5
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

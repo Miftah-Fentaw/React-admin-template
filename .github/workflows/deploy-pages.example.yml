@@ -1,0 +1,85 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# DEMO WORKFLOW — not active. GitHub only picks up *.yml / *.yaml files, and
+# this one ends in `.example` on purpose so it never runs until YOU rename it.
+#
+# What it demonstrates: publishing the built template to GitHub Pages.
+# This works great for Vantage Admin because the mock API is client-side —
+# the whole app runs as a static site.
+#
+# To activate:
+#   1. Rename this file:  deploy-pages.example.yml  →  deploy-pages.yml
+#   2. Repo Settings → Pages → Source: "GitHub Actions"
+#   3. If your repo is NOT named `<user>.github.io`, the site is served from
+#      a subpath (/<repo-name>/). Either:
+#        a) pass --base on the build step (already done below), or
+#        b) set `base` in vite.config.ts permanently.
+#   4. Push to main (or run manually from the Actions tab).
+#
+# Adapt freely for Netlify/Vercel/Cloudflare Pages — those platforms usually
+# only need: install command `npm ci`, build command `npm run build`,
+# output directory `dist`.
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Deploy demo to GitHub Pages
+
+on:
+  # Manual trigger from the Actions tab while you experiment.
+  workflow_dispatch:
+  # Uncomment to deploy automatically on every push to main:
+  # push:
+  #   branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one Pages deployment at a time; don't cancel an in-flight deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The mock database ships in src/data/db/, but regenerate anyway so a
+      # fresh clone always builds.
+      - name: Generate mock database
+        run: npm run seed
+
+      # --base makes asset URLs relative to the Pages subpath.
+      # For a user/organization site (<user>.github.io) you can drop it.
+      - name: Build
+        run: npm run build -- --base=/${{ github.event.repository.name }}/
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

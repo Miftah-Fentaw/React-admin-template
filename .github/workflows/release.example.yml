@@ -1,0 +1,61 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# DEMO WORKFLOW — not active (`.example` extension on purpose).
+#
+# What it demonstrates: cutting a versioned GitHub Release whenever a tag like
+# `v1.2.3` is pushed, attaching the production build as a downloadable asset.
+#
+# To activate:
+#   1. Rename:  release.example.yml  →  release.yml
+#   2. Create and push a tag:
+#        git tag v1.0.0 && git push origin v1.0.0
+#   3. Find the draft release under Repo → Releases; review notes, publish.
+#
+# This demo uses softprops/action-gh-release for publishing. Alternatives to
+# study: `release-drafter` (auto-generated release notes from PR labels) and
+# `changesets` (version-bump PRs for multi-package repos).
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*' # matches v1.0.0, v2.13.7, …
+
+permissions:
+  contents: write # required to create the Release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Never publish an unverified build.
+      - name: Verify (lint + typecheck + tests)
+        run: |
+          npm run lint
+          npm run typecheck
+          npm run test:run
+
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Package dist
+        run: cd dist && zip -r ../vantage-admin-${{ github.ref_name }}.zip .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true # auto-lists commits/PRs since last tag
+          files: vantage-admin-${{ github.ref_name }}.zip

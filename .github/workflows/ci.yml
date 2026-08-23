@@ -1,0 +1,71 @@
+# CI — runs the project's own verification gates on every push/PR.
+#
+# This workflow is ready to use as-is: it only calls npm scripts that already
+# exist in package.json (see "Definition of done" in AGENTS.md).
+#
+#   lint → typecheck → test → build (+ format check)
+#
+# If any step fails, the PR gets a red X — treat that as a review blocker.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Cancel superseded runs on the same branch/PR to save minutes.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        # `npm ci` is deterministic and faster than `npm install` in CI.
+        run: npm ci
+
+      # Regenerates src/data/db/*.json deterministically. Harmless if the
+      # files are committed; required if you choose to gitignore them.
+      - name: Generate mock database
+        run: npm run seed
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm run test:run
+
+      - name: Build
+        run: npm run build
+
+      # Demo artifact upload — inspect the production bundle on every build.
+      # Remove this step if you don't need it.
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
