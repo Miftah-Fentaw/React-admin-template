@@ -3,27 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex" />
+    <title>Vital Admin — Free Open-Source React Admin Template</title>
     <meta
       name="description"
-      content="Vital Admin — a production-ready React + TypeScript admin template with a mock API layer, dark mode, and a fully typed architecture."
+      content="Vital Admin is a free, open-source React admin template built with TypeScript and Vite — responsive dashboards, dark mode, and a mock API you can swap for any backend."
     />
+    <link rel="canonical" href="https://vital-admin-template.vercel.app/" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1115" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Vital Admin — React Admin Template" />
+    <meta property="og:site_name" content="Vital Admin" />
+    <meta property="og:url" content="https://vital-admin-template.vercel.app/" />
+    <meta
+      property="og:title"
+      content="Vital Admin — Free & Open-Source React Admin Template"
+    />
     <meta
       property="og:description"
-      content="Production-ready React + TypeScript admin template with a swappable mock API layer."
+      content="A free, open-source React admin template built with TypeScript and Vite. Responsive dashboard pages, dark mode, charts, and a swappable MSW mock API."
     />
+    <meta
+      property="og:image"
+      content="https://vital-admin-template.vercel.app/preview.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="Vital Admin — Free & Open-Source React Admin Template"
+    />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="935" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Vital Admin — Free & Open-Source React Admin Template"
+    />
+    <meta
+      name="twitter:description"
+      content="A free, open-source React admin template built with TypeScript and Vite. Responsive dashboards, dark mode, and a swappable mock API."
+    />
+    <meta
+      name="twitter:image"
+      content="https://vital-admin-template.vercel.app/preview.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Vital Admin — Free & Open-Source React Admin Template"
+    />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Vital Admin · React Admin Template</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://vital-admin-template.vercel.app/#website",
+            "url": "https://vital-admin-template.vercel.app/",
+            "name": "Vital Admin",
+            "description": "Free, open-source React admin template built with TypeScript and Vite.",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://github.com/Miftah-Fentaw" }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://vital-admin-template.vercel.app/#app",
+            "name": "Vital Admin",
+            "url": "https://vital-admin-template.vercel.app/",
+            "image": "https://vital-admin-template.vercel.app/preview.png",
+            "description": "Free, open-source React admin template built with TypeScript and Vite. Provides a production-oriented foundation for admin dashboards, SaaS applications, CRM systems, analytics platforms, ecommerce dashboards, and internal tools.",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Web",
+            "isAccessibleForFree": true,
+            "license": "https://github.com/Miftah-Fentaw/React-admin-template/blob/main/LICENSE",
+            "author": {
+              "@type": "Person",
+              "name": "Miftah-Fentaw",
+              "url": "https://github.com/Miftah-Fentaw"
+            },
+            "sameAs": ["https://github.com/Miftah-Fentaw/React-admin-template"]
+          }
+        ]
+      }
+    </script>
+
     <script>
       // Apply the persisted theme before first paint to avoid a flash of the
       // wrong color scheme. Mirrors the logic in src/app/providers/ThemeProvider.tsx
       ;(function () {
         try {
-          var stored = localStorage.getItem('vital.theme') || localStorage.getItem('vantage.theme')
+          var stored =
+            localStorage.getItem('vital.theme') || localStorage.getItem('vantage.theme')
           var theme =
             stored === 'light' || stored === 'dark' || stored === 'system'
               ? stored
