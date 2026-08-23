@@ -90,6 +90,10 @@ Other seeded users accept **any password ≥ 8 chars**. Suspended users get HTTP
 ├── AGENTS.md                     ← this file
 ├── README.md                     ← human docs incl. backend-swap guide
 ├── LICENSE                       ← MIT
+├── CONTRIBUTION.md               ← contributing guide (gates, PR conventions)
+├── CODE_OF_CONDUCT.md            ← Contributor Covenant v2.1
+├── SECURITY.md                   ← security policy + mock-API scope notes
+├── .github/                      ← CI (active) + demo deploy/release workflows, issue/PR templates, dependabot — see .github/README.md
 ├── index.html                    ← inline pre-paint theme script (localStorage key 'vantage.theme')
 ├── vite.config.ts / vitest.config.ts / tsconfig.app.json / eslint.config.js / prettier.config.js
 ├── scripts/generate-db.mjs       ← deterministic seed generator → src/data/db/*.json
@@ -325,7 +329,9 @@ Import order matters (`styles/index.css`): `tokens → base → utilities → co
 
 All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 20/20 across 4 files ✓ · `vite build` ✓ (pages code-split per route).
 
-**Complete:** auth/session/401 handling · dashboard · users CRUD + detail · products CRUD + detail · orders list/detail + status updates · analytics overview · notifications panel · settings (profile + theme) · full mock API + seed script · design system · dark/light/system theming · README/LICENSE · route error boundary · tests.
+**Complete:** auth/session/401 handling · dashboard (education-focused UI redesign) · users CRUD + detail · products CRUD + detail · orders list/detail + status updates · analytics overview · notifications panel · settings (profile + theme) · full mock API + seed script · design system · dark/light/system theming · README/LICENSE/CONTRIBUTION/CODE_OF_CONDUCT/SECURITY docs · route error boundary · tests · `.github/` CI (active `ci.yml`) + demo deploy/release workflows + issue/PR templates + dependabot.
+
+**Dashboard redesign (added):** KPI cards with inline sparklines (Students, Teachers, Programs) · Top Programs donut chart with center label · Total Children stacked area chart (Infant/Toddler/School Age) · Program cards with cover images and session details · Revenue bar chart with 1st/2nd biannually period toggle · Messages panel with Add Message CTA · Student list with search, edit/delete action buttons · Calendar widget (monthly grid, today highlight, event dots, prev/next navigation) · Schedule section with colored date badges · Three-column layout (main content + right sidebar). New mock endpoints: `GET /dashboard/programs`, `GET /dashboard/messages`, `GET /dashboard/schedule`.
 
 **Known remaining ideas / backlog (none blocking):**
 - Error boundary exists but there is no per-feature Suspense error boundary inside AdminLayout.
@@ -334,6 +340,8 @@ All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 20/20 across 4 files ✓
 - `public/icons.svg` is unused legacy — candidate for deletion after verifying.
 - Accessibility audit beyond the built-ins (screen-reader pass) not performed.
 - Prettier formatting was applied once; keep `format:check` green going forward.
+- Student list "Parent" column uses user email as a stand-in; real data would have a dedicated parent field.
+- "Add Message" and student edit/delete actions are placeholder toasts; no backend mutation yet.
 
 ---
 
