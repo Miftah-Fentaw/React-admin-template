@@ -18,12 +18,12 @@ export function UserMenu() {
     {
       label: 'Profile settings',
       icon: <UserRound size={15} aria-hidden="true" />,
-      onSelect: () => void navigate('/settings'),
+      onSelect: () => void navigate('/dashboard/settings'),
     },
     {
       label: 'Preferences',
       icon: <Settings size={15} aria-hidden="true" />,
-      onSelect: () => void navigate('/settings'),
+      onSelect: () => void navigate('/dashboard/settings'),
     },
     {
       label: 'Sign out',
