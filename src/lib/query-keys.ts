@@ -3,8 +3,10 @@
  * Keeping keys here avoids typos and makes invalidation predictable.
  */
 import type { AnalyticsRange } from '@/models/Analytics'
+import type { InvoicesQuery } from '@/models/Invoice'
 import type { OrdersQuery } from '@/models/Order'
 import type { ProductsQuery } from '@/models/Product'
+import type { ProjectsQuery } from '@/models/Project'
 import type { UsersQuery } from '@/models/User'
 
 export const queryKeys = {
@@ -43,5 +45,17 @@ export const queryKeys = {
     all: ['orders'] as const,
     list: (query: OrdersQuery) => [...queryKeys.orders.all, 'list', query] as const,
     detail: (id: string) => [...queryKeys.orders.all, 'detail', id] as const,
+  },
+
+  projects: {
+    all: ['projects'] as const,
+    list: (query: ProjectsQuery) => [...queryKeys.projects.all, 'list', query] as const,
+    detail: (id: string) => [...queryKeys.projects.all, 'detail', id] as const,
+  },
+
+  invoices: {
+    all: ['invoices'] as const,
+    list: (query: InvoicesQuery) => [...queryKeys.invoices.all, 'list', query] as const,
+    detail: (id: string) => [...queryKeys.invoices.all, 'detail', id] as const,
   },
 } as const
