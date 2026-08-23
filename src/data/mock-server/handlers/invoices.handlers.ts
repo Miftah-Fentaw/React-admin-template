@@ -25,7 +25,7 @@ const SORTABLE_FIELDS = [
 
 export const invoicesHandlers = [
   // GET /api/invoices — paginated, searchable, filterable, sortable list
-  http.get('http://*/api/invoices', async ({ request }) => {
+  http.get('*/api/invoices', async ({ request }) => {
     await latency()
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -46,7 +46,7 @@ export const invoicesHandlers = [
   }),
 
   // PATCH /api/invoices/:id — status transition
-  http.patch('http://*/api/invoices/:id', async ({ request, params }) => {
+  http.patch('*/api/invoices/:id', async ({ request, params }) => {
     await latency(200, 500)
     if (!getAuthUserId(request)) return unauthorized()
 
