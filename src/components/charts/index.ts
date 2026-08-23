@@ -1,4 +1,6 @@
 export { AreaChart } from './AreaChart'
 export { BarChart } from './BarChart'
+export { GroupedBarChart, zipToGrouped } from './GroupedBarChart'
+export type { GroupedSeriesPoint, GroupedBarChartProps } from './GroupedBarChart'
 export { DonutChart } from './DonutChart'
 export type { DonutSegment } from './DonutChart'
