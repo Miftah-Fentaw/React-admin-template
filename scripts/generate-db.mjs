@@ -50,36 +50,116 @@ const daysAgo = (d) => new Date(NOW.getTime() - d * DAY).toISOString()
 // Users
 // ---------------------------------------------------------------------------
 const FIRST_NAMES = [
-  'Amara', 'Liam', 'Sofia', 'Noah', 'Priya', 'Ethan', 'Maya', 'Lucas',
-  'Zoe', 'Marcus', 'Elena', 'David', 'Ingrid', 'Omar', 'Freya', 'Victor',
-  'Naomi', 'Felix', 'Clara', 'Jonas', 'Aisha', 'Theo', 'Rosa', 'Henrik',
-  'Leila', 'Marco', 'Nina', 'Oscar', 'Petra', 'Quinn', 'Rania', 'Simon',
-  'Tara', 'Umar', 'Vera', 'Wren', 'Xavier', 'Yuki', 'Zara', 'Adrian',
-  'Bianca', 'Caleb', 'Dalia', 'Emil',
+  'Amara',
+  'Liam',
+  'Sofia',
+  'Noah',
+  'Priya',
+  'Ethan',
+  'Maya',
+  'Lucas',
+  'Zoe',
+  'Marcus',
+  'Elena',
+  'David',
+  'Ingrid',
+  'Omar',
+  'Freya',
+  'Victor',
+  'Naomi',
+  'Felix',
+  'Clara',
+  'Jonas',
+  'Aisha',
+  'Theo',
+  'Rosa',
+  'Henrik',
+  'Leila',
+  'Marco',
+  'Nina',
+  'Oscar',
+  'Petra',
+  'Quinn',
+  'Rania',
+  'Simon',
+  'Tara',
+  'Umar',
+  'Vera',
+  'Wren',
+  'Xavier',
+  'Yuki',
+  'Zara',
+  'Adrian',
+  'Bianca',
+  'Caleb',
+  'Dalia',
+  'Emil',
 ]
 const LAST_NAMES = [
-  'Chen', 'Novak', 'Silva', 'Okafor', 'Bergstrom', 'Tanaka', 'Kowalski',
-  'Rossi', 'Haddad', 'Nilsson', 'Dupont', 'Garcia', 'Muller', 'Petrov',
-  'Kimura', 'Andersen', 'Costa', 'Vargas', 'Lindqvist', 'Moreau', 'Ibrahim',
-  'Novotna', 'Sato', 'Weber', 'Ferreira', 'Jansen', 'Okoye', 'Reyes',
-  'Sorensen', 'Vance',
+  'Chen',
+  'Novak',
+  'Silva',
+  'Okafor',
+  'Bergstrom',
+  'Tanaka',
+  'Kowalski',
+  'Rossi',
+  'Haddad',
+  'Nilsson',
+  'Dupont',
+  'Garcia',
+  'Muller',
+  'Petrov',
+  'Kimura',
+  'Andersen',
+  'Costa',
+  'Vargas',
+  'Lindqvist',
+  'Moreau',
+  'Ibrahim',
+  'Novotna',
+  'Sato',
+  'Weber',
+  'Ferreira',
+  'Jansen',
+  'Okoye',
+  'Reyes',
+  'Sorensen',
+  'Vance',
 ]
 const EMAIL_DOMAINS = [
-  'gmail.com', 'outlook.com', 'proton.me', 'vantagehq.dev',
-  'northwind.io', 'brightlab.co', 'orbitworks.app', 'quillsoft.dev',
+  'gmail.com',
+  'outlook.com',
+  'proton.me',
+  'vantagehq.dev',
+  'northwind.io',
+  'brightlab.co',
+  'orbitworks.app',
+  'quillsoft.dev',
 ]
 
 function slugifyEmail(name) {
   const ascii = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-  return ascii.toLowerCase().replace(/[^a-z ]/g, '').trim().replace(/\s+/g, '.')
+  return ascii
+    .toLowerCase()
+    .replace(/[^a-z ]/g, '')
+    .trim()
+    .replace(/\s+/g, '.')
 }
 
 function generateUsers() {
   const usedEmails = new Set()
   const roles = [
-    ['admin', 2], ['manager', 6], ['member', 22], ['viewer', 12],
+    ['admin', 2],
+    ['manager', 6],
+    ['member', 22],
+    ['viewer', 12],
   ]
-  const statuses = [['active', 30], ['invited', 5], ['suspended', 3]]
+  const statuses = [
+    ['active', 30],
+    ['invited', 5],
+    ['suspended', 3],
+  ]
 
   const pinned = [
     {
@@ -138,33 +218,48 @@ function generateUsers() {
 // ---------------------------------------------------------------------------
 const PRODUCT_WORDS = {
   electronics: [
-    ['Aurora', 'Wireless Headphones'], ['Nimbus', 'Mechanical Keyboard'],
-    ['Vertex', '4K Monitor'], ['Pulse', 'Smart Speaker'],
-    ['Orbit', 'USB-C Dock'], ['Flux', 'Portable Charger'],
-    ['Echo', 'Noise Meter'], ['Halo', 'Webcam Pro'],
+    ['Aurora', 'Wireless Headphones'],
+    ['Nimbus', 'Mechanical Keyboard'],
+    ['Vertex', '4K Monitor'],
+    ['Pulse', 'Smart Speaker'],
+    ['Orbit', 'USB-C Dock'],
+    ['Flux', 'Portable Charger'],
+    ['Echo', 'Noise Meter'],
+    ['Halo', 'Webcam Pro'],
   ],
   furniture: [
-    ['Meridian', 'Standing Desk'], ['Atlas', 'Office Chair'],
-    ['Summit', 'Bookshelf'], ['Harbor', 'Coffee Table'],
-    ['Ridge', 'Desk Lamp'], ['Cove', 'Lounge Chair'],
+    ['Meridian', 'Standing Desk'],
+    ['Atlas', 'Office Chair'],
+    ['Summit', 'Bookshelf'],
+    ['Harbor', 'Coffee Table'],
+    ['Ridge', 'Desk Lamp'],
+    ['Cove', 'Lounge Chair'],
   ],
   apparel: [
-    ['Trailblaze', 'Merino Hoodie'], ['Northline', 'Rain Shell'],
-    ['Fieldkit', 'Canvas Tote'], ['Drift', 'Linen Shirt'],
+    ['Trailblaze', 'Merino Hoodie'],
+    ['Northline', 'Rain Shell'],
+    ['Fieldkit', 'Canvas Tote'],
+    ['Drift', 'Linen Shirt'],
     ['Basalt', 'Chino Pants'],
   ],
   stationery: [
-    ['Inkwell', 'Fountain Pen'], ['Gridpaper', 'Notebook A5'],
-    ['Stalwart', 'Desk Organizer'], ['Quillsoft', 'Marker Set'],
+    ['Inkwell', 'Fountain Pen'],
+    ['Gridpaper', 'Notebook A5'],
+    ['Stalwart', 'Desk Organizer'],
+    ['Quillsoft', 'Marker Set'],
   ],
   home: [
-    ['Hearthstone', 'Ceramic Mug Set'], ['Willow', 'Throw Blanket'],
-    ['Terrace', 'Plant Pot'], ['Lumen', 'Table Lamp'],
+    ['Hearthstone', 'Ceramic Mug Set'],
+    ['Willow', 'Throw Blanket'],
+    ['Terrace', 'Plant Pot'],
+    ['Lumen', 'Table Lamp'],
     ['Cascade', 'Water Bottle'],
   ],
   sports: [
-    ['Velocity', 'Yoga Mat'], ['Summitline', 'Insulated Bottle'],
-    ['Kinetic', 'Resistance Bands'], ['Stride', 'Running Belt'],
+    ['Velocity', 'Yoga Mat'],
+    ['Summitline', 'Insulated Bottle'],
+    ['Kinetic', 'Resistance Bands'],
+    ['Stride', 'Running Belt'],
     ['Apex', 'Dumbbell Set'],
   ],
 }
@@ -189,9 +284,18 @@ function generateProducts() {
         sku: `VN-${category.slice(0, 2).toUpperCase()}-${n}`,
         description: `The ${brand} ${item.toLowerCase()} is part of our ${category} range, built for everyday reliability.`,
         category,
-        price: Math.round((lo + rand() * (hi - lo)) * 10 ** 2 - 0.01 + Number.EPSILON) / 100,
-        inventory: weighted([[int(0, 0), 1], [int(1, 25), 2], [int(26, 240), 7]]),
-        status: weighted([['active', 16], ['draft', 2], ['archived', 2]]),
+        price:
+          Math.round((lo + rand() * (hi - lo)) * 10 ** 2 - 0.01 + Number.EPSILON) / 100,
+        inventory: weighted([
+          [int(0, 0), 1],
+          [int(1, 25), 2],
+          [int(26, 240), 7],
+        ]),
+        status: weighted([
+          ['active', 16],
+          ['draft', 2],
+          ['archived', 2],
+        ]),
         createdAt: daysAgo(int(30, 700)),
         updatedAt: daysAgo(int(0, 29)),
       })
@@ -225,7 +329,8 @@ function generateOrders(products) {
       unitPrice: product.price,
     }))
     const subtotal =
-      Math.round(items.reduce((sum, it) => sum + it.quantity * it.unitPrice, 0) * 100) / 100
+      Math.round(items.reduce((sum, it) => sum + it.quantity * it.unitPrice, 0) * 100) /
+      100
     const shipping = subtotal > 150 ? 0 : pick([4.99, 9.99, 12.5])
     const tax = Math.round(subtotal * 0.08 * 100) / 100
 
@@ -233,14 +338,32 @@ function generateOrders(products) {
     const ageRatio = placedDaysAgo / 120
     const status =
       rand() < 0.75 - ageRatio * 0.55
-        ? weighted([['pending', 3], ['processing', 3], ['shipped', 2]])
-        : weighted([['delivered', 6], ['shipped', 3], ['cancelled', 1]])
+        ? weighted([
+            ['pending', 3],
+            ['processing', 3],
+            ['shipped', 2],
+          ])
+        : weighted([
+            ['delivered', 6],
+            ['shipped', 3],
+            ['cancelled', 1],
+          ])
     const paymentStatus =
       status === 'cancelled'
-        ? weighted([['refunded', 3], ['failed', 2]])
+        ? weighted([
+            ['refunded', 3],
+            ['failed', 2],
+          ])
         : status === 'pending'
-          ? weighted([['pending', 3], ['paid', 2]])
-          : weighted([['paid', 9], ['pending', 1], ['refunded', 1]])
+          ? weighted([
+              ['pending', 3],
+              ['paid', 2],
+            ])
+          : weighted([
+              ['paid', 9],
+              ['pending', 1],
+              ['refunded', 1],
+            ])
 
     const customerName = CUSTOMER_NAMES[n % CUSTOMER_NAMES.length]
     orders.push({
@@ -340,8 +463,11 @@ function generateActivity(users, products, orders) {
       id: `act_${String(i + 1).padStart(4, '0')}`,
       actorName: pick(actors),
       action: weighted([
-        ['created', 3], ['updated', 4], ['deleted', 1],
-        ['signed_in', 2], ['placed_order', 3],
+        ['created', 3],
+        ['updated', 4],
+        ['deleted', 1],
+        ['signed_in', 2],
+        ['placed_order', 3],
       ]),
       target: target(),
       createdAt: daysAgo(i * 0.28),
