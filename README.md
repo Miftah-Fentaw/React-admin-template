@@ -1,5 +1,5 @@
-# Vital Admin
-
+# Vital Admin Template
+   
 Vital Admin is a **free, open-source React admin template** built with **TypeScript** and **Vite**. It provides a production-oriented foundation for **responsive admin dashboards**, SaaS applications, CRM systems, analytics platforms, ecommerce dashboards, and internal tools.
 
 Unlike templates that hard-wire their UI to fake data, Vital Admin follows a backend-oriented architecture: every feature talks to the API through its own service module, so you can replace the bundled mock API with your real backend **without rewriting the UI**.
