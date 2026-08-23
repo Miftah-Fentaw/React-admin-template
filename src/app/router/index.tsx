@@ -45,6 +45,16 @@ const OrderDetailPage = lazy(() =>
     default: m.OrderDetailPage,
   })),
 )
+const ProjectsPage = lazy(() =>
+  import('@/features/projects/pages/ProjectsPage').then((m) => ({
+    default: m.ProjectsPage,
+  })),
+)
+const InvoicesPage = lazy(() =>
+  import('@/features/invoices/pages/InvoicesPage').then((m) => ({
+    default: m.InvoicesPage,
+  })),
+)
 const SettingsPage = lazy(() =>
   import('@/features/settings/pages/SettingsPage').then((m) => ({
     default: m.SettingsPage,
@@ -173,6 +183,24 @@ export const router = createBrowserRouter([
                 ),
               },
             ],
+          },
+          {
+            path: 'projects',
+            element: (
+              <Suspense fallback={<PageFallback />}>
+                <ProjectsPage />
+              </Suspense>
+            ),
+            handle: { crumb: 'Projects' },
+          },
+          {
+            path: 'invoices',
+            element: (
+              <Suspense fallback={<PageFallback />}>
+                <InvoicesPage />
+              </Suspense>
+            ),
+            handle: { crumb: 'Invoices' },
           },
           {
             path: 'settings',
