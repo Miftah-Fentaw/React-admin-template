@@ -6,24 +6,24 @@
     <meta name="robots" content="noindex" />
     <meta
       name="description"
-      content="Vantage Admin — a production-ready React + TypeScript admin template with a mock API layer, dark mode, and a fully typed architecture."
+      content="Vital Admin — a production-ready React + TypeScript admin template with a mock API layer, dark mode, and a fully typed architecture."
     />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1115" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Vantage Admin — React Admin Template" />
+    <meta property="og:title" content="Vital Admin — React Admin Template" />
     <meta
       property="og:description"
       content="Production-ready React + TypeScript admin template with a swappable mock API layer."
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Vantage Admin · React Admin Template</title>
+    <title>Vital Admin · React Admin Template</title>
     <script>
       // Apply the persisted theme before first paint to avoid a flash of the
       // wrong color scheme. Mirrors the logic in src/app/providers/ThemeProvider.tsx
       ;(function () {
         try {
-          var stored = localStorage.getItem('vantage.theme')
+          var stored = localStorage.getItem('vital.theme') || localStorage.getItem('vantage.theme')
           var theme =
             stored === 'light' || stored === 'dark'
               ? stored
