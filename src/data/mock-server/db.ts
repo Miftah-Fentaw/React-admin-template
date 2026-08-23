@@ -1,7 +1,9 @@
 import type { AppNotification } from '@/models/Notification'
 import type { ActivityEvent } from '@/models/Dashboard'
+import type { Invoice } from '@/models/Invoice'
 import type { Order } from '@/models/Order'
 import type { Product } from '@/models/Product'
+import type { Project } from '@/models/Project'
 import type { User } from '@/models/User'
 
 /**
@@ -17,6 +19,8 @@ import type { User } from '@/models/User'
 import usersSeed from '@/data/db/users.json'
 import productsSeed from '@/data/db/products.json'
 import ordersSeed from '@/data/db/orders.json'
+import projectsSeed from '@/data/db/projects.json'
+import invoicesSeed from '@/data/db/invoices.json'
 import notificationsSeed from '@/data/db/notifications.json'
 import activitySeed from '@/data/db/activity.json'
 
@@ -29,6 +33,8 @@ export const db = {
   users: usersSeed as unknown as User[],
   products: productsSeed as unknown as Product[],
   orders: ordersSeed as unknown as Order[],
+  projects: projectsSeed as unknown as Project[],
+  invoices: invoicesSeed as unknown as Invoice[],
   notifications: notificationsSeed as unknown as AppNotification[],
   activity: activitySeed as unknown as ActivityEvent[],
 
@@ -42,6 +48,8 @@ export const db = {
     db.users = usersSeed as unknown as User[]
     db.products = productsSeed as unknown as Product[]
     db.orders = ordersSeed as unknown as Order[]
+    db.projects = projectsSeed as unknown as Project[]
+    db.invoices = invoicesSeed as unknown as Invoice[]
     db.notifications = notificationsSeed as unknown as AppNotification[]
     db.activity = activitySeed as unknown as ActivityEvent[]
     seq = 10_000
