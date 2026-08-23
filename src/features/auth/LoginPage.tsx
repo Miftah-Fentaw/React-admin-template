@@ -59,7 +59,7 @@ export function LoginPage() {
   }
 
   return (
-    <div className="login-page">
+    <div className="login-page" data-theme="light">
       <div className="login-page__left">
         <div className="login-card">
           <div className="login-card__brand">

@@ -4,11 +4,31 @@
 
 /* ----- Login ------------------------------------------------------------------------ */
 
-.login-page {
+.login-page,
+[data-theme='dark'] .login-page {
+  color-scheme: light;
+  --background: #f0f2f8;
+  --foreground: #1a1d23;
+  --card: #ffffff;
+  --card-foreground: #1a1d23;
+  --muted: #eef0f5;
+  --muted-foreground: #6b7280;
+  --subtle: #f8f9fc;
+  --border: #e5e7ef;
+  --border-strong: #cbd0dc;
+  --primary: #4f6ef7;
+  --primary-hover: #3d5ef0;
+  --primary-active: #2d4ee8;
+  --primary-foreground: #ffffff;
+  --primary-subtle: #eef1fe;
+  --primary-subtle-foreground: #3d5ef0;
+  --destructive: #dc2626;
+  --ring: #4f6ef7;
   display: flex;
   min-height: 100dvh;
   width: 100%;
   background: var(--background);
+  color: var(--foreground);
 }
 
 .login-page__left {

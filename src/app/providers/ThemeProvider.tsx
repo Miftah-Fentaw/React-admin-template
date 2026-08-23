@@ -41,10 +41,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const stored = window.localStorage.getItem(STORAGE_KEYS.theme)
     return stored === 'light' || stored === 'dark' || stored === 'system'
       ? stored
-      : 'system'
+      : 'light'
   })
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() =>
-    preference === 'system' ? systemTheme() : preference,
+    preference === 'system' ? 'light' : preference,
   )
 
   useEffect(() => {
