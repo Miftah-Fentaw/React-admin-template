@@ -1,0 +1,147 @@
+/* ==========================================================================
+   Vantage Admin — Design Tokens
+   --------------------------------------------------------------------------
+   Every color, radius, shadow and font in the app resolves to one of the
+   semantic tokens declared here. Rebrand the entire template by editing this
+   file only. Components must never hardcode hex values.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* ----- Neutral surfaces ------------------------------------------------ */
+  --background: #f6f7f9;
+  --foreground: #191c20;
+  --card: #ffffff;
+  --card-foreground: #191c20;
+  --muted: #eef0f3;
+  --muted-foreground: #5c6470;
+  --subtle: #fafbfc;
+  --border: #e3e6ea;
+  --border-strong: #cdd2d9;
+  --overlay: rgb(15 18 22 / 45%);
+
+  /* ----- Brand ----------------------------------------------------------- */
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-active: #3730a3;
+  --primary-foreground: #ffffff;
+  --primary-subtle: #eef0fe;
+  --primary-subtle-foreground: #4038b8;
+
+  /* ----- Semantic --------------------------------------------------------- */
+  --success: #16803c;
+  --success-foreground: #ffffff;
+  --success-subtle: #e8f6ee;
+  --warning: #b45309;
+  --warning-foreground: #ffffff;
+  --warning-subtle: #fdf3e3;
+  --destructive: #dc2626;
+  --destructive-hover: #b91c1c;
+  --destructive-foreground: #ffffff;
+  --destructive-subtle: #fdecec;
+  --info: #0369a1;
+  --info-subtle: #e6f4fb;
+
+  /* ----- Charts ------------------------------------------------------------ */
+  --chart-1: #4f46e5;
+  --chart-2: #0891b2;
+  --chart-3: #9333ea;
+  --chart-4: #d97706;
+  --chart-grid: #e3e6ea;
+  --chart-axis: #5c6470;
+
+  /* ----- Typography ---------------------------------------------------------- */
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-mono:
+    ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
+
+  /* ----- Radii ---------------------------------------------------------------- */
+  --radius-xs: 5px;
+  --radius-sm: 7px;
+  --radius-md: 9px;
+  --radius-lg: 12px;
+  --radius-full: 999px;
+
+  /* ----- Shadows ------------------------------------------------------------------ */
+  --shadow-xs: 0 1px 2px rgb(16 20 26 / 5%);
+  --shadow-sm: 0 1px 2px rgb(16 20 26 / 6%), 0 1px 3px rgb(16 20 26 / 8%);
+  --shadow-md: 0 4px 10px -2px rgb(16 20 26 / 10%), 0 2px 4px -2px rgb(16 20 26 / 6%);
+  --shadow-lg: 0 16px 32px -8px rgb(16 20 26 / 18%), 0 4px 8px -4px rgb(16 20 26 / 8%);
+
+  /* ----- Focus ring ------------------------------------------------------------- */
+  --ring: #4f46e5;
+  --ring-offset: #ffffff;
+
+  /* ----- Z-index scale -------------------------------------------------------------- */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+
+  /* ----- Layout ------------------------------------------------------------------------ */
+  --sidebar-width: 260px;
+  --sidebar-width-collapsed: 68px;
+  --topbar-height: 60px;
+
+  /* ----- Motion ------------------------------------------------------------------------- */
+  --transition-fast: 120ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-base: 180ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ---------------------------------------------------------------------------
+   Dark theme — applied via <html data-theme="dark">
+   --------------------------------------------------------------------------- */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --background: #0f1115;
+  --foreground: #e8eaee;
+  --card: #16181d;
+  --card-foreground: #e8eaee;
+  --muted: #1e2127;
+  --muted-foreground: #98a0ac;
+  --subtle: #131519;
+  --border: #262a31;
+  --border-strong: #363b44;
+  --overlay: rgb(0 0 0 / 60%);
+
+  --primary: #818cf8;
+  --primary-hover: #93a1fd;
+  --primary-active: #a5b0fd;
+  --primary-foreground: #17123a;
+  --primary-subtle: #232547;
+  --primary-subtle-foreground: #b6befd;
+
+  --success: #4ade80;
+  --success-foreground: #052e14;
+  --success-subtle: #12291b;
+  --warning: #fbbf24;
+  --warning-foreground: #331c00;
+  --warning-subtle: #2d2110;
+  --destructive: #f87171;
+  --destructive-hover: #fca5a5;
+  --destructive-foreground: #340a0a;
+  --destructive-subtle: #301417;
+  --info: #38bdf8;
+  --info-subtle: #10283a;
+
+  --chart-1: #818cf8;
+  --chart-2: #22d3ee;
+  --chart-3: #c084fc;
+  --chart-4: #fbbf24;
+  --chart-grid: #262a31;
+  --chart-axis: #98a0ac;
+
+  --shadow-xs: 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 45%);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 50%);
+  --shadow-lg: 0 16px 40px -8px rgb(0 0 0 / 60%);
+
+  --ring: #818cf8;
+  --ring-offset: #0f1115;
+}
