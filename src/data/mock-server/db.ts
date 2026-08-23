@@ -24,7 +24,7 @@ import invoicesSeed from '@/data/db/invoices.json'
 import notificationsSeed from '@/data/db/notifications.json'
 import activitySeed from '@/data/db/activity.json'
 
-/** The account behind the pinned demo login `admin@vantage.dev`. */
+/** The account behind the pinned demo login `admin@vital.dev`. */
 export const ADMIN_ID = 'usr_0001'
 
 let seq = 10_000

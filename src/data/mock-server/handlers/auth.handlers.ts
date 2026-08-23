@@ -10,8 +10,8 @@ import { getAuthUserId, jsonError, latency, unauthorized } from '../utils'
  * can sign in as different roles.
  */
 const DEMO_ACCOUNTS = [
-  { email: 'admin@vantage.dev', password: 'admin123' },
-  { email: 'manager@vantage.dev', password: 'manager123' },
+  { email: 'admin@vital.dev', password: 'admin123' },
+  { email: 'manager@vital.dev', password: 'manager123' },
 ]
 
 const INVALID_CREDENTIALS = () =>

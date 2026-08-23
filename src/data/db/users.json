@@ -2,14 +2,14 @@
   {
     "id": "usr_0001",
     "name": "Alex Morgan",
-    "email": "admin@vantage.dev",
+    "email": "admin@vital.dev",
     "role": "admin",
     "status": "active"
   },
   {
     "id": "usr_0002",
     "name": "Jordan Lee",
-    "email": "manager@vantage.dev",
+    "email": "manager@vital.dev",
     "role": "manager",
     "status": "active"
   },
