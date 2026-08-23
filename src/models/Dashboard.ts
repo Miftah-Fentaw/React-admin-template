@@ -4,7 +4,14 @@
  */
 
 export interface Kpi {
-  id: 'revenue' | 'orders' | 'customers' | 'conversion' | 'students' | 'teachers' | 'programs'
+  id:
+    | 'revenue'
+    | 'orders'
+    | 'customers'
+    | 'conversion'
+    | 'students'
+    | 'teachers'
+    | 'programs'
   label: string
   value: number
   format: 'currency' | 'number' | 'percent'
