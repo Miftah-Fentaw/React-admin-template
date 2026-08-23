@@ -38,7 +38,7 @@ export function ProductDetailPage() {
       />
 
       <div className="detail-header">
-        <Button variant="ghost" size="sm" onClick={() => navigate('/products')}>
+        <Button variant="ghost" size="sm" onClick={() => navigate('/dashboard/products')}>
           <ArrowLeft size={15} aria-hidden="true" />
           Back to products
         </Button>
@@ -60,7 +60,7 @@ export function ProductDetailPage() {
           <ErrorState
             title="Product not found"
             message="This product may have been deleted."
-            onRetry={() => navigate('/products')}
+            onRetry={() => navigate('/dashboard/products')}
           />
         ) : (
           <ErrorState

@@ -150,10 +150,10 @@ export function LandingPage() {
             <p className="landing__eyebrow">Open source · MIT licensed</p>
             <h1 className="landing__title">Free Open-Source React Admin Template</h1>
             <p className="landing__lede">
-              Vital Admin is a free, open-source admin template built with TypeScript and Vite. It
-              gives you a production-oriented React dashboard — users, products, orders, projects,
-              invoices, and analytics — backed by a swappable mock API so every page works before
-              you connect a backend.
+              Vital Admin is a free, open-source admin template built with TypeScript and
+              Vite. It gives you a production-oriented React dashboard — users, products,
+              orders, projects, invoices, and analytics — backed by a swappable mock API
+              so every page works before you connect a backend.
             </p>
             <div className="landing__actions">
               <Link to={LIVE_DEMO_TO} className="btn btn--primary btn--lg">
@@ -185,16 +185,20 @@ export function LandingPage() {
           <div className="landing__container landing__narrow">
             <h2 id="why-vital-admin">Why Vital Admin?</h2>
             <p>
-              Most admin templates hard-wire their UI to fake data. Vital Admin takes the opposite
-              approach: the entire application is built against a service layer, exactly as it would
-              be against your real backend. The result is a React admin panel starter that stays
-              useful long after day one — clone it, explore a fully working dashboard, then swap in
-              your API without rewriting the UI.
+              Most admin templates hard-wire their UI to fake data. Vital Admin takes the
+              opposite approach: the entire application is built against a service layer,
+              exactly as it would be against your real backend. The result is a React
+              admin panel starter that stays useful long after day one — clone it, explore
+              a fully working dashboard, then swap in your API without rewriting the UI.
             </p>
           </div>
         </section>
 
-        <section id="features" className="landing__section" aria-labelledby="features-title">
+        <section
+          id="features"
+          className="landing__section"
+          aria-labelledby="features-title"
+        >
           <div className="landing__container">
             <h2 id="features-title">Features</h2>
             <p className="landing__section-lede">
@@ -216,8 +220,9 @@ export function LandingPage() {
           <div className="landing__container landing__narrow">
             <h2 id="use-cases-title">Built for Real Applications</h2>
             <p>
-              Use Vital Admin as the foundation for the tools your team actually runs — any project
-              that needs tables, forms, charts, and authentication scaffolding:
+              Use Vital Admin as the foundation for the tools your team actually runs —
+              any project that needs tables, forms, charts, and authentication
+              scaffolding:
             </p>
             <ul className="landing__use-cases">
               {USE_CASES.map((useCase) => (
@@ -235,20 +240,28 @@ export function LandingPage() {
           <div className="landing__container">
             <h2 id="architecture-title">Mock API Architecture</h2>
             <p className="landing__section-lede">
-              Data flows through clearly separated layers — never directly from UI to mock data.
+              Data flows through clearly separated layers — never directly from UI to mock
+              data.
             </p>
-            <ol className="landing__flow" aria-label="Request flow from component to mock data">
+            <ol
+              className="landing__flow"
+              aria-label="Request flow from component to mock data"
+            >
               {ARCHITECTURE_LAYERS.map((layer) => (
                 <li key={layer} className="landing__flow-step">
                   {layer}
-                  <ArrowRight size={14} aria-hidden="true" className="landing__flow-arrow" />
+                  <ArrowRight
+                    size={14}
+                    aria-hidden="true"
+                    className="landing__flow-arrow"
+                  />
                 </li>
               ))}
             </ol>
             <p className="landing__narrow landing__flow-note">
-              Because components depend only on hooks, and hooks only on services, the last two
-              links in this chain are disposable. Replace them with your real API and nothing above
-              changes.
+              Because components depend only on hooks, and hooks only on services, the
+              last two links in this chain are disposable. Replace them with your real API
+              and nothing above changes.
             </p>
           </div>
         </section>
@@ -265,13 +278,13 @@ export function LandingPage() {
               <li>
                 <strong>Match the response contract.</strong> Lists return{' '}
                 <code>{'{ data, meta }'}</code>, single resources wrap in{' '}
-                <code>{'{ data }'}</code>, and errors use a shared envelope — documented in the
-                README.
+                <code>{'{ data }'}</code>, and errors use a shared envelope — documented
+                in the README.
               </li>
               <li>
                 <strong>Delete the mock layer.</strong> Remove{' '}
-                <code>src/data/mock-server/</code> when you are confident — the UI does not know it
-                existed.
+                <code>src/data/mock-server/</code> when you are confident — the UI does
+                not know it existed.
               </li>
             </ol>
             <p>
@@ -295,10 +308,10 @@ export function LandingPage() {
           <div className="landing__container landing__narrow">
             <h2 id="responsive-title">Responsive React Dashboard</h2>
             <p>
-              The layout adapts from wide desktop monitors down to phones: the sidebar collapses,
-              tables stay readable, dialogs remain usable, and touch targets keep their size. Every
-              screen ships responsive by default, so your admin panel works wherever your team opens
-              it.
+              The layout adapts from wide desktop monitors down to phones: the sidebar
+              collapses, tables stay readable, dialogs remain usable, and touch targets
+              keep their size. Every screen ships responsive by default, so your admin
+              panel works wherever your team opens it.
             </p>
           </div>
         </section>
@@ -307,10 +320,10 @@ export function LandingPage() {
           <div className="landing__container landing__narrow">
             <h2 id="dark-mode-title">Dark Mode</h2>
             <p>
-              All colors come from semantic CSS custom properties, so light, dark, and system themes
-              are a single token file away. The saved theme is applied before first paint — no
-              flash of the wrong color scheme — and charts re-theme automatically because they read
-              the same tokens.
+              All colors come from semantic CSS custom properties, so light, dark, and
+              system themes are a single token file away. The saved theme is applied
+              before first paint — no flash of the wrong color scheme — and charts
+              re-theme automatically because they read the same tokens.
             </p>
           </div>
         </section>
@@ -329,9 +342,9 @@ npm install
 npm run dev`}</code>
             </pre>
             <p>
-              Open <code>http://localhost:5173</code> and sign in with the seeded demo account{' '}
-              <code>admin@vital.dev</code> / <code>admin123</code>. No environment variables
-              required.
+              Open <code>http://localhost:5173</code> and sign in with the seeded demo
+              account <code>admin@vital.dev</code> / <code>admin123</code>. No environment
+              variables required.
             </p>
             <div className="landing__actions landing__actions--start">
               <a
@@ -365,14 +378,11 @@ npm run dev`}</code>
       <footer className="landing__footer">
         <div className="landing__container landing__footer-inner">
           <p>
-            Vital Admin — a free, open-source React admin template built with TypeScript and Vite.
+            Vital Admin — a free, open-source React admin template built with TypeScript
+            and Vite.
           </p>
           <nav aria-label="Footer" className="landing__footer-nav">
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
               Source code on GitHub
             </a>
             <a

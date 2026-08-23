@@ -229,7 +229,7 @@ export function ProductsPage() {
                   <Tr key={product.id}>
                     <Td>
                       <Link
-                        to={`/products/${product.id}`}
+                        to={`/dashboard/products/${product.id}`}
                         className="table__cell-primary truncate"
                         style={{ display: 'inline-block', maxWidth: 260 }}
                       >
@@ -271,7 +271,7 @@ export function ProductsPage() {
                             {
                               label: 'View details',
                               icon: <Eye size={14} aria-hidden="true" />,
-                              onSelect: () => navigate(`/products/${product.id}`),
+                              onSelect: () => navigate(`/dashboard/products/${product.id}`),
                             },
                             {
                               label: 'Edit',

@@ -208,7 +208,7 @@ export function OrdersPage() {
                   <Tr key={order.id}>
                     <Td>
                       <Link
-                        to={`/orders/${order.id}`}
+                        to={`/dashboard/orders/${order.id}`}
                         className="table__cell-primary mono"
                       >
                         {order.number}

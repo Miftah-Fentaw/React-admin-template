@@ -37,7 +37,7 @@ export function StudentList() {
           className="student-list__search"
           aria-label="Search students"
         />
-        <Link to="/users">
+        <Link to="/dashboard/users">
           <Button variant="ghost" size="sm">
             See All
             <ArrowRight size={13} aria-hidden="true" />

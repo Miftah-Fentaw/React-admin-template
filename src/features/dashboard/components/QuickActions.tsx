@@ -9,10 +9,10 @@ interface QuickAction {
 }
 
 const ACTIONS: QuickAction[] = [
-  { label: 'Add user', to: '/users?create=1', icon: UserPlus },
-  { label: 'New product', to: '/products?create=1', icon: Plus },
-  { label: 'View orders', to: '/orders', icon: ShoppingCart },
-  { label: 'Inventory', to: '/products', icon: Package },
+  { label: 'Add user', to: '/dashboard/users?create=1', icon: UserPlus },
+  { label: 'New product', to: '/dashboard/products?create=1', icon: Plus },
+  { label: 'View orders', to: '/dashboard/orders', icon: ShoppingCart },
+  { label: 'Inventory', to: '/dashboard/products', icon: Package },
 ]
 
 /** Shortcut tiles for the most common admin tasks. */

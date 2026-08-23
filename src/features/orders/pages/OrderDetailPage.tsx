@@ -62,7 +62,7 @@ export function OrderDetailPage() {
       />
 
       <div className="detail-header">
-        <Button variant="ghost" size="sm" onClick={() => navigate('/orders')}>
+        <Button variant="ghost" size="sm" onClick={() => navigate('/dashboard/orders')}>
           <ArrowLeft size={15} aria-hidden="true" />
           Back to orders
         </Button>
@@ -85,7 +85,7 @@ export function OrderDetailPage() {
           <ErrorState
             title="Order not found"
             message="This order may have been removed."
-            onRetry={() => navigate('/orders')}
+            onRetry={() => navigate('/dashboard/orders')}
           />
         ) : (
           <ErrorState

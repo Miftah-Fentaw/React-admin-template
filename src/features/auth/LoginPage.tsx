@@ -43,7 +43,7 @@ export function LoginPage() {
     form.setSubmitting(true)
     try {
       await login(result.data)
-      const target = (location.state as { from?: string } | null)?.from ?? '/'
+      const target = (location.state as { from?: string } | null)?.from ?? '/dashboard'
       navigate(target, { replace: true })
     } catch (error) {
       setFormError(getUserMessage(error))

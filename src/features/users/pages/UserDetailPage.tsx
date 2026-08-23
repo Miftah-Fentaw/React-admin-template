@@ -44,7 +44,7 @@ export function UserDetailPage() {
       />
 
       <div className="detail-header">
-        <Button variant="ghost" size="sm" onClick={() => navigate('/users')}>
+        <Button variant="ghost" size="sm" onClick={() => navigate('/dashboard/users')}>
           <ArrowLeft size={15} aria-hidden="true" />
           Back to users
         </Button>
@@ -67,7 +67,7 @@ export function UserDetailPage() {
           <ErrorState
             title="User not found"
             message="This account may have been deleted."
-            onRetry={() => navigate('/users')}
+            onRetry={() => navigate('/dashboard/users')}
           />
         ) : (
           <ErrorState
@@ -171,7 +171,7 @@ export function UserDetailPage() {
               <p className="text-xs text-muted" style={{ marginTop: 14 }}>
                 Need to change access? Use <strong>Edit</strong> above or see the{' '}
                 <Link
-                  to="/settings"
+                  to="/dashboard/settings"
                   style={{ textDecoration: 'underline', textUnderlineOffset: 3 }}
                 >
                   settings

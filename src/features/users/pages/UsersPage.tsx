@@ -251,7 +251,7 @@ export function UsersPage() {
                           size="sm"
                         />
                         <Link
-                          to={`/users/${user.id}`}
+                          to={`/dashboard/users/${user.id}`}
                           className="table__cell-primary truncate"
                         >
                           {user.name}
@@ -277,7 +277,7 @@ export function UsersPage() {
                             {
                               label: 'View details',
                               icon: <Eye size={14} aria-hidden="true" />,
-                              onSelect: () => navigate(`/users/${user.id}`),
+                              onSelect: () => navigate(`/dashboard/users/${user.id}`),
                             },
                             {
                               label: 'Edit',
