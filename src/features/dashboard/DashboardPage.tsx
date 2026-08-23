@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { ErrorState } from '@/components/ui/Feedback'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { Tabs } from '@/components/ui/Tabs'
-import { BarChart } from '@/components/charts/BarChart'
+import { GroupedBarChart, zipToGrouped } from '@/components/charts/GroupedBarChart'
 import { DonutChart } from '@/components/charts/DonutChart'
 import { dashboardService } from './dashboard.service'
 import { KpiCard, KpiCardSkeleton } from './components/KpiCard'
@@ -248,10 +248,13 @@ function RevenueCard() {
     queryFn: dashboardService.getOverview,
   })
 
-  const allMonths = overview.data?.revenueByMonth ?? []
+  const allRevenue = overview.data?.revenueByMonth ?? []
+  const allTuition = overview.data?.tuitionByMonth ?? []
   // 12 months: indices 0-5 = first half, 6-11 = second half
-  const series = period === '1h' ? allMonths.slice(0, 6) : allMonths.slice(6)
-  const totalRevenue = allMonths.reduce((sum, p) => sum + p.value, 0)
+  const revenueSeries = period === '1h' ? allRevenue.slice(0, 6) : allRevenue.slice(6)
+  const tuitionSeries = period === '1h' ? allTuition.slice(0, 6) : allTuition.slice(6)
+  const grouped = zipToGrouped(revenueSeries, tuitionSeries)
+  const totalRevenue = allRevenue.reduce((sum, p) => sum + p.value, 0)
 
   return (
     <Card>
@@ -278,12 +281,24 @@ function RevenueCard() {
         ) : overview.isError ? (
           <ErrorState compact message="Failed to load revenue data." onRetry={() => overview.refetch()} />
         ) : (
-          <BarChart
-            data={series}
-            height={200}
-            formatValue={(v) => formatCompact(v)}
-            ariaLabel={`Monthly revenue — ${period === '1h' ? 'first' : 'second'} half of year`}
-          />
+          <>
+            <GroupedBarChart
+              data={grouped}
+              height={200}
+              formatValue={(v) => formatCompact(v)}
+              ariaLabel={`Monthly revenue vs tuition — ${period === '1h' ? 'first' : 'second'} half of year`}
+            />
+            <ul className="legend-list" style={{ flexDirection: 'row', gap: 16, marginTop: 8 }}>
+              <li className="legend-list__item">
+                <span className="legend-swatch" style={{ background: 'var(--chart-1)' }} />
+                Revenue
+              </li>
+              <li className="legend-list__item">
+                <span className="legend-swatch" style={{ background: 'var(--chart-2)' }} />
+                Tuition
+              </li>
+            </ul>
+          </>
         )}
       </CardContent>
     </Card>
