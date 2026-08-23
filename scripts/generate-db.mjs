@@ -386,6 +386,137 @@ function generateOrders(products) {
 }
 
 // ---------------------------------------------------------------------------
+// Projects
+// ---------------------------------------------------------------------------
+const CLIENTS = [
+  'Northwind Traders',
+  'Brightlab',
+  'Orbitworks',
+  'Quillsoft',
+  'Acme Logistics',
+  'Helios Energy',
+  'Fern & Co.',
+  'Bluepeak Media',
+  'Cobalt Systems',
+  'Juniper Health',
+]
+
+function generateProjects(users) {
+  const owners = users
+    .filter((u) => u.role === 'admin' || u.role === 'manager')
+    .map((u) => u.name)
+  const PROJECT_NAMES = [
+    ['Website Redesign', 'Marketing site refresh with new design system'],
+    ['Mobile App v2', 'Cross-platform app rebuild'],
+    ['Data Warehouse Migration', 'Move reporting stack to the new warehouse'],
+    ['Checkout Optimization', 'Reduce cart abandonment in the funnel'],
+    ['Customer Portal', 'Self-service portal for account management'],
+    ['Search Relevance', 'Improve result ranking and type-ahead'],
+    ['Billing Overhaul', 'Usage-based pricing and invoicing'],
+    ['Onboarding Revamp', 'Guided setup for new workspaces'],
+    ['API v3', 'Public API with new auth and webhooks'],
+    ['Localization Rollout', 'Ship the top 8 locales'],
+  ]
+
+  const projects = []
+  let n = 1
+  for (const [name] of PROJECT_NAMES) {
+    for (const client of pickN(CLIENTS, 3)) {
+      const status = weighted([
+        ['planning', 2],
+        ['active', 5],
+        ['on_hold', 1],
+        ['completed', 3],
+        ['archived', 1],
+      ])
+      const progress =
+        status === 'completed'
+          ? 100
+          : status === 'archived'
+            ? int(40, 95)
+            : status === 'planning'
+              ? int(0, 15)
+              : status === 'on_hold'
+                ? int(20, 70)
+                : int(10, 90)
+      const createdDaysAgo = int(30, 500)
+      projects.push({
+        id: `prj_${String(n).padStart(4, '0')}`,
+        name: n <= 10 ? name : `${name} (Phase ${Math.ceil(n / 10)})`,
+        client,
+        ownerName: pick(owners),
+        status,
+        progress,
+        dueDate:
+          status === 'completed'
+            ? daysAgo(int(1, 60)).slice(0, 10)
+            : new Date(NOW.getTime() + int(-20, 120) * DAY).toISOString().slice(0, 10),
+        createdAt: daysAgo(createdDaysAgo),
+        updatedAt: daysAgo(Math.max(0, createdDaysAgo - int(0, 25))),
+      })
+      n++
+    }
+  }
+  return projects
+}
+
+/** Pick `k` distinct items from `arr` deterministically. */
+function pickN(arr, k) {
+  const pool = [...arr]
+  const out = []
+  while (out.length < k && pool.length > 0) {
+    out.push(pool.splice(Math.floor(rand() * pool.length), 1)[0])
+  }
+  return out
+}
+
+// ---------------------------------------------------------------------------
+// Invoices
+// ---------------------------------------------------------------------------
+function generateInvoices() {
+  const invoices = []
+  for (let n = 0; n < 42; n++) {
+    const customerName = CUSTOMER_NAMES[(n * 7) % CUSTOMER_NAMES.length]
+    const issuedDaysAgo = Math.floor((n / 42) ** 1.2 * 150)
+    // Recent invoices skew towards open states, older ones towards settled.
+    const ageRatio = issuedDaysAgo / 150
+    const status =
+      rand() < 0.7 - ageRatio * 0.5
+        ? weighted([
+            ['draft', 3],
+            ['sent', 4],
+            ['overdue', 2],
+          ])
+        : weighted([
+            ['paid', 7],
+            ['cancelled', 1],
+          ])
+    const dueDaysAfterIssue = 30
+    invoices.push({
+      id: `inv_${String(n + 1).padStart(4, '0')}`,
+      number: `INV-2026-${String(n + 1).padStart(4, '0')}`,
+      customerName,
+      customerEmail: `${slugifyEmail(customerName)}@${pick(EMAIL_DOMAINS)}`,
+      amount:
+        Math.round((120 + rand() * 4800) * 100 - 0.01 + Number.EPSILON) / 100,
+      status,
+      issuedAt: daysAgo(issuedDaysAgo),
+      dueAt:
+        status === 'draft'
+          ? null
+          : new Date(NOW.getTime() - (issuedDaysAgo - dueDaysAfterIssue) * DAY)
+              .toISOString()
+              .slice(0, 10),
+      paidAt:
+        status === 'paid' ? daysAgo(Math.max(0, issuedDaysAgo - int(5, 28))) : null,
+      createdAt: daysAgo(issuedDaysAgo),
+      updatedAt: daysAgo(Math.max(0, issuedDaysAgo - int(0, 10))),
+    })
+  }
+  return invoices.sort((a, b) => (a.issuedAt < b.issuedAt ? 1 : -1))
+}
+
+// ---------------------------------------------------------------------------
 // Notifications & activity (for the signed-in admin)
 // ---------------------------------------------------------------------------
 function generateNotifications(products, orders) {
@@ -482,6 +613,8 @@ function generateActivity(users, products, orders) {
 const users = generateUsers()
 const products = generateProducts()
 const orders = generateOrders(products)
+const projects = generateProjects(users)
+const invoices = generateInvoices()
 const notifications = generateNotifications(products, orders)
 const activity = generateActivity(users, products, orders)
 
@@ -493,6 +626,8 @@ const writeJson = (filename, value) => {
 writeJson('users.json', users)
 writeJson('products.json', products)
 writeJson('orders.json', orders)
+writeJson('projects.json', projects)
+writeJson('invoices.json', invoices)
 writeJson('notifications.json', notifications)
 writeJson('activity.json', activity)
 
