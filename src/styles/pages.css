@@ -168,8 +168,12 @@
   font-weight: 600;
 }
 
-.kpi-change--up { color: var(--success); }
-.kpi-change--down { color: var(--destructive); }
+.kpi-change--up {
+  color: var(--success);
+}
+.kpi-change--down {
+  color: var(--destructive);
+}
 
 .kpi-change--neutral,
 .kpi-change__hint {
@@ -617,11 +621,31 @@
 }
 
 .theme-option__preview--system {
-  background: linear-gradient(
-    90deg,
-    #f6f7f9 50%,
-    #0f1115 50%
-  );
+  background: linear-gradient(90deg, #f6f7f9 50%, #0f1115 50%);
+}
+
+/* ----- Route error boundary --------------------------------------------------------------------------------- */
+
+.route-error {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  text-align: center;
+}
+
+.route-error__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.route-error__detail {
+  color: var(--muted-foreground);
+  max-width: 480px;
+  margin-bottom: 12px;
 }
 
 /* ----- Charts ---------------------------------------------------------------------------------------------------------------- */

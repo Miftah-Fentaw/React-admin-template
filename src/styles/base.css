@@ -46,10 +46,18 @@ h6 {
   color: var(--foreground);
 }
 
-h1 { font-size: 1.55rem; }
-h2 { font-size: 1.25rem; }
-h3 { font-size: 1.05rem; }
-h4 { font-size: 0.95rem; }
+h1 {
+  font-size: 1.55rem;
+}
+h2 {
+  font-size: 1.25rem;
+}
+h3 {
+  font-size: 1.05rem;
+}
+h4 {
+  font-size: 0.95rem;
+}
 
 p {
   margin: 0;

@@ -144,7 +144,9 @@
   border-radius: var(--radius-sm);
   font-size: 0.82rem;
   color: var(--muted-foreground);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
 }
 
 .sidebar__collapse-btn:hover {
