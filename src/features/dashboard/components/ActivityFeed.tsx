@@ -31,21 +31,27 @@ export function ActivityFeed({ events }: { events: ActivityEvent[] | undefined }
 
   return (
     <ol className="activity-feed">
-      {events.map((event) => (
-        <li key={event.id} className="activity-feed__item">
-          <span className="activity-feed__dot" aria-hidden="true">
-            {initials(event.actorName)}
-          </span>
-          <p className="activity-feed__text">
-            <span className="activity-feed__action">{event.actorName}</span>{' '}
-            {ACTION_PAST_TENSE[event.action]}{' '}
-            <span className="activity-feed__target">{event.target}</span>
-            <time className="activity-feed__time" dateTime={event.createdAt}>
-              {formatRelativeTime(event.createdAt)}
-            </time>
-          </p>
-        </li>
-      ))}
+      {events.map((event) => {
+        const displayTitle =
+          event.title ??
+          `${event.actorName} ${ACTION_PAST_TENSE[event.action]} ${event.target}`
+        return (
+          <li key={event.id} className="activity-feed__item">
+            <span className="activity-feed__dot" aria-hidden="true">
+              {initials(event.actorName)}
+            </span>
+            <div className="activity-feed__text">
+              <span className="activity-feed__action">{displayTitle}</span>
+              {event.description && (
+                <span className="activity-feed__description">{event.description}</span>
+              )}
+              <time className="activity-feed__time" dateTime={event.createdAt}>
+                {formatRelativeTime(event.createdAt)}
+              </time>
+            </div>
+          </li>
+        )
+      })}
     </ol>
   )
 }
