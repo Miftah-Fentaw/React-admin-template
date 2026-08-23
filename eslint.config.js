@@ -19,20 +19,34 @@ export default defineConfig([
       globals: { ...globals.browser, ...globals.es2022 },
     },
     rules: {
-      '@typescript-eslint/consistent-type-imports': [
-        'error',
-        { prefer: 'type-imports' },
-      ],
+      '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
+      // Context providers export their hooks next to the provider, and the
+      // router file declares lazy page constants — both standard patterns
+      // that this dev-ergonomics rule rejects.
+      'react-refresh/only-export-components': 'off',
+      // Experimental rule in eslint-plugin-react-hooks v7. It flags deliberate
+      // "reset state when a dialog opens / navigation happens" effects, which
+      // follow the sanctioned props-sync idiom. Revisit when the rule stabilizes.
+      'react-hooks/set-state-in-effect': 'off',
     },
   },
   {
     files: ['**/*.test.{ts,tsx}', 'tests/**/*.{ts,tsx}'],
     languageOptions: {
-      globals: { ...globals.browser, describe: 'readonly', it: 'readonly', expect: 'readonly', test: 'readonly', beforeEach: 'readonly', afterEach: 'readonly', vi: 'readonly' },
+      globals: {
+        ...globals.browser,
+        describe: 'readonly',
+        it: 'readonly',
+        expect: 'readonly',
+        test: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+        vi: 'readonly',
+      },
     },
   },
 ])
