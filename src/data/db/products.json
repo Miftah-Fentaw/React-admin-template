@@ -8,8 +8,8 @@
     "price": 73.03,
     "inventory": 127,
     "status": "active",
-    "createdAt": "2026-04-24T07:47:08.940Z",
-    "updatedAt": "2026-08-18T07:47:08.940Z"
+    "createdAt": "2026-04-24T11:10:24.649Z",
+    "updatedAt": "2026-08-18T11:10:24.649Z"
   },
   {
     "id": "prd_1002",
@@ -20,8 +20,8 @@
     "price": 293.48,
     "inventory": 74,
     "status": "archived",
-    "createdAt": "2025-02-28T07:47:08.940Z",
-    "updatedAt": "2026-07-29T07:47:08.940Z"
+    "createdAt": "2025-02-28T11:10:24.649Z",
+    "updatedAt": "2026-07-29T11:10:24.649Z"
   },
   {
     "id": "prd_1003",
@@ -32,8 +32,8 @@
     "price": 463.58,
     "inventory": 27,
     "status": "active",
-    "createdAt": "2024-12-19T07:47:08.940Z",
-    "updatedAt": "2026-08-04T07:47:08.940Z"
+    "createdAt": "2024-12-19T11:10:24.649Z",
+    "updatedAt": "2026-08-04T11:10:24.649Z"
   },
   {
     "id": "prd_1004",
@@ -44,8 +44,8 @@
     "price": 613.96,
     "inventory": 219,
     "status": "draft",
-    "createdAt": "2026-04-19T07:47:08.940Z",
-    "updatedAt": "2026-07-29T07:47:08.940Z"
+    "createdAt": "2026-04-19T11:10:24.649Z",
+    "updatedAt": "2026-07-29T11:10:24.649Z"
   },
   {
     "id": "prd_1005",
@@ -56,8 +56,8 @@
     "price": 516.98,
     "inventory": 211,
     "status": "archived",
-    "createdAt": "2026-05-01T07:47:08.940Z",
-    "updatedAt": "2026-08-14T07:47:08.940Z"
+    "createdAt": "2026-05-01T11:10:24.649Z",
+    "updatedAt": "2026-08-14T11:10:24.649Z"
   },
   {
     "id": "prd_1006",
@@ -68,8 +68,8 @@
     "price": 476.51,
     "inventory": 11,
     "status": "active",
-    "createdAt": "2025-05-08T07:47:08.940Z",
-    "updatedAt": "2026-08-10T07:47:08.940Z"
+    "createdAt": "2025-05-08T11:10:24.649Z",
+    "updatedAt": "2026-08-10T11:10:24.649Z"
   },
   {
     "id": "prd_1007",
@@ -80,8 +80,8 @@
     "price": 275.09,
     "inventory": 18,
     "status": "active",
-    "createdAt": "2026-02-11T07:47:08.940Z",
-    "updatedAt": "2026-07-31T07:47:08.940Z"
+    "createdAt": "2026-02-11T11:10:24.649Z",
+    "updatedAt": "2026-07-31T11:10:24.649Z"
   },
   {
     "id": "prd_1008",
@@ -92,8 +92,8 @@
     "price": 39.96,
     "inventory": 131,
     "status": "active",
-    "createdAt": "2025-04-05T07:47:08.940Z",
-    "updatedAt": "2026-08-20T07:47:08.940Z"
+    "createdAt": "2025-04-05T11:10:24.649Z",
+    "updatedAt": "2026-08-20T11:10:24.649Z"
   },
   {
     "id": "prd_1009",
@@ -104,8 +104,8 @@
     "price": 533.73,
     "inventory": 155,
     "status": "active",
-    "createdAt": "2025-05-07T07:47:08.940Z",
-    "updatedAt": "2026-08-12T07:47:08.940Z"
+    "createdAt": "2025-05-07T11:10:24.649Z",
+    "updatedAt": "2026-08-12T11:10:24.649Z"
   },
   {
     "id": "prd_1010",
@@ -116,8 +116,8 @@
     "price": 439.16,
     "inventory": 237,
     "status": "active",
-    "createdAt": "2026-05-16T07:47:08.940Z",
-    "updatedAt": "2026-08-17T07:47:08.940Z"
+    "createdAt": "2026-05-16T11:10:24.649Z",
+    "updatedAt": "2026-08-17T11:10:24.649Z"
   },
   {
     "id": "prd_1011",
@@ -128,8 +128,8 @@
     "price": 643.82,
     "inventory": 0,
     "status": "active",
-    "createdAt": "2025-02-24T07:47:08.940Z",
-    "updatedAt": "2026-07-27T07:47:08.940Z"
+    "createdAt": "2025-02-24T11:10:24.649Z",
+    "updatedAt": "2026-07-27T11:10:24.649Z"
   },
   {
     "id": "prd_1012",
@@ -140,8 +140,8 @@
     "price": 357.21,
     "inventory": 152,
     "status": "draft",
-    "createdAt": "2026-03-25T07:47:08.940Z",
-    "updatedAt": "2026-08-04T07:47:08.940Z"
+    "createdAt": "2026-03-25T11:10:24.649Z",
+    "updatedAt": "2026-08-04T11:10:24.649Z"
   },
   {
     "id": "prd_1013",
@@ -152,8 +152,8 @@
     "price": 911.62,
     "inventory": 222,
     "status": "active",
-    "createdAt": "2026-07-09T07:47:08.940Z",
-    "updatedAt": "2026-08-01T07:47:08.940Z"
+    "createdAt": "2026-07-09T11:10:24.649Z",
+    "updatedAt": "2026-08-01T11:10:24.649Z"
   },
   {
     "id": "prd_1014",
@@ -164,8 +164,8 @@
     "price": 581.97,
     "inventory": 35,
     "status": "active",
-    "createdAt": "2026-06-13T07:47:08.940Z",
-    "updatedAt": "2026-08-14T07:47:08.940Z"
+    "createdAt": "2026-06-13T11:10:24.649Z",
+    "updatedAt": "2026-08-14T11:10:24.649Z"
   },
   {
     "id": "prd_1015",
@@ -176,8 +176,8 @@
     "price": 152.66,
     "inventory": 128,
     "status": "active",
-    "createdAt": "2025-01-08T07:47:08.940Z",
-    "updatedAt": "2026-08-07T07:47:08.940Z"
+    "createdAt": "2025-01-08T11:10:24.649Z",
+    "updatedAt": "2026-08-07T11:10:24.649Z"
   },
   {
     "id": "prd_1016",
@@ -188,8 +188,8 @@
     "price": 42.05,
     "inventory": 36,
     "status": "active",
-    "createdAt": "2024-12-14T07:47:08.940Z",
-    "updatedAt": "2026-07-30T07:47:08.940Z"
+    "createdAt": "2024-12-14T11:10:24.649Z",
+    "updatedAt": "2026-07-30T11:10:24.649Z"
   },
   {
     "id": "prd_1017",
@@ -200,8 +200,8 @@
     "price": 150.58,
     "inventory": 18,
     "status": "active",
-    "createdAt": "2026-01-09T07:47:08.940Z",
-    "updatedAt": "2026-08-01T07:47:08.940Z"
+    "createdAt": "2026-01-09T11:10:24.649Z",
+    "updatedAt": "2026-08-01T11:10:24.649Z"
   },
   {
     "id": "prd_1018",
@@ -212,8 +212,8 @@
     "price": 98.75,
     "inventory": 0,
     "status": "active",
-    "createdAt": "2026-07-24T07:47:08.940Z",
-    "updatedAt": "2026-08-19T07:47:08.940Z"
+    "createdAt": "2026-07-24T11:10:24.649Z",
+    "updatedAt": "2026-08-19T11:10:24.649Z"
   },
   {
     "id": "prd_1019",
@@ -224,8 +224,8 @@
     "price": 151.09,
     "inventory": 199,
     "status": "active",
-    "createdAt": "2025-07-24T07:47:08.940Z",
-    "updatedAt": "2026-08-21T07:47:08.940Z"
+    "createdAt": "2025-07-24T11:10:24.649Z",
+    "updatedAt": "2026-08-21T11:10:24.649Z"
   },
   {
     "id": "prd_1020",
@@ -236,8 +236,8 @@
     "price": 58.3,
     "inventory": 190,
     "status": "active",
-    "createdAt": "2025-10-17T07:47:08.940Z",
-    "updatedAt": "2026-08-13T07:47:08.940Z"
+    "createdAt": "2025-10-17T11:10:24.649Z",
+    "updatedAt": "2026-08-13T11:10:24.649Z"
   },
   {
     "id": "prd_1021",
@@ -248,8 +248,8 @@
     "price": 12.34,
     "inventory": 81,
     "status": "active",
-    "createdAt": "2025-01-26T07:47:08.940Z",
-    "updatedAt": "2026-08-20T07:47:08.940Z"
+    "createdAt": "2025-01-26T11:10:24.649Z",
+    "updatedAt": "2026-08-20T11:10:24.649Z"
   },
   {
     "id": "prd_1022",
@@ -260,8 +260,8 @@
     "price": 12.59,
     "inventory": 235,
     "status": "active",
-    "createdAt": "2025-12-04T07:47:08.940Z",
-    "updatedAt": "2026-07-30T07:47:08.940Z"
+    "createdAt": "2025-12-04T11:10:24.649Z",
+    "updatedAt": "2026-07-30T11:10:24.649Z"
   },
   {
     "id": "prd_1023",
@@ -272,8 +272,8 @@
     "price": 40.09,
     "inventory": 14,
     "status": "active",
-    "createdAt": "2025-07-01T07:47:08.940Z",
-    "updatedAt": "2026-08-14T07:47:08.940Z"
+    "createdAt": "2025-07-01T11:10:24.649Z",
+    "updatedAt": "2026-08-14T11:10:24.649Z"
   },
   {
     "id": "prd_1024",
@@ -284,8 +284,8 @@
     "price": 65.3,
     "inventory": 6,
     "status": "active",
-    "createdAt": "2025-10-16T07:47:08.940Z",
-    "updatedAt": "2026-07-29T07:47:08.940Z"
+    "createdAt": "2025-10-16T11:10:24.649Z",
+    "updatedAt": "2026-07-29T11:10:24.649Z"
   },
   {
     "id": "prd_1025",
@@ -296,8 +296,8 @@
     "price": 38.84,
     "inventory": 38,
     "status": "active",
-    "createdAt": "2026-05-10T07:47:08.940Z",
-    "updatedAt": "2026-08-12T07:47:08.940Z"
+    "createdAt": "2026-05-10T11:10:24.649Z",
+    "updatedAt": "2026-08-12T11:10:24.649Z"
   },
   {
     "id": "prd_1026",
@@ -308,8 +308,8 @@
     "price": 67.41,
     "inventory": 45,
     "status": "active",
-    "createdAt": "2026-02-19T07:47:08.940Z",
-    "updatedAt": "2026-08-19T07:47:08.940Z"
+    "createdAt": "2026-02-19T11:10:24.649Z",
+    "updatedAt": "2026-08-19T11:10:24.649Z"
   },
   {
     "id": "prd_1027",
@@ -320,8 +320,8 @@
     "price": 122.77,
     "inventory": 221,
     "status": "active",
-    "createdAt": "2025-05-29T07:47:08.940Z",
-    "updatedAt": "2026-08-02T07:47:08.940Z"
+    "createdAt": "2025-05-29T11:10:24.649Z",
+    "updatedAt": "2026-08-02T11:10:24.649Z"
   },
   {
     "id": "prd_1028",
@@ -332,8 +332,8 @@
     "price": 45.34,
     "inventory": 176,
     "status": "active",
-    "createdAt": "2025-09-19T07:47:08.940Z",
-    "updatedAt": "2026-08-18T07:47:08.940Z"
+    "createdAt": "2025-09-19T11:10:24.649Z",
+    "updatedAt": "2026-08-18T11:10:24.649Z"
   },
   {
     "id": "prd_1029",
@@ -344,8 +344,8 @@
     "price": 74.66,
     "inventory": 28,
     "status": "active",
-    "createdAt": "2024-12-30T07:47:08.940Z",
-    "updatedAt": "2026-08-03T07:47:08.940Z"
+    "createdAt": "2024-12-30T11:10:24.649Z",
+    "updatedAt": "2026-08-03T11:10:24.649Z"
   },
   {
     "id": "prd_1030",
@@ -356,8 +356,8 @@
     "price": 158.43,
     "inventory": 22,
     "status": "active",
-    "createdAt": "2024-09-22T07:47:08.940Z",
-    "updatedAt": "2026-08-06T07:47:08.940Z"
+    "createdAt": "2024-09-22T11:10:24.649Z",
+    "updatedAt": "2026-08-06T11:10:24.649Z"
   },
   {
     "id": "prd_1031",
@@ -368,8 +368,8 @@
     "price": 104.22,
     "inventory": 0,
     "status": "active",
-    "createdAt": "2025-07-29T07:47:08.940Z",
-    "updatedAt": "2026-07-30T07:47:08.940Z"
+    "createdAt": "2025-07-29T11:10:24.649Z",
+    "updatedAt": "2026-07-30T11:10:24.649Z"
   },
   {
     "id": "prd_1032",
@@ -380,8 +380,8 @@
     "price": 203.61,
     "inventory": 0,
     "status": "active",
-    "createdAt": "2026-06-17T07:47:08.940Z",
-    "updatedAt": "2026-08-12T07:47:08.940Z"
+    "createdAt": "2026-06-17T11:10:24.649Z",
+    "updatedAt": "2026-08-12T11:10:24.649Z"
   },
   {
     "id": "prd_1033",
@@ -392,7 +392,7 @@
     "price": 150.19,
     "inventory": 87,
     "status": "archived",
-    "createdAt": "2025-09-09T07:47:08.940Z",
-    "updatedAt": "2026-08-01T07:47:08.940Z"
+    "createdAt": "2025-09-09T11:10:24.649Z",
+    "updatedAt": "2026-08-01T11:10:24.649Z"
   }
 ]
