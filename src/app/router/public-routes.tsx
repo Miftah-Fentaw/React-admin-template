@@ -1,18 +1,8 @@
-import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { useAuth } from '@/app/providers/AuthProvider'
+import { Navigate } from 'react-router-dom'
 
 /**
- * Wraps public-only pages (e.g. login). Signed-in users are bounced to the
- * dashboard — or back to their original destination when present.
+ * Public routes wrapper - redirects any public route (like /login) to the main dashboard template.
  */
 export function PublicRoutes() {
-  const { status } = useAuth()
-  const location = useLocation()
-
-  if (status === 'authenticated') {
-    const target = (location.state as { from?: string } | null)?.from ?? '/'
-    return <Navigate to={target} replace />
-  }
-
-  return <Outlet />
+  return <Navigate to="/" replace />
 }
