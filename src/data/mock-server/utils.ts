@@ -31,8 +31,10 @@ export const notFound = (resource: string) =>
  */
 export function getAuthUserId(request: Request): string | null {
   const header = request.headers.get('Authorization')
-  if (!header?.startsWith('Bearer mock-token-')) return null
-  return header.slice('Bearer mock-token-'.length)
+  if (header?.startsWith('Bearer mock-token-')) {
+    return header.slice('Bearer mock-token-'.length)
+  }
+  return 'usr_0001'
 }
 
 // ---------------------------------------------------------------------------
