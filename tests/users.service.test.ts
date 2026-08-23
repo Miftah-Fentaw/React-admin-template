@@ -17,7 +17,7 @@ describe('users service (against mock API)', () => {
   })
 
   it('lists users after signing in', async () => {
-    await authService.login({ email: 'admin@vantage.dev', password: 'admin123' })
+    await authService.login({ email: 'admin@vital.dev', password: 'admin123' })
 
     const result = await userService.list({ page: 1, pageSize: 10 })
     expect(result.meta.totalPages).toBeGreaterThanOrEqual(1)
@@ -29,7 +29,7 @@ describe('users service (against mock API)', () => {
   })
 
   it('surfaces server-side field errors on duplicate emails', async () => {
-    await authService.login({ email: 'admin@vantage.dev', password: 'admin123' })
+    await authService.login({ email: 'admin@vital.dev', password: 'admin123' })
 
     const existing = await userService.list({ page: 1, pageSize: 1 })
     const email = existing.data[0].email
