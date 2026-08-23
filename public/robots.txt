@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vital-admin-template.vercel.app/sitemap.xml
