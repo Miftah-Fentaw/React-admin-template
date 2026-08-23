@@ -4,7 +4,7 @@ import { db } from '../db'
 import { getAuthUserId, latency, notFound, unauthorized } from '../utils'
 
 export const notificationsHandlers = [
-  http.get('http://*/api/notifications', async ({ request }) => {
+  http.get('*/api/notifications', async ({ request }) => {
     await latency(120, 320)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -15,7 +15,7 @@ export const notificationsHandlers = [
     return HttpResponse.json({ data: items })
   }),
 
-  http.post('http://*/api/notifications/:id/read', async ({ request, params }) => {
+  http.post('*/api/notifications/:id/read', async ({ request, params }) => {
     await latency(80, 220)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -28,7 +28,7 @@ export const notificationsHandlers = [
     return HttpResponse.json({ data: notification })
   }),
 
-  http.post('http://*/api/notifications/read-all', async ({ request }) => {
+  http.post('*/api/notifications/read-all', async ({ request }) => {
     await latency(100, 260)
     if (!getAuthUserId(request)) return unauthorized()
 
