@@ -26,7 +26,6 @@ export const appConfig = {
    */
   demoAccounts: [
     { email: 'admin@vantage.dev', password: 'admin123', role: 'Admin' },
-    { email: 'manager@vantage.dev', password: 'manager123', role: 'Manager' },
   ],
 } as const
 
