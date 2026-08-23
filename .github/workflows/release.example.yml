@@ -55,7 +55,7 @@ jobs:
         run: cd dist && zip -r ../vantage-admin-${{ github.ref_name }}.zip .
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           generate_release_notes: true # auto-lists commits/PRs since last tag
           files: vantage-admin-${{ github.ref_name }}.zip
