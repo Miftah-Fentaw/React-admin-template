@@ -26,7 +26,7 @@ const SORTABLE_FIELDS = [
 
 export const projectsHandlers = [
   // GET /api/projects — paginated, searchable, filterable, sortable list
-  http.get('http://*/api/projects', async ({ request }) => {
+  http.get('*/api/projects', async ({ request }) => {
     await latency()
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -45,7 +45,7 @@ export const projectsHandlers = [
   }),
 
   // POST /api/projects — create
-  http.post('http://*/api/projects', async ({ request }) => {
+  http.post('*/api/projects', async ({ request }) => {
     await latency(250, 600)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -89,7 +89,7 @@ export const projectsHandlers = [
   }),
 
   // GET /api/projects/:id — detail
-  http.get('http://*/api/projects/:id', async ({ request, params }) => {
+  http.get('*/api/projects/:id', async ({ request, params }) => {
     await latency(120, 320)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -101,7 +101,7 @@ export const projectsHandlers = [
   }),
 
   // PATCH /api/projects/:id — partial update
-  http.patch('http://*/api/projects/:id', async ({ request, params }) => {
+  http.patch('*/api/projects/:id', async ({ request, params }) => {
     await latency(200, 500)
     if (!getAuthUserId(request)) return unauthorized()
 
@@ -126,7 +126,7 @@ export const projectsHandlers = [
   }),
 
   // DELETE /api/projects/:id
-  http.delete('http://*/api/projects/:id', async ({ request, params }) => {
+  http.delete('*/api/projects/:id', async ({ request, params }) => {
     await latency(150, 400)
     if (!getAuthUserId(request)) return unauthorized()
 
