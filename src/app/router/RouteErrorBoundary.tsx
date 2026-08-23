@@ -25,7 +25,7 @@ export function RouteErrorBoundary() {
       <h1 className="route-error__title">{title}</h1>
       <p className="route-error__detail">{detail}</p>
       <div style={{ display: 'flex', gap: 10 }}>
-        <Button variant="primary" onClick={() => navigate('/')}>
+        <Button variant="primary" onClick={() => navigate('/dashboard')}>
           Go to dashboard
         </Button>
         <Button onClick={() => window.location.reload()}>

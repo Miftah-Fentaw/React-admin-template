@@ -19,7 +19,7 @@ export function NotFoundPage() {
         title="Page not found"
         description="The page you are looking for doesn't exist or may have been moved."
         action={
-          <Link to="/">
+          <Link to="/dashboard">
             <Button variant="primary">Back to dashboard</Button>
           </Link>
         }

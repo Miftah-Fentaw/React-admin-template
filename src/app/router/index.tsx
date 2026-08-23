@@ -9,6 +9,9 @@ import { LoginPage } from '@/features/auth/LoginPage'
 import { RouteErrorBoundary } from './RouteErrorBoundary'
 
 // Feature pages are code-split so the initial bundle stays lean.
+const LandingPage = lazy(() =>
+  import('@/features/landing/LandingPage').then((m) => ({ default: m.LandingPage })),
+)
 const DashboardPage = lazy(() =>
   import('@/features/dashboard/DashboardPage').then((m) => ({
     default: m.DashboardPage,
@@ -81,6 +84,15 @@ function PageFallback() {
 
 export const router = createBrowserRouter([
   {
+    // Public marketing home — the only page intended for search engines.
+    path: '/',
+    element: (
+      <Suspense fallback={<PageFallback />}>
+        <LandingPage />
+      </Suspense>
+    ),
+  },
+  {
     element: <PublicRoutes />,
     errorElement: <RouteErrorBoundary />,
     children: [
@@ -97,7 +109,7 @@ export const router = createBrowserRouter([
     errorElement: <RouteErrorBoundary />,
     children: [
       {
-        path: '/',
+        path: '/dashboard',
         element: <AdminLayout />,
         children: [
           {
