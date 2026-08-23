@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom'
 import { PanelLeftClose, PanelLeftOpen } from 'lucide-react'
-import { appConfig } from '@/config/app'
 import { NAV_SECTIONS } from '@/config/navigation'
 import { cn } from '@/lib/cn'
 
@@ -32,19 +31,16 @@ export function Sidebar({
         aria-label="Main navigation"
       >
         <div className="sidebar__header">
-          <span className="sidebar__logo" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
-              <path
-                d="M9 20.5 16 8.5l7 12"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <circle cx="16" cy="21.5" r="1.9" fill="currentColor" />
-            </svg>
+          <span className="sidebar__text-logo" aria-label="Vital Admin">
+            {collapsed ? (
+              <span className="sidebar__text-logo-compact">V</span>
+            ) : (
+              <>
+                <span className="sidebar__text-logo-brand">Vital</span>{' '}
+                <span className="sidebar__text-logo-sub">Admin</span>
+              </>
+            )}
           </span>
-          <span className="sidebar__title">{appConfig.name}</span>
         </div>
 
         <nav className="sidebar__nav">
