@@ -25,7 +25,7 @@ export const appConfig = {
    * the login screen. Irrelevant once the mock API is disabled.
    */
   demoAccounts: [
-    { email: 'admin@vantage.dev', password: 'admin123', role: 'Admin' },
+    { email: 'admin@vital.dev', password: 'admin123', role: 'Admin' },
   ],
 } as const
 
