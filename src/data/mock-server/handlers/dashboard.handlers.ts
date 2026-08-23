@@ -238,15 +238,27 @@ export const dashboardHandlers = [
       },
     ]
 
-    // Revenue by month (last 12 for full year)
+    // Revenue by month (last 12 for full year).
+    // A synthetic tuition baseline ensures bars are always visible even
+    // when seeded order data doesn't cover the current calendar window.
+    const BASE_MONTHLY_REVENUE = 60_000
     const revenueByMonth: SeriesPoint[] = []
     for (let i = 11; i >= 0; i--) {
       const date = new Date(now.getFullYear(), now.getMonth() - i, 1)
+      const orderRevenue = Math.round(revenueInMonth(monthKey(date)))
+      // Blend real order revenue with a growing tuition baseline
+      const syntheticBase = Math.round(BASE_MONTHLY_REVENUE + (11 - i) * 1_800 + (i % 3) * 4_200)
       revenueByMonth.push({
         label: MONTH_LABELS[date.getMonth()],
-        value: Math.round(revenueInMonth(monthKey(date))),
+        value: Math.max(orderRevenue, syntheticBase),
       })
     }
+
+    // Tuition/fees as secondary series — approximately 75-85% of revenue
+    const tuitionByMonth: SeriesPoint[] = revenueByMonth.map((p, i) => ({
+      label: p.label,
+      value: Math.round(p.value * (0.75 + (i % 4) * 0.025)),
+    }))
 
     // Orders by day (last 14 days)
     const ordersByDay: SeriesPoint[] = []
@@ -288,6 +300,7 @@ export const dashboardHandlers = [
     const overview: DashboardOverview = {
       kpis,
       revenueByMonth,
+      tuitionByMonth,
       ordersByDay,
       trafficSources,
       totalChildren,
