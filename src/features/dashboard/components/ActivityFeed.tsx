@@ -10,6 +10,29 @@ const ACTION_PAST_TENSE: Record<ActivityEvent['action'], string> = {
   placed_order: 'placed',
 }
 
+/** Maps activity event titles/actions to a CSS color variable for the dot badge. */
+function getDotColor(event: ActivityEvent): string {
+  const title = event.title?.toLowerCase() ?? ''
+  if (title.includes('check-in') || title.includes('enrollment') || title.includes('report')) {
+    return 'var(--chart-1)'
+  }
+  if (title.includes('message') || title.includes('schedule') || title.includes('updated')) {
+    return 'var(--chart-2)'
+  }
+  return 'var(--primary-subtle)'
+}
+
+function getDotTextColor(event: ActivityEvent): string {
+  const title = event.title?.toLowerCase() ?? ''
+  if (title.includes('check-in') || title.includes('enrollment') || title.includes('report')) {
+    return '#fff'
+  }
+  if (title.includes('message') || title.includes('schedule') || title.includes('updated')) {
+    return '#fff'
+  }
+  return 'var(--primary-subtle-foreground)'
+}
+
 export function ActivityFeed({ events }: { events: ActivityEvent[] | undefined }) {
   if (!events) {
     return (
@@ -35,9 +58,15 @@ export function ActivityFeed({ events }: { events: ActivityEvent[] | undefined }
         const displayTitle =
           event.title ??
           `${event.actorName} ${ACTION_PAST_TENSE[event.action]} ${event.target}`
+        const dotBg = getDotColor(event)
+        const dotColor = getDotTextColor(event)
         return (
           <li key={event.id} className="activity-feed__item">
-            <span className="activity-feed__dot" aria-hidden="true">
+            <span
+              className="activity-feed__dot"
+              aria-hidden="true"
+              style={{ background: dotBg, color: dotColor }}
+            >
               {initials(event.actorName)}
             </span>
             <div className="activity-feed__text">
