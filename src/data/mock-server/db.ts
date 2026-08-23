@@ -1,6 +1,4 @@
-import type {
-  AppNotification,
-} from '@/models/Notification'
+import type { AppNotification } from '@/models/Notification'
 import type { ActivityEvent } from '@/models/Dashboard'
 import type { Order } from '@/models/Order'
 import type { Product } from '@/models/Product'

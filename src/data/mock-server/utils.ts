@@ -52,10 +52,7 @@ const ALLOWED_PAGE_SIZES = [5, 10, 20, 50]
 export function parseListQuery(url: URL): ParsedListQuery {
   const page = Math.max(1, Number(url.searchParams.get('page')) || 1)
   const requestedPageSize = Number(url.searchParams.get('pageSize')) || 10
-  const pageSize = Math.min(
-    Math.max(1, closestAllowedPageSize(requestedPageSize)),
-    100,
-  )
+  const pageSize = Math.min(Math.max(1, closestAllowedPageSize(requestedPageSize)), 100)
   const search = (url.searchParams.get('search') ?? '').trim().toLowerCase()
   const rawSort = url.searchParams.get('sort') ?? ''
   const descending = rawSort.startsWith('-')
@@ -73,7 +70,11 @@ function closestAllowedPageSize(requested: number): number {
 /** Case-insensitive substring match across the given string fields. */
 export function matchesSearch<T>(item: T, fields: Array<keyof T>, term: string): boolean {
   if (!term) return true
-  return fields.some((field) => String(item[field] ?? '').toLowerCase().includes(term))
+  return fields.some((field) =>
+    String(item[field] ?? '')
+      .toLowerCase()
+      .includes(term),
+  )
 }
 
 /** Sort records by an allow-listed field. Unknown fields fall back to input order. */
