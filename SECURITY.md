@@ -4,10 +4,10 @@
 
 Vantage Admin is a template, not a hosted service. Security fixes are applied to the latest `main` branch only. If you are running a fork or an older snapshot, upgrade before reporting or expecting fixes.
 
-| Version | Supported |
-| ------- | --------- |
-| latest `main` | ✅ |
-| older commits / forks | ❌ |
+| Version               | Supported |
+| --------------------- | --------- |
+| latest `main`         | ✅        |
+| older commits / forks | ❌        |
 
 ## Reporting a vulnerability
 
@@ -15,7 +15,7 @@ Vantage Admin is a template, not a hosted service. Security fixes are applied to
 
 Instead:
 
-1. Open a **private security advisory** via the repository's *Security → Advisories → Report a vulnerability* button (preferred), or
+1. Open a **private security advisory** via the repository's _Security → Advisories → Report a vulnerability_ button (preferred), or
 2. Contact the maintainers directly through a private channel listed on the repository profile.
 
 Include as much of the following as you can:
@@ -57,5 +57,5 @@ When replacing the mock backend (see README → "Replacing the Mock Backend"):
 
 1. Enforce all request validation **server-side** — the Zod schemas in `src/models/schemas.ts` are shared contracts, not a substitute for backend checks.
 2. Use real session tokens (short-lived JWT + refresh, or httpOnly cookie sessions) and wire them into `setAuthTokenReader` in `src/services/auth/auth.service.ts`.
-3. Set `VITE_ENABLE_MOCK_API=false` so the MSW worker never ships to production, then delete `src/data/mock-server/`, `src/data/db/`, and `public/mockServiceWorker.js`.
+3. Set `VITE_ENABLE_MOCK_API=false` so the in-process mock (and leftover MSW worker) never ships to production, then delete `src/data/mock-server/`, `src/data/db/`, and `public/mockServiceWorker.js`.
 4. Audit role-based behavior for your own permission model; the mock's rules (suspended users get 403, self-deletion gets 409) are examples, not policy.
