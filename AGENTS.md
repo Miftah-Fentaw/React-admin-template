@@ -99,7 +99,7 @@ Other seeded users accept **any password ≥ 8 chars**. Suspended users get HTTP
 ├── scripts/generate-db.mjs       ← deterministic seed generator → src/data/db/*.json
 ├── public/                       favicon.svg, logo.svg, icons.svg, preview.png (og:image + landing screenshot — root ./preview.png is the README/GitHub copy), robots.txt, sitemap.xml, mockServiceWorker.js (msw)
 └── src/
-    ├── main.tsx                  ← enableMocking() installs in-process mock dispatch (VITE_ENABLE_MOCK_API !== 'false'), then render <App/>
+    ├── main.tsx                  ← enableMocking() preloads in-process mock (VITE_ENABLE_MOCK_API !== 'false'), then render <App/>
     ├── app/
     │   ├── App.tsx               ← <AppProvider><RouterProvider router={router}/></AppProvider>
     │   ├── providers/
@@ -240,7 +240,7 @@ Charts (`components/charts/`):
 
 - `db.ts` — loads `../db/*.json`, exposes mutable arrays + `db.nextId(prefix)` (e.g. `usr_0045`) + tokenStore. Admin account id: `usr_0001`.
 - `utils.ts` — `latency(min,max)` (real artificial delay!), `jsonError(status, code, message, fields?)`, `unauthorized()`, `notFound(resource)`, `getAuthUserId(request)` (**token scheme: `Authorization: Bearer mock-token-<userId>`**), pagination/sort/search helpers (`parseListQuery`, `paginate`, `applySort`, `matchesSearch`).
-- `dispatch.ts` — `getResponse(handlers, request)` used by the HTTP client so the mock works on static hosts without a Service Worker.
+- `dispatch.ts` — `getResponse(handlers, request)`; the HTTP client loads this itself when `enableMockApi` is on so the hosted demo cannot miss the mock.
 - `browser.ts` — optional `setupWorker(...handlers)` for local SW experiments; the app boot path does **not** start it.
 - Handlers use wildcard paths (`http.get('*/api/users', ...)`) so any host matches.
 
@@ -340,7 +340,7 @@ Import order matters (`styles/index.css`): `tokens → base → utilities → co
 
 All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 27/27 across 6 files ✓ · `vite build` ✓ (pages code-split per route).
 
-**Mock API on static hosts (added):** the live demo and `npm run preview` resolve mock handlers in-process (`dispatch.ts` + `setMockDispatcher`) instead of depending on the MSW Service Worker. First-load `/api/*` calls no longer race a worker and receive Vercel’s SPA HTML. Leftover `mockServiceWorker.js` registrations are unregistered on boot.
+**Mock API on static hosts (added):** the live demo and `npm run preview` resolve mock handlers in-process (`dispatch.ts`, loaded by the HTTP client) instead of depending on the MSW Service Worker. First-load `/api/*` calls no longer race a worker and receive Vercel’s SPA HTML. Leftover `mockServiceWorker.js` registrations are unregistered on boot.
 
 **Complete:** auth/session/401 handling · dashboard (education-focused UI redesign) · users CRUD + detail · products CRUD + detail · orders list/detail + status updates · projects CRUD (list + create/edit/delete dialogs, progress bars, `?create=1` deep-link) · invoices list with status-transition menu (paid stamps `paidAt`) · analytics overview · notifications panel · settings (profile + theme) · full mock API + seed script · design system · dark/light/system theming · README/LICENSE/CONTRIBUTING/CODE_OF_CONDUCT/SECURITY docs · route error boundary · tests · `.github/` CI (active `ci.yml`) + demo deploy/release workflows + issue/PR templates + dependabot.
 
@@ -380,7 +380,7 @@ All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 27/27 across 6 files ✓
 15. **Two preview.png copies exist on purpose** — repo-root `./preview.png` renders in the README/GitHub UI; `public/preview.png` is what the site serves (og:image, Twitter card, landing hero). Keep them in sync when the screenshot changes.
 16. **The dashboard lives under `/dashboard`, not `/`** — `/` is the public SEO landing page. All internal links must use the `/dashboard` prefix; breadcrumbs derive from `useMatches()` so they adapt automatically. Old demo URLs like `/users` now 404 by design.
 17. **`Github` icon does not exist in lucide-react v1.33+** — brand icons were removed; use text links to GitHub instead.
-18. **MSW Service Worker is too late on static hosts** — Vercel’s `/(.*)` → `/index.html` rewrite means unintercepted `/api/*` requests return HTML. `worker.start()` often resolves after the first React Query fetches, so the hosted demo showed “Something went wrong” on every widget (retry then worked). Serve the same handlers in-process via `getResponse()` (`src/data/mock-server/dispatch.ts` + `setMockDispatcher` on the HTTP client). Do not rely on `setupWorker` for the live demo or `npm run preview`.
+18. **MSW Service Worker is too late on static hosts** — Vercel’s `/(.*)` → `/index.html` rewrite means unintercepted `/api/*` requests return HTML. `worker.start()` often resolves after the first React Query fetches, so the hosted demo showed “Something went wrong” on every widget (retry then worked). Serve the same handlers in-process via `getResponse()` (`src/data/mock-server/dispatch.ts`); the HTTP client must load that module itself so a `main.tsx` setter cannot miss a duplicated client chunk. Do not rely on `setupWorker` for the live demo or `npm run preview`.
 
 ---
 

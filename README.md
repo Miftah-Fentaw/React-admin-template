@@ -91,7 +91,7 @@ Replacing the mock API takes three steps:
    - Single resources: `{ "data": { ... } }`
    - Errors: `{ "code", "message", "fields"? }`
    - Auth: `POST /auth/login` → `{ user, token }`, then `Authorization: Bearer <token>`
-3. **Delete the mock layer when confident** — remove `src/data/mock-server/`, `src/data/db/`, `public/mockServiceWorker.js`, and the `enableMocking()` / `setMockDispatcher` wiring in `src/main.tsx`.
+3. **Delete the mock layer when confident** — remove `src/data/mock-server/`, `src/data/db/`, `public/mockServiceWorker.js`, and the `enableMocking()` block in `src/main.tsx`.
 
 Request validation lives in `src/models/schemas.ts`; a real backend should enforce the same constraints. For authentication, swap the four calls in `src/services/auth/auth.service.ts` for your identity provider — the session provider, route guards, and 401 handling stay untouched.
 
