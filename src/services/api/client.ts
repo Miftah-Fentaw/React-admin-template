@@ -26,17 +26,20 @@ export function setAuthTokenReader(reader: () => string | null): void {
 }
 
 /**
- * Optional in-process mock used by the bundled demo API. When set, matching
- * requests are resolved without `fetch` — so static hosts never need a
- * Service Worker. Wired from `main.tsx`; unused in service tests (those go
- * through `msw/node`).
+ * In-process mock used by the bundled demo API. Loaded lazily from this
+ * module so every `apiClient` instance resolves handlers itself — a setter
+ * in `main.tsx` can miss a duplicated client chunk on the hosted build.
  */
 type MockDispatcher = (request: Request) => Promise<Response | undefined>
 
-let mockDispatch: MockDispatcher | null = null
+let mockDispatchPromise: Promise<MockDispatcher> | null = null
 
-export function setMockDispatcher(dispatcher: MockDispatcher | null): void {
-  mockDispatch = dispatcher
+function loadMockDispatcher(): Promise<MockDispatcher> | null {
+  if (!appConfig.enableMockApi) return null
+  mockDispatchPromise ??= import('@/data/mock-server/dispatch').then(
+    (module) => module.dispatchMockRequest,
+  )
+  return mockDispatchPromise
 }
 
 function resolveRequestUrl(url: string): string {
@@ -54,8 +57,9 @@ function resolveRequestUrl(url: string): string {
  * - attach the auth token when available
  * - translate transport + HTTP failures into typed `ApiError` subclasses
  *
- * It knows nothing about MSW, React, or any feature — swapping backends never
- * touches this file beyond the base URL in `appConfig`.
+ * It knows nothing about React or any feature. When `enableMockApi` is on it
+ * lazily loads the bundled handlers; set `VITE_ENABLE_MOCK_API=false` and the
+ * import is dropped from production builds.
  */
 class HttpClient {
   async get<TResponse>(path: string, options: RequestOptions = {}): Promise<TResponse> {
@@ -113,8 +117,9 @@ class HttpClient {
 
     let response: Response
     try {
-      const mocked = mockDispatch
-        ? await mockDispatch(new Request(resolveRequestUrl(url), init))
+      const dispatcher = loadMockDispatcher()
+      const mocked = dispatcher
+        ? await (await dispatcher)(new Request(resolveRequestUrl(url), init))
         : undefined
       response = mocked ?? (await fetch(url, init))
     } catch (error) {
