@@ -2,7 +2,9 @@ import { setupWorker } from 'msw/browser'
 import { handlers } from './handlers'
 
 /**
- * The browser service worker. Started conditionally in `src/main.tsx`
- * based on `VITE_ENABLE_MOCK_API`.
+ * Optional browser Service Worker. The app boots the mock API in-process
+ * (`dispatch.ts`) so the hosted demo and `npm run preview` work without it.
+ * Keep this file for local experiments (`worker.start()`) and for
+ * `npx msw init public/` worker generation.
  */
 export const worker = setupWorker(...handlers)

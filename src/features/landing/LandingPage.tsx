@@ -50,7 +50,7 @@ const FEATURES: Feature[] = [
     icon: Database,
     title: 'Mock API included',
     description:
-      'An MSW-powered mock server with seeded data means every page works before you write a backend.',
+      'An MSW-powered mock API with seeded data means every page works before you write a backend — locally and on the live demo.',
   },
   {
     icon: ShieldCheck,
@@ -99,7 +99,7 @@ const FAQ_ITEMS = [
   {
     question: 'Does it work without a backend?',
     answer:
-      'Yes. A mock API built on Mock Service Worker ships with seeded demo data, so every page works immediately after npm install.',
+      'Yes. A mock API built on MSW handlers ships with seeded demo data, so every page works immediately after npm install — including the hosted live demo.',
   },
   {
     question: 'How do I connect my own backend?',

@@ -26,6 +26,26 @@ export function setAuthTokenReader(reader: () => string | null): void {
 }
 
 /**
+ * Optional in-process mock used by the bundled demo API. When set, matching
+ * requests are resolved without `fetch` — so static hosts never need a
+ * Service Worker. Wired from `main.tsx`; unused in service tests (those go
+ * through `msw/node`).
+ */
+type MockDispatcher = (request: Request) => Promise<Response | undefined>
+
+let mockDispatch: MockDispatcher | null = null
+
+export function setMockDispatcher(dispatcher: MockDispatcher | null): void {
+  mockDispatch = dispatcher
+}
+
+function resolveRequestUrl(url: string): string {
+  if (/^[a-z][a-z\d+\-.]*:/i.test(url)) return url
+  if (typeof location !== 'undefined') return new URL(url, location.origin).href
+  return new URL(url, 'http://localhost').href
+}
+
+/**
  * Backend-independent HTTP client.
  *
  * Responsibilities:
@@ -81,15 +101,22 @@ class HttpClient {
       if (token) headers.set('Authorization', `Bearer ${token}`)
     }
 
+    const init: RequestInit = {
+      method,
+      headers,
+      credentials: 'include',
+      signal: options.signal,
+    }
+    if (options.body !== undefined) {
+      init.body = JSON.stringify(options.body)
+    }
+
     let response: Response
     try {
-      response = await fetch(url, {
-        method,
-        headers,
-        credentials: 'include',
-        body: options.body !== undefined ? JSON.stringify(options.body) : undefined,
-        signal: options.signal,
-      })
+      const mocked = mockDispatch
+        ? await mockDispatch(new Request(resolveRequestUrl(url), init))
+        : undefined
+      response = mocked ?? (await fetch(url, init))
     } catch (error) {
       if (error instanceof DOMException && error.name === 'AbortError') throw error
       throw new NetworkError(error)
