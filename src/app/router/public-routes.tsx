@@ -1,8 +1,9 @@
-import { Navigate } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 /**
- * Public routes wrapper - redirects any public route (like /login) to the main dashboard template.
+ * Public auth screens (sign-in). The template keeps these reachable so
+ * consumers can copy the page; the dashboard stays open without a gate.
  */
 export function PublicRoutes() {
-  return <Navigate to="/dashboard" replace />
+  return <Outlet />
 }

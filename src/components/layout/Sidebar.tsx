@@ -31,21 +31,20 @@ export function Sidebar({
         aria-label="Main navigation"
       >
         <div className="sidebar__header">
-          <span className="sidebar__text-logo" aria-label="Vital Admin">
-            {collapsed ? (
-              <span className="sidebar__text-logo-compact">V</span>
-            ) : (
-              <>
-                <span className="sidebar__text-logo-brand">Vital</span>{' '}
-                <span className="sidebar__text-logo-sub">Admin</span>
-              </>
-            )}
+          <span className="sidebar__mark" aria-hidden="true">
+            V
           </span>
+          {!collapsed && (
+            <span className="sidebar__text-logo" aria-label="Vital Admin">
+              <span className="sidebar__text-logo-brand">Vital</span>{' '}
+              <span className="sidebar__text-logo-sub">Admin</span>
+            </span>
+          )}
         </div>
 
         <nav className="sidebar__nav">
           {NAV_SECTIONS.map((section) => (
-            <div key={section.id}>
+            <div key={section.id} className="sidebar__section">
               {section.label && !collapsed && (
                 <p className="sidebar__section-label">{section.label}</p>
               )}
@@ -54,14 +53,16 @@ export function Sidebar({
                   <li key={item.to}>
                     <NavLink
                       to={item.to}
-                      end={item.to === '/'}
+                      end={item.end}
                       className={({ isActive }) =>
                         cn('sidebar__link', isActive && 'sidebar__link--active')
                       }
                       onClick={onCloseMobile}
                       title={collapsed ? item.label : undefined}
                     >
-                      <item.icon size={17} aria-hidden="true" />
+                      <span className="sidebar__link-icon">
+                        <item.icon size={16} aria-hidden="true" />
+                      </span>
                       <span>{item.label}</span>
                     </NavLink>
                   </li>

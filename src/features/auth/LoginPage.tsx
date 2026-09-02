@@ -1,18 +1,41 @@
 import { useState, type FormEvent } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { Eye, EyeOff } from 'lucide-react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { ArrowLeft, BarChart3, Database, Eye, EyeOff, LayoutDashboard, ShieldCheck } from 'lucide-react'
 import { appConfig } from '@/config/app'
 import { loginSchema } from '@/models/schemas'
 import { useForm, validate } from '@/hooks/use-form'
 import { useAuth } from '@/app/providers/AuthProvider'
 import { getUserMessage } from '@/lib/errors'
 import { Button } from '@/components/ui/Button'
-import { Field, Input } from '@/components/ui/Input'
+import { Checkbox, Field, Input } from '@/components/ui/Input'
 
 interface LoginValues {
   email: string
   password: string
 }
+
+const PANEL_POINTS = [
+  {
+    icon: LayoutDashboard,
+    title: 'Working dashboard',
+    body: 'KPIs, charts, and lists run against the bundled mock API.',
+  },
+  {
+    icon: Database,
+    title: 'Swap the backend later',
+    body: 'Every feature talks HTTP only through its service module.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Auth you can replace',
+    body: 'This page is the template. Point login at your identity provider.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Ready-made screens',
+    body: 'Users, products, orders, invoices, and analytics ship complete.',
+  },
+] as const
 
 /**
  * Public sign-in page. Credentials are validated with the same Zod schema the
@@ -24,6 +47,8 @@ export function LoginPage() {
   const location = useLocation()
   const [formError, setFormError] = useState<string | null>(null)
   const [showPassword, setShowPassword] = useState(false)
+  const [remember, setRemember] = useState(true)
+  const [resetHint, setResetHint] = useState(false)
 
   const form = useForm<LoginValues, { email?: string; password?: string }>({
     email: '',
@@ -59,20 +84,28 @@ export function LoginPage() {
   }
 
   return (
-    <div className="login-page" data-theme="light">
+    <div className="login-page">
       <div className="login-page__left">
         <div className="login-card">
+          <Link to="/" className="login-card__back">
+            <ArrowLeft size={14} aria-hidden="true" />
+            Back to landing
+          </Link>
+
           <div className="login-card__brand">
+            <span className="login-card__mark" aria-hidden="true">
+              V
+            </span>
             <span className="login-card__text-logo" aria-label="Vital Admin">
               <span className="login-card__text-logo-brand">Vital</span>{' '}
               <span className="login-card__text-logo-sub">Admin</span>
             </span>
-            <p className="login-card__tagline">Admin workspace</p>
           </div>
 
-          <h1 className="login-card__title">Sign in</h1>
+          <h1 className="login-card__title">Sign in to your workspace</h1>
           <p className="login-card__subtitle">
-            Access your workspace dashboard, reports and settings.
+            Template auth screen — use a demo account, or connect your own
+            provider in <code>auth.service.ts</code>.
           </p>
 
           {formError && (
@@ -100,7 +133,7 @@ export function LoginPage() {
             </Field>
 
             <Field id="password" label="Password" error={form.errors.password} required>
-              <span style={{ position: 'relative', display: 'block' }}>
+              <span className="login-password">
                 <Input
                   id="password"
                   name="password"
@@ -114,12 +147,10 @@ export function LoginPage() {
                     form.setField('password', event.target.value)
                     form.clearError('password')
                   }}
-                  style={{ paddingRight: 38 }}
                 />
                 <button
                   type="button"
-                  className="icon-btn"
-                  style={{ position: 'absolute', right: 4, top: 2 }}
+                  className="icon-btn login-password__toggle"
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
                   onClick={() => setShowPassword((visible) => !visible)}
                 >
@@ -132,6 +163,29 @@ export function LoginPage() {
               </span>
             </Field>
 
+            <div className="login-form__footer">
+              <Checkbox
+                id="remember"
+                name="remember"
+                label="Remember me"
+                checked={remember}
+                onChange={(event) => setRemember(event.target.checked)}
+              />
+              <button
+                type="button"
+                className="login-forgot"
+                onClick={() => setResetHint(true)}
+              >
+                Forgot password?
+              </button>
+            </div>
+
+            {resetHint && (
+              <p className="login-reset-hint" role="status">
+                Password reset is a stub in this template. Wire it to your identity provider.
+              </p>
+            )}
+
             <Button type="submit" variant="primary" isLoading={form.submitting}>
               Sign in
             </Button>
@@ -139,41 +193,54 @@ export function LoginPage() {
 
           {appConfig.enableMockApi && (
             <div className="login-demo">
-              <p className="login-demo__title">Demo accounts (mock API)</p>
-              {appConfig.demoAccounts.map((account) => (
-                <div key={account.email} className="login-demo__row">
-                  <span className="login-demo__credentials">
-                    {account.email} / {account.password}
-                  </span>
-                  <Button
-                    variant="ghost"
-                    size="sm"
+              <p className="login-demo__title">Try a demo account</p>
+              <div className="login-demo__grid">
+                {appConfig.demoAccounts.map((account) => (
+                  <button
+                    key={account.email}
+                    type="button"
+                    className="login-demo__card"
                     onClick={() => fillDemo(account.email, account.password)}
                   >
-                    Use {account.role}
-                  </Button>
-                </div>
-              ))}
+                    <span className="login-demo__role">{account.role}</span>
+                    <span className="login-demo__credentials">{account.email}</span>
+                    <span className="login-demo__hint">Click to fill</span>
+                  </button>
+                ))}
+              </div>
             </div>
           )}
+
+          <p className="login-card__skip">
+            Exploring the template?{' '}
+            <Link to="/dashboard">Continue to dashboard</Link>
+          </p>
         </div>
       </div>
 
-      <div className="login-page__right">
-        <img
-          src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=80"
-          alt="Vital Admin workspace"
-          className="login-page__image"
-        />
-        <div className="login-page__overlay">
-          <div className="login-page__overlay-content">
-            <h2 className="login-page__overlay-title">Vital Admin</h2>
-            <p className="login-page__overlay-desc">
-              Streamline operations, monitor metrics, and manage your platform with confidence.
-            </p>
-          </div>
+      <aside className="login-page__right" aria-label="Why Vital Admin">
+        <div className="login-page__panel">
+          <p className="login-page__eyebrow">Open-source admin template</p>
+          <h2 className="login-page__overlay-title">Ship a real dashboard, then swap the API.</h2>
+          <p className="login-page__overlay-desc">
+            Sign-in, session restore, and every management screen already talk to a
+            mock backend. Keep the UI. Replace the last hop.
+          </p>
+          <ul className="login-page__features">
+            {PANEL_POINTS.map((point) => (
+              <li key={point.title} className="login-page__feature">
+                <span className="login-page__feature-icon">
+                  <point.icon size={18} aria-hidden="true" />
+                </span>
+                <span>
+                  <strong>{point.title}</strong>
+                  <span>{point.body}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
+      </aside>
     </div>
   )
 }

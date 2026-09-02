@@ -109,7 +109,7 @@ Other seeded users accept **any password ≥ 8 chars**. Suspended users get HTTP
     │   └── router/
     │       ├── index.tsx           createBrowserRouter; `/` = public LandingPage; app routes under `/dashboard`; lazy() pages; handle:{crumb} per route; errorElement=RouteErrorBoundary
     │       ├── protected-routes.tsx  gate for the `/dashboard` subtree
-    │       ├── public-routes.tsx     redirects /login to /dashboard
+    │       ├── public-routes.tsx     public auth screens (`/login` sign-in template)
     │       ├── RouteErrorBoundary.tsx friendly errorElement screen (useRouteError)
     │       └── NotFoundPage.tsx
     ├── components/
@@ -341,6 +341,8 @@ Import order matters (`styles/index.css`): `tokens → base → utilities → co
 All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 29/29 across 7 files ✓ · `vite build` ✓ (pages code-split per route).
 
 **Mock API on static hosts (added):** the live demo and `npm run preview` resolve mock handlers in-process (`dispatch.ts`, loaded by the HTTP client) instead of depending on the MSW Service Worker. First-load `/api/*` calls no longer race a worker and receive Vercel’s SPA HTML. Leftover `mockServiceWorker.js` registrations are unregistered on boot.
+
+**Auth template page (added):** `/login` is reachable again (no redirect to dashboard). Sidebar has Overview / Management / Account / Pages (Landing + Sign in). Sign-in UI is a copyable split layout with demo Admin/Manager fill buttons.
 
 **Complete:** auth/session/401 handling · dashboard (education-focused UI redesign) · users CRUD + detail · products CRUD + detail · orders list/detail + status updates · projects CRUD (list + create/edit/delete dialogs, progress bars, `?create=1` deep-link) · invoices list with status-transition menu (paid stamps `paidAt`) · analytics overview · notifications panel · settings (profile + theme) · full mock API + seed script · design system · dark/light/system theming · README/LICENSE/CONTRIBUTING/CODE_OF_CONDUCT/SECURITY docs · route error boundary · tests · `.github/` CI (active `ci.yml`) + demo deploy/release workflows + issue/PR templates + dependabot.
 
