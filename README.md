@@ -1,5 +1,5 @@
 # Vital Admin Template
-   
+
 Vital Admin is a **free, open-source React admin template** built with **TypeScript** and **Vite**. It provides a production-oriented foundation for **responsive admin dashboards**, SaaS applications, CRM systems, analytics platforms, ecommerce dashboards, and internal tools.
 
 Unlike templates that hard-wire their UI to fake data, Vital Admin follows a backend-oriented architecture: every feature talks to the API through its own service module, so you can replace the bundled mock API with your real backend **without rewriting the UI**.
@@ -9,7 +9,7 @@ Unlike templates that hard-wire their UI to fake data, Vital Admin follows a bac
 [![React](https://img.shields.io/badge/React-19-61dafb.svg)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-a855f7.svg)](https://vite.dev/)
 
-**[Try the live demo](https://vital-admin-template.vercel.app/)** 
+**[Try the live demo](https://vital-admin-template.vercel.app/)**
 
 ## Screenshots
 
@@ -69,7 +69,7 @@ Because the last hop behind the API client is disposable, connecting your produc
 
 ## Mock API
 
-The bundled mock server (MSW v2) seeds users, products, orders, projects, invoices, notifications, and analytics so every page works out of the box. It supports filtering, sorting, pagination, search, auth tokens, latency simulation, and consistent error responses:
+The bundled mock server (MSW v2 handlers) seeds users, products, orders, projects, invoices, notifications, and analytics so every page works out of the box — locally (`npm run dev`), in `npm run preview`, and on the [hosted demo](https://vital-admin-template.vercel.app/dashboard). Requests are resolved **in-process** (no Service Worker), so static hosts like Vercel never need a real backend. It supports filtering, sorting, pagination, search, auth tokens, latency simulation, and consistent error responses:
 
 ```jsonc
 {
@@ -91,7 +91,7 @@ Replacing the mock API takes three steps:
    - Single resources: `{ "data": { ... } }`
    - Errors: `{ "code", "message", "fields"? }`
    - Auth: `POST /auth/login` → `{ user, token }`, then `Authorization: Bearer <token>`
-3. **Delete the mock layer when confident** — remove `src/data/mock-server/`, `src/data/db/`, `public/mockServiceWorker.js`, and the `enableMocking()` block in `src/main.tsx`.
+3. **Delete the mock layer when confident** — remove `src/data/mock-server/`, `src/data/db/`, `public/mockServiceWorker.js`, and the `enableMocking()` / `setMockDispatcher` wiring in `src/main.tsx`.
 
 Request validation lives in `src/models/schemas.ts`; a real backend should enforce the same constraints. For authentication, swap the four calls in `src/services/auth/auth.service.ts` for your identity provider — the session provider, route guards, and 401 handling stay untouched.
 
