@@ -338,7 +338,7 @@ Import order matters (`styles/index.css`): `tokens → base → utilities → co
 
 ## 12. Current status (as of last verified run)
 
-All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 27/27 across 6 files ✓ · `vite build` ✓ (pages code-split per route).
+All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 29/29 across 7 files ✓ · `vite build` ✓ (pages code-split per route).
 
 **Mock API on static hosts (added):** the live demo and `npm run preview` resolve mock handlers in-process (`dispatch.ts`, loaded by the HTTP client) instead of depending on the MSW Service Worker. First-load `/api/*` calls no longer race a worker and receive Vercel’s SPA HTML. Leftover `mockServiceWorker.js` registrations are unregistered on boot.
 
@@ -381,6 +381,7 @@ All gates green: `lint` ✓ · `tsc -b` ✓ · `vitest` 27/27 across 6 files ✓
 16. **The dashboard lives under `/dashboard`, not `/`** — `/` is the public SEO landing page. All internal links must use the `/dashboard` prefix; breadcrumbs derive from `useMatches()` so they adapt automatically. Old demo URLs like `/users` now 404 by design.
 17. **`Github` icon does not exist in lucide-react v1.33+** — brand icons were removed; use text links to GitHub instead.
 18. **MSW Service Worker is too late on static hosts** — Vercel’s `/(.*)` → `/index.html` rewrite means unintercepted `/api/*` requests return HTML. `worker.start()` often resolves after the first React Query fetches, so the hosted demo showed “Something went wrong” on every widget (retry then worked). Serve the same handlers in-process via `getResponse()` (`src/data/mock-server/dispatch.ts`); the HTTP client must load that module itself so a `main.tsx` setter cannot miss a duplicated client chunk. Do not rely on `setupWorker` for the live demo or `npm run preview`.
+19. **Empty `VITE_API_URL` is not the same as unset** — `'' ?? '/api'` stays `''`. A Vercel env var set to blank made the hosted build request `/dashboard/overview` (SPA HTML) instead of `/api/dashboard/overview`, so every widget failed even with the in-process mock enabled. Resolve with `(VITE_API_URL ?? '').trim() || '/api'`. Do not create a blank `VITE_API_URL` in the host dashboard.
 
 ---
 

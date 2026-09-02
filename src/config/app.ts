@@ -4,6 +4,11 @@
  * out of the box.
  */
 
+/** Blank host env vars (common on Vercel) must fall back to the mock prefix. */
+export function resolveApiBaseUrl(value: string | undefined): string {
+  return (value ?? '').trim() || '/api'
+}
+
 export const appConfig = {
   name: 'Vital Admin',
   version: '1.0.0',
@@ -12,7 +17,7 @@ export const appConfig = {
    * Base URL every API request is resolved against. Keep `/api` when running
    * against the mock server; point it at your real backend to go live.
    */
-  apiBaseUrl: import.meta.env.VITE_API_URL ?? '/api',
+  apiBaseUrl: resolveApiBaseUrl(import.meta.env.VITE_API_URL),
 
   /**
    * When true, the MSW browser worker intercepts all requests and serves the
